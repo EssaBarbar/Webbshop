@@ -1,14 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin interface</title>
-    <link rel="stylesheet" href="./CSS/adminStyling.css">
+    <link rel="stylesheet" href="../CSS/adminStyling.css">
 </head>
 
 <body>
     <header>
-        <a href="./login.html">go to login</a>
+        <a href="../login.html">go to login</a>
     </header>
     <main>
         <div id="header">
@@ -22,7 +25,15 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Categories</a></li>
                 <li><a href="#">Products</a></li>
-                <li><a href="#">Users</a></li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Users</button>
+                        <div class="dropdown-content">
+                            <a href="#">Costumers</a>
+                            <a href="#">Admins</a>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="#">Orders</a></li>
                 <li><a href="#">Render requests</a></li>
                 <li><a href="#">Manage admins</a></li>
@@ -30,7 +41,10 @@
         </div>
 
         <div id="bodyRight">
-
+            <div id="">
+                <button id="addButton">Add category</button>
+                <button id="editDeleteButton">Edit & Delete</button>
+            </div>
         </div>
     </main>
 
