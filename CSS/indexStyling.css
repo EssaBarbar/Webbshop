@@ -1,3 +1,9 @@
+.box2 {
+    padding: 30px;
+    align-content: center;
+<<<<<<< Updated upstream:style.css
+}
+
 ul {
     color: white;
     margin: 0px;
@@ -34,12 +40,17 @@ ul li ul li {
 
 ul li:hover ul li {
     display: block;
+=======
+>>>>>>> Stashed changes:CSS/indexStyling.css
 }
 
 body {
     font-family: arial;
     color: black;
+<<<<<<< Updated upstream:style.css
     box-shadow: 15px 30px 25px red;
+=======
+>>>>>>> Stashed changes:CSS/indexStyling.css
 }
 
 a {
@@ -135,6 +146,13 @@ img {
     margin-bottom: 10px;
     margin-right: 10px;
     position: relative;
+<<<<<<< Updated upstream:style.css
     left: bottom: 0;
     top: 70px;
+=======
+    left: 0;
+    top: 70px;
+    align-content: center;
+    align-items: center;
+>>>>>>> Stashed changes:CSS/indexStyling.css
 }
