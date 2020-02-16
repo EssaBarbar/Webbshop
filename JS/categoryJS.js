@@ -12,3 +12,9 @@ export function getCategories() {
         console.log(result)
     })
 }
+
+signUp()
+
+function signUp() {
+document.getElementById("signUpbtn").href = "http://localhost:3001/signUpUser.html"
+}
