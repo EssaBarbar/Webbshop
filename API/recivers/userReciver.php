@@ -6,15 +6,15 @@ try {
         if ($_POST["entity"] == "enjoy") {
             
                 if ($_POST["endpoint"] == "addSignUpUser") {
-               /*      $firstname = $_POST['firstname'];
+                     $firstname = $_POST['firstname'];
                     $lastname = $_POST['lastname'];
                     $email = $_POST['email'];
                     $role = $_POST['role'];
-                */     $firstname = "x";
+                  /*   $firstname = "x";
                     $lastname = "y";
                     $email = "z";
                     $role = "c";
-                   signUpSubmit($_POST["firstname"], $_POST["lastname"],$_POST["email"],$_POST["role"]);
+                   */ signUpSubmit($_POST["firstname"], $_POST["lastname"],$_POST["email"],$_POST["role"]);
 
             } else {
                 throw new Exception("Not a valid endpoint", 501);
