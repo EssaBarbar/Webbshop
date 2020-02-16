@@ -38,6 +38,7 @@ class User {
     //     if ($this->unitPrice)
     //     $this->db->runQuery("UPDATE... SET Unit");
     // }
-}
 
+    
+}
 ?>

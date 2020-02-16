@@ -1,4 +1,7 @@
 <?php
+/* include("../classes/productClass.php");
+include("../classes/dbClass.php");
+
 
 function getAllProductss() {
     $database = new Product();
@@ -11,6 +14,6 @@ function getAllProductss() {
         exit;
     }
     return $result;
-}
+} */
 
 ?>

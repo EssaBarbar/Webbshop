@@ -1,5 +1,5 @@
 <?php
-require("./dbClass.php");
+include("./dbClass.php");
 
 class Category {
     public $CategoryId;
@@ -33,6 +33,7 @@ class Category {
     //     if ($this->unitPrice)
     //     $this->db->runQuery("UPDATE... SET Unit");
     // }
+    
 }
 
 ?>

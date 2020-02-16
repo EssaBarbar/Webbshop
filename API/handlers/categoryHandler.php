@@ -1,5 +1,6 @@
 <?php
-require("../classes/categoryClass.php");
+include("../classes/categoryClass.php");
+include("../classes/dbClass.php");
 
 function getCategories() {
     $Category = new Category(null, null);

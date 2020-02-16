@@ -1,6 +1,6 @@
 <?php
 
-class order {
+class Order {
     public $product;
     public $totalPrice;
     public $shipping;

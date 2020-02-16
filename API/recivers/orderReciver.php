@@ -1,6 +1,6 @@
 <?php
 
-try {
+/* try {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_POST["entity"] == "enjoy") {
@@ -23,6 +23,6 @@ try {
     }
 } catch (Exception $e) {
     echo json_encode(array("Message" => $e->getMessage(), "Status" => $e->getCode()));
-}
+} */
 
 ?>
