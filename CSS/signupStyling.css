@@ -1,0 +1,77 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.signUpForm{
+    
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: lightblue;
+    box-shadow:  5px 5px 5px 5px #888888;
+    text-align: center;
+    cursor:pointer;
+    transition:.5s ease;
+
+}
+#titleSignUp{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: blue;
+    
+}
+.userFirstNlabel, .userFirstNInput, .userLastNlabel, .userLastNInput,
+ .userEmaillabel, .userPwdlabel , .userPwdInput{
+   
+    border: none;
+   
+    padding: 5px 3px;
+   /*  text-align: center; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    
+}
+.userEmailInput{
+    border: none;
+   
+    padding: 5px 3px;
+   /*  text-align: center; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.userSignup{
+    border: none;
+    color: white;
+    padding: 5px 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#crossReg{
+    top: 1px;
+    right: 1px;
+    float: right;
+}
+@media only screen and (max-width: 400px) {
+    
+.signUpForm{
+    
+    width: 250px;
+    padding: 10px;
+  }
+}
