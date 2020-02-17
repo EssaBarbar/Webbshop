@@ -29,9 +29,24 @@
         return $result;
     }
 
-    public function delete() {
-
+    public function fetchAll() {
+        $query = "SELECT * FROM Users;";
+        $result = $this->db->runQuery($query);
+        return $result;
     }
+
+    // public function fetch() {
+    //     $this->db->runQuery("SELECT * FROM.....");
+    // }
+
+    // public function delete() {
+    //     $this->db->runQuery("DELETE FROM... WHERE productID = $this->productId");
+    // }
+
+    // public function update() {
+    //     if ($this->unitPrice)
+    //     $this->db->runQuery("UPDATE... SET Unit");
+    // }
         
 }
 
