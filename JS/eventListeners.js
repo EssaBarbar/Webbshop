@@ -1,9 +1,8 @@
-/* import { getUsers } from "./adminJS.js" */
-import { signUp } from "./loginJS.js"
+import { getUsers } from "./adminJS.js"
 
 export function addEventListener() {
-    /* document.getElementById("getUsersbtn").addEventListener("click", getUsers) */
+    //document.getElementById("getUsersbtn").addEventListener("click", getUsers)
     // You write here all your event listners
-    const button = document.getElementById("signUpbtn")
-    button && button.addEventListener("click", signUp)
+    const button = document.getElementById("getUserbtn")
+    button && button.addEventListener("click", getUsers)
 }

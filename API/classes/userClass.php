@@ -1,5 +1,5 @@
 <?php
-include("./dbClass.php");
+include(realpath(dirname(__FILE__)."/dbClass.php"));
 
 
 class User {

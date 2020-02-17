@@ -1,6 +1,5 @@
 <?php
 include("../classes/userClass.php");
-include("../classes/dbClass.php");
 
 function getUsers() {
     $User = new User();

@@ -16,7 +16,7 @@ main {
     flex: 1;
     position: relative;
     background: rgb(217, 217, 224);
-    box-shadow: 150px 2px 20px 10px rgb(139, 161, 182) inset;
+    box-shadow: 100px 2px 20px 10px rgb(139, 161, 182) inset;
 }
 
 .topnav {
@@ -44,6 +44,7 @@ main {
 
 .cartIcon {
     margin-right: 10px;
+    font-size: 24px;
 }
 
 .userIcon {
@@ -59,7 +60,6 @@ main {
 
 a {
     margin: 0;
-    font-size: 24px;
     color: black;
     cursor: pointer;
     text-decoration-line: none;
@@ -79,12 +79,13 @@ a {
 }
 
 aside {
-   padding-left: 15px;
+   padding-left: 20px;
    cursor: pointer;
 }
 
-#allProds {
+#categories {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 /* #categoryItems {
