@@ -1,5 +1,6 @@
 <?php
 include("../classes/userClass.php");
+
 function signUpSubmit($firstname, $lastname, $email, $password, $role)
 {
     $user = new User(null, $firstname, $lastname, $email, $password, $role);

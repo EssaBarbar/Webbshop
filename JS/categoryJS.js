@@ -1,14 +1,16 @@
 import { makeRequest } from "./requestHandler.js"
 export function getCategories() {
-   // let myData = new FormData();
-    //myData.append("entity", "category");
-    //myData.append("endpoint", "getAllCategory");
+    let myData = new FormData();
+    myData.append("entity", "category");
+    myData.append("endpoint", "getAllCategory");
     makeRequest("./API/recivers/categoryReciver.php", "GET", null, (result) => {
 
+        var catDiv = document.getElementById("categories")
         for (var i = 0; i < result.length; i++) {
-            console.log(result[i]);
-           // document.getElementById("categories").innerHTML = result[i];
-        } 
-       // console.log(result)
+            const title = document.createElement("p");
+            title.innerText = result[i].CategoryName
+            catDiv.append(title)
+        }
+        console.log(result)
     })
 }
