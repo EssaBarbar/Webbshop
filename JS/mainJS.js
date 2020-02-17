@@ -4,13 +4,14 @@ import { addEventListener } from "./eventListeners.js"
 import { getCategories } from "./categoryJS.js"
 import { getProducts } from "./productJS.js"
 import { signUp } from "./loginJS.js"
-import { signUp } from "./signupJS.js"
+import { signUpSubmit } from "./signupJS.js"
 
 function init() {
     addEventListener()
     // You write all the funcs that gonna be done when you load the login site here
     getCategories()
     getProducts()
+    signUpSubmit()
     
  /*    signUp() */
 }

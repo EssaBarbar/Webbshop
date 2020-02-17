@@ -1,4 +1,4 @@
-import { makeRequest } from "./requsetHandler.js"
+import { makeRequest } from "./requestHandler.js"
 export function getProducts() {
     let myData = new FormData();
     myData.append("entity", "products");
