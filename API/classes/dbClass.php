@@ -17,12 +17,9 @@ class Database {
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
     }
-    public function runQuery($query, $inputArray) {
+    public function runQuery($query, $inputArray = null) {
         try {
             $statement = $this->connection->prepare($query);
-            foreach ($inputArray as $key => $val) {
-                $statement->bindParam($key, $val);
-            }
             $statement->execute($inputArray);
             return $statement->fetchALL(PDO::FETCH_ASSOC);
         }  catch(\PDOException $e) {
