@@ -1,6 +1,6 @@
 <?php
 
-class Order extends Database {
+class Order {
     public $product;
     public $totalPrice;
     public $shipping;

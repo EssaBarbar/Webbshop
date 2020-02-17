@@ -1,25 +1,40 @@
 <?php
+include("./dbClass.php");
 
-// new Product($id, NULL, $unitPrice);
-
-class Product extends Database{
+class Product {
     public $productName;
-    public $unitPrice;
+    public $Price;
     public $description;
     public $picture;
-    private $productID;
-    private $categoryID;
-    private $db;
+    public $productID;
+    public $categoryID;
+    public $db;
 
-    function __construct($productID, $productName, $unitPrice, $description, $picture, $categoryID) {
+    function __construct($productID, $productName, $Price, $description, $picture, $categoryID) {
         $this->productID= $productID;
         $this->productName = $productName;
-        $this->unitPrice = $unitPrice;
+        $this->Price = $Price;
         $this->description = $description;
         $this->picture = $picture;
-        $this->categoryID= $categoryID;
+        $this->categoryID = $categoryID;
         $this->db = new Database();
     }
+
+    public function fetchAll($query) {
+        $result = $this->db->runQuery($query);
+        return $result;
+    }
+
+    /* public function getProductID() {
+        return $this->productID;
+    }
+
+    public function getCategoryID() {
+        return $this->categoryID;
+    }
+
+    public function makeRequest() {
+    } */
 }
 
 ?>

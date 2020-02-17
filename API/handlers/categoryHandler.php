@@ -1,6 +1,13 @@
 <?php
-include_once("../classes/dbClass.php");
-include_once("../classes/categoryClass.php");
+
+include("../classes/categoryClass.php");
+include("../classes/dbClass.php");
+
+function getCategories() {
+    $Category = new Category(null, null);
+    $result = $Category->fetchAll("SELECT * FROM categories;");
+    echo json_encode($result);
+};
 
 function addCategory($categoryId, $categoryName) {    
     $Category = new Category($categoryId,$categoryName);    
