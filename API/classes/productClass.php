@@ -1,23 +1,31 @@
 <?php
+include("./dbClass.php");
 
 class Product {
     public $productName;
-    public $unitPrice;
+    public $Price;
     public $description;
     public $picture;
-    private $productID;
-    private $categoryID;
+    public $productID;
+    public $categoryID;
+    public $db;
 
-    function __construct($productName, $unitPrice, $description, $picture, $productID, $categoryID) {
+    function __construct($productID, $productName, $Price, $description, $picture, $categoryID) {
+        $this->productID= $productID;
         $this->productName = $productName;
-        $this->unitPrice = $unitPrice;
+        $this->Price = $Price;
         $this->description = $description;
         $this->picture = $picture;
-        $this->productID= $productID;
         $this->categoryID = $categoryID;
+        $this->db = new Database();
     }
 
-    public function getProductID() {
+    public function fetchAll($query) {
+        $result = $this->db->runQuery($query);
+        return $result;
+    }
+
+    /* public function getProductID() {
         return $this->productID;
     }
 
@@ -26,7 +34,7 @@ class Product {
     }
 
     public function makeRequest() {
-    }
+    } */
 }
 
 ?>

@@ -73,10 +73,34 @@ a {
     background-color: greenyellow;
 }
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+aside {
+   padding-left: 15px;
+   cursor: pointer;
+}
+
+#allProds {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* #categoryItems {
+    background-color: black;
+    width: 10em;
+    height: 10em;
+} */
+
+.SubScribe {
+    margin: 0;
+}
+
 .footer {
     background-color: rgb(102, 123, 132);
-    padding: 20px;
     box-shadow: 2px 2px 20px 10px rgb(139, 161, 182) inset;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
