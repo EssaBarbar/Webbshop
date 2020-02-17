@@ -1,21 +1,9 @@
-import { signUpSubmit } from "./signupJS.js"
+/* import { getUsers } from "./adminJS.js" */
+import { signUp } from "./loginJS.js"
 
-//document.getElementById("signUpSubmit").addEventListener("click", signUpSubmit);
-document.addEventListener("click", myFunction);
-
-
-document.addEventListener("click", function() {
-    document.getElementById("addCategory").innerHTML = "addCategory";
-});
-
-document.addEventListener("click", function() {
-    document.getElementById("uppDelCategory").innerHTML = "uppDelCategory";
-});
-
-document.addEventListener("click", function() {
-    document.getElementById("addProduct").innerHTML = "addProduct";
-});
-
-document.addEventListener("click", function() {
-    document.getElementById("uppDelProduct").innerHTML = "uppDelProduct";
-});
+export function addEventListener() {
+    /* document.getElementById("getUsersbtn").addEventListener("click", getUsers) */
+    // You write here all your event listners
+    const button = document.getElementById("signUpbtn")
+    button && button.addEventListener("click", signUp)
+}
