@@ -1,33 +1,19 @@
-// import { makeRequest } from "./mainJS.js"
-// //alert("fdsfsdf");
+import { makeRequest } from "./requsetHandler.js"
+export function getUsers() {
+    let myData = new FormData();
+    myData.append("entity", "user");
+    myData.append("endpoint", "getAllUsers");
+    makeRequest("../api/recivers/userReciver.php", "GET", null, (result) => {
+        let usersDiv = document.getElementById("usersDiv")
 
-// console.log("Hello  ");
-
-
-
-//export function renderContent() {
-function renderContent() {
-    var myData = new FormData();
-    myData.append("entity", "category");
-    myData.append("endpoint", "renderContent");
-    console.log("out");
-    makeRequest("./API/recivers/categoryReciver.php", "POST", myData, (result) => {
-        console.log(result);
-        console.log("in");
-    })
-}
-
-//export function makeRequest(url, method, formData, callback) {
-function makeRequest(url, method, formData, callback) {
-    fetch(url, {
-        method: method,
-        body: formData
-    }).then((response) => {
-        console.log(response)
-        return response.json()
-    }).then((result) => {
-        callback(result)
-    }).catch((err) => {
-        console.log("Error : ", err);
+        for (var i = 0; i < result.length; i++) {
+            console.log(result[i]);
+            const title = document.createElement('p');
+            title.innerText = result[i].FirstName
+            usersDiv.append(title)
+                // let userDiv = document.createElement("div")
+                //     userDiv.innerHTML = result[i];
+                //     usersDiv.appendChild("userDiv")
+        }
     })
 }
