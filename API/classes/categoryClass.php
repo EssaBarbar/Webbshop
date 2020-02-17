@@ -1,23 +1,20 @@
 <?php
-include("./dbClass.php");
+include(realpath(dirname(__FILE__)."/dbClass.php"));
 
 
-class User {
-    public $userId;
-    public $userName;
-    public $role;
-    public $email;
+class Category {
+    public $CategoryId;
+    public $CategoryName;
     public $db;
 
-    function __construct($userId = null, $userName = null, $role = null, $email = null) {
-        $this->userId= $userId;
-        $this->userName = $userName;
-        $this->role = $role;
-        $this->email = $email;
+    function __construct($categoryId = null, $categoryName = null) {
+        $this->CategoryId= $categoryId;
+        $this->CategoryName = $categoryName;
         $this->db = new Database();
     }
 
-    public function fetchAll($query) {
+    public function fetchAll() {
+        $query = "SELECT * FROM Categories";
         $result = $this->db->runQuery($query);
         return $result;
     }
@@ -38,7 +35,7 @@ class User {
     //     if ($this->unitPrice)
     //     $this->db->runQuery("UPDATE... SET Unit");
     // }
-
     
 }
+
 ?>

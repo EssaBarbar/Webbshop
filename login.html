@@ -8,26 +8,43 @@
     <title>Document</title>
     <link rel="stylesheet" href="./CSS/loginStyling.css">
     <script defer type="module" src="./JS/mainJS.js"></script>
+    <script defer type="module" src="./JS/categoryJS.js"></script>
+    <script src="https://kit.fontawesome.com/c9b461b663.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./CSS/loginStyling.css">
 </head>
 <!-- I WILL DO SOME LOGIN THINGS AND OTHER STUFFS THAT U JUST CAN REPLACE WHEN YOU DO YOUR CODING
     BUT I NEED IT TO CONNECT THE IDEAS IN MY BRAIN :) 
     THATS WHY YOU MAYBE FIND IT SCRATCHY DESIGNED-->
 
 <body>
-    <header>
-        <a href="./adminFrontend/admin.html">go to admin site</a> <br>
-        <a href="./signupUser.html">go to regsite</a> <br>
-        <a href="./Cart.html">go to cart</a>
+    <header class="topnav">
+        <a href="./login.html">
+            <h1 class="title">Enjoy</h1>
+        </a>
+
+        <div id="authentication">
+            <p id="counter">1</p>
+            <div class="cartIcon">
+                <a href="./Cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="userIcon"><i class="fas fa-users"></i></div>
+            <input id="username" type="text" placeholder="username">
+            <input id="password" type="text" placeholder="password">
+            <button class="button">Submit</button>
+            <button id="signUpbtn" class="button">Sign Up</button>
+        </div>
+
         <!-- We need here to get the inlog field and "OR register" to the top right
         then the name of our website in the middle with a nice style -->
     </header>
     <main>
-        <div>
-            <div>
+        <div class="container">
+            <aside id="categories">
+                <h2 id="allProds">Products</h2>
                 <!-- This div will have the list "Categs" in it
                 like all prods and pc games etc...-->
-            </div>
-            <div>
+            </aside>
+            <div id="categoryItems">
                 <!-- This div to be able to style this childs as this will contain all the items
                     so we can place them right or left depending on the numbers of the items -->
                 <div>
@@ -38,7 +55,15 @@
             </div>
         </div>
     </main>
-    <footer>
+    <footer class="footer">
+        <div>
+            <h2 class="SubScribe">Subscribe Newsletter</h2>
+            <input type="text" placeholder="name">
+            <input type="text" placeholder="email">
+            <button id="newsbtn" class="button">Submit</button>
+        </div>
+        <div><a href="./adminFrontend/admin.html">go to admin site</a></div>
+        
         <!-- If we want to have footer for some reason -->
     </footer>
 </body>
