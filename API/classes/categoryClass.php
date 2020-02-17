@@ -1,18 +1,20 @@
 <?php
-include("./dbClass.php");
+include(realpath(dirname(__FILE__)."/dbClass.php"));
+
 
 class Category {
     public $CategoryId;
     public $CategoryName;
     public $db;
 
-    function __construct($CategoryId, $CategoryName) {
-        $this->CategoryId= $CategoryId;
-        $this->CategoryName = $CategoryName;
+    function __construct($categoryId = null, $categoryName = null) {
+        $this->CategoryId= $categoryId;
+        $this->CategoryName = $categoryName;
         $this->db = new Database();
     }
 
-    public function fetchAll($query) {
+    public function fetchAll() {
+        $query = "SELECT * FROM Categories";
         $result = $this->db->runQuery($query);
         return $result;
     }
