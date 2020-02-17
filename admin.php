@@ -70,7 +70,8 @@
                             </div>
 
                             <div class="rowButton">
-                                <input name="addCategory" type="button" id="button" tabindex="2" value="Add Category" onclick="msg()">
+                                <input name="addCategory" type="button" id="button" tabindex="2" value="Add Category"
+                                    onclick="msg()">
                             </div>
 
                         </div>
@@ -107,70 +108,164 @@
                                 <div name="Delete" id="Delete" onclick="">Delete</div>
                             </div>
 
-                            
+
                         </div>
                     </div>
 
                     <div class="bdcProAdd bdc">
                         <div class="addText">Add Product</div>
-                        <div class="inputContainer">
+                        <div class="divContainer">
+                            <div class="leftContainer">
 
+                                <div class="row">
+                                    <div class="label-left">Category Name</div>
+                                    <select name="CategoryName" id="CategoryName" tabindex="1"
+                                        placeholder="Category Name">
+                                        <option value="AddCategory">Choice Category</option>
+                                        <option value="PC">PC</option>
+                                        <option value="X-Box">X-Box</option>
+                                        <option value="PST">PST</option>
+                                    </select>
+                                </div>
+
+                                <div class="row">
+                                    <div class="label-left">Product Name</div>
+                                    <input name="ProductName" type="text" id="ProductName" tabindex="2"
+                                        placeholder="Category Name">
+                                </div>
+
+                                <div class="row">
+                                    <div class="label-left">Unit In Stock</div>
+                                    <input name="UnitInStock" type="text" id="UnitInStock" tabindex="3"
+                                        placeholder="Unit In Stock">
+                                </div>
+
+                                <div class="row">
+                                    <div class="label-left">Price</div>
+                                    <input name="Price" type="text" id="Price" tabindex="4" placeholder="Price">
+                                </div>
+
+                                <div class="row">
+                                    <div class="label-left">Product Name</div>
+                                    <input name="Description" type="text" id="Description" tabindex="5"
+                                        placeholder="Description">
+                                </div>
+
+                                <div class="row">
+                                    <div class="rowButton">
+                                        <input name="CoverPicture" type="button" id="buttonAdd" tabindex="6"
+                                            value="Add Cover Picture" onclick="">
+                                    </div>
+
+                                    <div class="rowButton">
+                                        <input name="PNGPicture" type="button" id="buttonAdd" tabindex="7"
+                                            value="Add PNG Picture" onclick="">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="rightContainer">
+                                <div class="imgContainer">
+                                    <div class="row">
+                                        <div class="label-left">Add Cover Picture</div>
+                                        <div class="CoverPicture" name="CoverPictureBtn"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="label-left">Add PNG Picture</div>
+                                        <div class="PNGPicture" name="PNGPictureBtn" ></div>
+                                    </div>
+                                </div>
+                                <div class="rowButton">
+                                    <input name="addCategory" type="button" id="button" tabindex="8"
+                                        value="Add Category" onclick="">
+                                </div>
+                            </div>
 
                         </div>
+
+
+
                     </div>
+                </div>
 
-                    <div class="bdcProDelUpp bdc">
-                        <div class="addText">Update/Delete Product</div>
-                        <div class="inputContainer">
+                <div class="bdcProDelUpp bdc">
+                <div class="addText">Update/Delete Category</div>
+                        <div class="columnContainer">
 
+                            <div class="columnMain">
+                                <div class="columnMainText">ProductID</div>
+                                <div class="columnMainText">CategoryID</div>
+                                <div class="columnMainText">ProductName</div>
+                                <div class="columnMainText">UnitInStock</div>
+                                <div class="columnMainText">Price</div>
+                                <div class="columnMainText">CoverPicture</div>
+                                <div class="columnMainText">PNGPicture</div>
+                                <div class="columnMainText">Description</div>
 
+                            </div>
+
+                            <div class="columnSub">
+                                <div name="ProductID" id="ColumnSubText">ProductID</div>
+                                <div name="CategoryID" id="ColumnSubText">CategoryID</div>
+                                <div name="ProductName" id="ColumnSubText">ProductName</div>
+                                <div name="UnitInStock" id="ColumnSubText">UnitInStock</div>                                
+                                <div name="Price" id="ColumnSubText">Price</div>
+                                <div name="CoverPicture" id="ColumnSubText">CoverPicture</div>
+                                <div name="PNGPicture" id="ColumnSubText">PNGPicture</div>
+                                <div name="Description" id="ColumnSubText">Description</div>
+                                <div name="Update" id="Update" onclick="">Update</div>
+                                <div name="Delete" id="Delete" onclick="">Delete</div>
+                            </div>
+                            
                         </div>
+                </div>
+
+                <div class="bdcUseAdd bdc">
+                    <div class="addText">Add User</div>
+                    <div class="inputContainer">
+
+
                     </div>
+                </div>
 
-                    <div class="bdcUseAdd bdc">
-                        <div class="addText">Add User</div>
-                        <div class="inputContainer">
+                <div class="bdcUseDelUpp bdc">
+                    <div class="addText">Update/Delete User</div>
+                    <div class="inputContainer">
 
 
-                        </div>
                     </div>
+                </div>
 
-                    <div class="bdcUseDelUpp bdc">
-                        <div class="addText">Update/Delete User</div>
-                        <div class="inputContainer">
+                <div class="bdcOrdSend bdc">
+                    <div class="addText">Send Order</div>
+                    <div class="inputContainer">
 
 
-                        </div>
                     </div>
-
-                    <div class="bdcOrdSend bdc">
-                        <div class="addText">Send Order</div>
-                        <div class="inputContainer">
+                </div>
 
 
-                        </div>
+                <div class="bdcMangeAdminAdd bdc">
+                    <div class="addText">Manege Admin</div>
+                    <div class="inputContainer">
+
+
                     </div>
+                </div>
+
+                <div class="bdcMangeAdminDelUpp bdc">
+                    <div class="addText">#</div>
+                    <div class="inputContainer">
 
 
-                    <div class="bdcMangeAdminAdd bdc">
-                        <div class="addText">Manege Admin</div>
-                        <div class="inputContainer">
-
-
-                        </div>
                     </div>
-
-                    <div class="bdcMangeAdminDelUpp bdc">
-                        <div class="addText">#</div>
-                        <div class="inputContainer">
-
-
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
+
+        </div>
         </div>
     </main>
 </body>
