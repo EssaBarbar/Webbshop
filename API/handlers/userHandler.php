@@ -1,8 +1,8 @@
 <?php
 include("../classes/userClass.php");
-function signUpSubmit($firstname, $lastname, $email, $role) {
+function signUpSubmit($firstname, $lastname, $email, $password, $role) {
 
-            $user = new User(null, $firstname, $lastname, $role, $email);
+            $user = new User(null, $firstname, $lastname, $email, $password, $role);
             $result = $user->insert();
             echo json_encode($result);
     
