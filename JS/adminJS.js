@@ -8,7 +8,9 @@ export function getUsers() {
 
         for (var i = 0; i < result.length; i++) {
             console.log(result[i]);
-            usersDiv.innerHTML = result[i]
+            const title = document.createElement('p');
+            title.innerText = result[i].FirstName
+            usersDiv.append(title)
             // let userDiv = document.createElement("div")
             //     userDiv.innerHTML = result[i];
             //     usersDiv.appendChild("userDiv")

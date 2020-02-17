@@ -9,7 +9,7 @@ class User {
     public $email;
     public $db;
 
-    function __construct($userId, $userName, $role, $email) {
+    function __construct($userId = null, $userName = null, $role = null, $email = null) {
         $this->userId= $userId;
         $this->userName = $userName;
         $this->role = $role;
