@@ -1,4 +1,4 @@
-import { makeRequest } from "./mainJS.js"
+import { makeRequest } from "./requestHandler.js"
 
 export function signUpSubmit(event) {
 
