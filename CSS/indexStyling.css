@@ -1,3 +1,9 @@
+.box2 {
+    padding: 30px;
+    align-content: center;
+<<<<<<< Updated upstream:style.css
+}
+
 ul {
     color: white;
     margin: 0px;
@@ -34,10 +40,17 @@ ul li ul li {
 
 ul li:hover ul li {
     display: block;
+=======
+>>>>>>> Stashed changes:CSS/indexStyling.css
 }
 
 body {
     font-family: arial;
+    color: black;
+<<<<<<< Updated upstream:style.css
+    box-shadow: 15px 30px 25px red;
+=======
+>>>>>>> Stashed changes:CSS/indexStyling.css
 }
 
 a {
@@ -60,27 +73,86 @@ a {
 }
 
 img {
-    border-radius: 50px;
+    border-radius: 250px;
     box-shadow: 5px 10px #000000
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: red !important;
-    color: #000000;
+    color: #000000 !important;
+    border-color: black !important;
+    margin: 10px;
+    width: 150px;
+    height: 70px;
+    font-family: Arial black;
+    border: none;
 }
 
 .btn-secondary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: red !important;
+    color: #000000 !important;
+    border-color: black !important;
+    margin: 10px;
+    width: 150px;
+    height: 70px;
+    font-family: arial black;
 }
 
 .column {
     float: left;
     width: 33.33%;
-    padding: 5px;
 }
 
 .row::after {
     content: "";
     clear: both;
     display: table;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.3;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-google {
+    background: #dd4b39;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.logos {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    position: relative;
+<<<<<<< Updated upstream:style.css
+    left: bottom: 0;
+    top: 70px;
+=======
+    left: 0;
+    top: 70px;
+    align-content: center;
+    align-items: center;
+>>>>>>> Stashed changes:CSS/indexStyling.css
 }
