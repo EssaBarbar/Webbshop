@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./CSS/loginStyling.css">
     <script defer type="module" src="./JS/mainJS.js"></script>
     <script defer type="module" src="./JS/categoryJS.js"></script>
+    <script defer type="module" src="./JS/productJS.js"></script>
     <script src="https://kit.fontawesome.com/c9b461b663.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./CSS/loginStyling.css">
 </head>
@@ -32,6 +33,7 @@
             <input id="password" type="text" placeholder="password">
             <button class="button">Submit</button>
             <button id="signUpbtn" class="button">Sign Up</button>
+
         </div>
 
         <!-- We need here to get the inlog field and "OR register" to the top right
@@ -41,6 +43,7 @@
         <div class="container">
             <aside id="categories">
                 <h2 id="allProds">Products</h2>
+                <input type="submit" value="Submit" name="Submit" id="getCategories" />
                 <!-- This div will have the list "Categs" in it
                 like all prods and pc games etc...-->
             </aside>
@@ -52,6 +55,9 @@
                     depending on the end point of the request
                     BUUUUT we gonna generate it by js so delete this div when you write the js code or ask Essa if you dont understand-->
                 </div>
+            </div>
+            <div>
+                <input type="submit" value="Submit" name="Submit" id="getProducts" />
             </div>
         </div>
     </main>

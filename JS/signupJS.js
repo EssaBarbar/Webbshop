@@ -1,16 +1,24 @@
+import { makeRequest } from "./requestHandler.js"
+
 export function signUpSubmit(event) {
 
-    console.log("EVENT")
-    var firstName = document.getElementById("userFirstNInput").value;
-    var LastName = document.getElementById("userLastNInput").value;
-    var email = document.getElementById("email").value;
+    //var userPwd = Generate(); 
+    // TODO: use form from html dom
+    var myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "addSignUpUser");
+    myData.append("firstname", document.querySelector('input[name=firstname]').value)
+    myData.append("lastname", document.querySelector('input[name=lastname]').value)
+    myData.append("email", document.querySelector('input[name=email]').value)
+    myData.append("password", document.querySelector('input[name=userPwdInput]').value)
+    myData.append("role", document.querySelector('input[name=role]').value)
+    makeRequest("./API/recivers/userReciver.php", "POST", myData, (result) => {
+        for (var i = 0; i < result.length; i++) {
+            console.log(result[i]);
+            //console.log(i);
 
-    var userPwd = Generate();
+        }
 
-    console.log("firstName  " + firstName);
-    console.log("LastName   " + LastName);
-    console.log("userPwd    " + userPwd);
-    console.log("userSignUp " + userSignUp);
-    console.log("email  " + email);
+    })
 
 }

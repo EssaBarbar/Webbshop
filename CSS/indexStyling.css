@@ -64,12 +64,18 @@ img {
     box-shadow: 5px 10px #000000
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
     background-color: red !important;
     color: #000000;
 }
 
-.btn-secondary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.btn-secondary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
     background-color: red !important;
 }
 

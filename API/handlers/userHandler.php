@@ -1,10 +1,21 @@
 <?php
 include("../classes/userClass.php");
-include("../classes/dbClass.php");
+function signUpSubmit($firstname, $lastname, $email, $password, $role)
+{
+    $user = new User(null, $firstname, $lastname, $email, $password, $role);
+    $result = $user->insert();
 
-function getUsers() {
-    $User = new User(null, null, null, null);
-    $result = $User->fetchAll("SELECT * FROM Users;");
-    echo json_encode($result );
+    if (empty($result)) {
+        throw new Exception("No user found", 404);
+        exit;
+    }
+    
+    return $result;
 };
-?>
+
+function getUsers()
+{
+    $user = new User();
+    return $user->fetchAll();
+    
+};

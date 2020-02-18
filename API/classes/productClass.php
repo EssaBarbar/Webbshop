@@ -1,5 +1,6 @@
 <?php
-include("./dbClass.php");
+//include(realpath(dirname(__FILE__)."/dbClass.php"));
+include("../classes/dbClass.php");
 
 class Product {
     public $productName;
@@ -10,7 +11,8 @@ class Product {
     public $categoryID;
     public $db;
 
-    function __construct($productID, $productName, $Price, $description, $picture, $categoryID) {
+    function __construct($productID = null, $productName = null, $Price = null, $description = null,
+    $picture = null, $categoryID = null) {
         $this->productID= $productID;
         $this->productName = $productName;
         $this->Price = $Price;
@@ -20,9 +22,9 @@ class Product {
         $this->db = new Database();
     }
 
-    public function fetchAll($query) {
-        $result = $this->db->runQuery($query);
-        return $result;
+    public function fetchAll() {
+        $query = "SELECT * FROM Products;";
+        return $this->db->runQuery($query);
     }
 
     /* public function getProductID() {
