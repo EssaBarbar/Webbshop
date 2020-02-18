@@ -1,5 +1,5 @@
 <?php
-include ("../handlers/categoryHandler.php");
+include("../handlers/categoryHandler.php");
 try{
     if($_SERVER['REQUEST_METHOD'] === 'GET') {
         $result = getCategories();

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./CSS/loginStyling.css">
     <script defer type="module" src="./JS/mainJS.js"></script>
     <script defer type="module" src="./JS/categoryJS.js"></script>
+    <script defer type="module" src="./JS/productJS.js"></script>
     <script src="https://kit.fontawesome.com/c9b461b663.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./CSS/loginStyling.css">
 </head>
@@ -25,13 +26,14 @@
         <div id="authentication">
             <p id="counter">1</p>
             <div class="cartIcon">
-                <a href="./Cart.html"><i class="fas fa-shopping-cart"></i></a>
+                <a class="aIcon" href="./Cart.html"><i class="fas fa-shopping-cart"></i></a>
             </div>
             <div class="userIcon"><i class="fas fa-users"></i></div>
             <input id="username" type="text" placeholder="username">
             <input id="password" type="text" placeholder="password">
             <button class="button">Submit</button>
-            <button id="signUpbtn" class="button">Sign Up</button>
+            <a href="./signupUser.html"><button class="button">Sign Up</button></a>
+           
         </div>
 
         <!-- We need here to get the inlog field and "OR register" to the top right
@@ -40,7 +42,7 @@
     <main>
         <div class="container">
             <aside id="categories">
-                <h2 id="allProds">Products</h2>
+                <p>Products<p>
                 <!-- This div will have the list "Categs" in it
                 like all prods and pc games etc...-->
             </aside>
@@ -53,12 +55,15 @@
                     BUUUUT we gonna generate it by js so delete this div when you write the js code or ask Essa if you dont understand-->
                 </div>
             </div>
+            <div>
+            </div>
         </div>
     </main>
     <footer class="footer">
         <div>
             <h2 class="SubScribe">Subscribe Newsletter</h2>
-            <input type="text" placeholder="name">
+            <input type="text" placeholder="firstname">
+            <input type="text" placeholder="lastname">
             <input type="text" placeholder="email">
             <button id="newsbtn" class="button">Submit</button>
         </div>

@@ -1,7 +1,6 @@
 <?php
 include(realpath(dirname(__FILE__)."/dbClass.php"));
 
-
 class Category {
     public $CategoryId;
     public $CategoryName;

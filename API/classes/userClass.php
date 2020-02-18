@@ -1,33 +1,42 @@
 <?php
-include("./dbClass.php");
+  include(realpath(dirname(__FILE__)."/dbClass.php"));
 
-
-class User {
+  class User {
     public $userId;
-    public $userName;
-    public $role;
+    public $firstName;
+    public $lastName;
     public $email;
+    public $password;
+    public $role;
     public $db;
 
-    function __construct($userId = null, $userName = null, $role = null, $email = null) {
+    function __construct($userId = null, $firstName = null, $lastName = null, $email = null, $password = null, $role = null) {
         $this->userId= $userId;
-        $this->userName = $userName;
-        $this->role = $role;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
         $this->email = $email;
+        $this->password = $password;
+        $this->role = $role;
         $this->db = new Database();
     }
 
-    public function fetchAll($query) {
+
+     public function insert() {
+        $query = "INSERT INTO users (FirstName, LastName, Email, Password, Role) VALUES(:firstname, :lastname, :email, :Password, :role);";
+        $value = array(":firstname"=>$this->firstName, ":lastname"=>$this->lastName, ":email"=>$this->email, 
+        ":Password"=>$this->password, ":role"=>$this->role);
+        $result =$this->db->runQuery($query, $value);
+        return $result;
+    }
+
+    public function fetchAll() {
+        $query = "SELECT * FROM Users;";
         $result = $this->db->runQuery($query);
         return $result;
     }
 
     // public function fetch() {
     //     $this->db->runQuery("SELECT * FROM.....");
-    // }
-
-    // public function insert($query, $values) {
-    //     $this->db->runQuery("INSERT INTO...");
     // }
 
     // public function delete() {
@@ -38,7 +47,7 @@ class User {
     //     if ($this->unitPrice)
     //     $this->db->runQuery("UPDATE... SET Unit");
     // }
-
-    
+        
 }
+
 ?>
