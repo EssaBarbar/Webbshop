@@ -97,6 +97,15 @@ $(document).ready(function() {
         $(".bdcMangeAdminAdd").hide(200);
         $(".bdcMangeAdminDelUpp").hide(200);
 
+
+
+        var txt = $("<div> Category ID </div>");
+        txt.addClass("bdcCatDelUpp");
+        $("columnSub").append(txt);
+        $(".columnSub").css("background-color", "yellow");
+        $(".columnSub").text('Hello');
+
+
     });
 
     $('.proAdd').click(function() {
@@ -196,6 +205,4 @@ $(document).ready(function() {
         $(".bdcMangeAdminDelUpp").show(200);
 
     });
-
-
 });
