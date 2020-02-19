@@ -22,7 +22,7 @@ class Product {
     }
 
     public function fetchAll() {
-        $query = "SELECT ProductName, CoverPicture, Description, Price FROM Products;";
+        $query = "SELECT ProductName, CoverPicture, Description, Price, CategoryID FROM Products;";
         return $this->db->runQuery($query);
     }
 
