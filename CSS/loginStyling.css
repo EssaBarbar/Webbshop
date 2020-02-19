@@ -84,13 +84,14 @@ a {
 
 aside {
     padding-top: 10px;
-   padding-left: 20px;
-   cursor: pointer;
+    padding-left: 20px;
+    cursor: pointer;
 }
 
 #categories {
     font-family: Arial, Helvetica, sans-serif;
 }
+
 
 /* #categoryItems {
     background-color: black;
