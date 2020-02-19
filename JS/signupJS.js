@@ -15,10 +15,23 @@ export function signUpSubmit(event) {
     makeRequest("./API/recivers/userReciver.php", "POST", myData, (result) => {
         for (var i = 0; i < result.length; i++) {
             console.log(result[i]);
-            //console.log(i);
 
         }
 
     })
 
+}
+
+
+function Generate() {
+
+    var length = 4
+    var result = ''
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    var charactersLength = characters.length
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength))
+
+    }
+    return result
 }
