@@ -1,5 +1,4 @@
 export function makeRequest(url, method, formData, callback) {
-
     fetch(url, {
         method: method,
         body: formData
