@@ -5,13 +5,36 @@ export function getProducts() {
     myData.append("endpoint", "getAllProducts");
     makeRequest("../api/recivers/productReciver.php", "GET", null, (result) => {
 
-        let prods = document.getElementById("categoryItems")
+        let productContainer = document.getElementById("allProducts")
 
         for (let i = 0; i < result.length; i++) {
+            const productBox = document.createElement("div");
+            productBox.classList = "productBox"
             console.log(result[i]);
-            const product = document.createElement('p');
-            product.innerText = result[i].ProductName
-            prods.append(product)
+
+            const productName = document.createElement('p');
+            productName.innerText = result[i].ProductName
+            productBox.append(productName)
+
+            /* const descrip = document.createElement('p');
+            descrip.innerText = result[i].Description
+            productBox.append(descrip) */
+
+            const pic = document.createElement('img');
+            pic.src = result[i].CoverPicture
+            pic.classList = "productPic"
+            productBox.append(pic)
+
+            const price = document.createElement('p');
+            price.innerText = result[i].Price + " " + "kr"
+            productBox.append(price)
+
+            const button = document.createElement('button');
+            button.innerText = 'Köp'
+            button.classList = 'button'
+            productBox.append(button)
+
+            productContainer.append(productBox)
         }
         console.log(result)
     })
