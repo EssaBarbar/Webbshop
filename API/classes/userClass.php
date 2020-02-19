@@ -1,5 +1,5 @@
 <?php
-  include("../classes/dbClass.php");
+  include(realpath(dirname(__FILE__)."/dbClass.php"));
 
   class User {
     public $userId;

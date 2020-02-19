@@ -4,3 +4,4 @@ signup && signup.addEventListener("click", signUpSubmit)
 const button = document.getElementById("getUsersbtn")
 button && button.addEventListener("click", getUsers)
 }
+}
