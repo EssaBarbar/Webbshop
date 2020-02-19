@@ -7,380 +7,110 @@ body {
     min-height: 100vh;
     flex-direction: column;
     margin: 0;
-    background: lightskyblue;
     flex-wrap: wrap;
 }
 
-#main {
+main {
     display: flex;
     justify-content: space-between;
-    top: 10px;
     flex: 1;
     position: relative;
+    background: rgb(217, 217, 224);
+    box-shadow: 150px 2px 20px 10px rgb(139, 161, 182) inset;
 }
 
-#main>article {
-    position: absolute;
-    justify-content: space-between;
-    align-items: stretch;
-    left: 300px;
-    flex: 1;
-    flex-wrap: wrap;
-    top: 10px;
-    background: rgb(18, 111, 197);
-    background: rgba(18, 111, 197, 0.5);
-    border-radius: 3px;
-    width: 46%;
-    height: 500px;
-}
-
-#main>nav,
-#main>aside {
-    flex: 0 0 20vw;
-    flex-wrap: wrap;
-
-
-}
-
-#main>nav {
-    order: -1;
-    position: absolute;
-    background: rgb(18, 111, 197);
-    background: rgba(18, 111, 197, 0.5);
-}
-
-#main>aside {
-    position: absolute;
-    right: 16px;
-    background: rgb(18, 111, 197);
-    background: rgba(18, 111, 197, 0.5);
-}
-
-header,
-article,
-nav,
-aside {
-    padding: 1em;
-}
-
-header {
+.topnav {
+    height: 50px;
+    background-color: rgb(188, 200, 218);
+    padding: 40px;
+    box-shadow: 2px 2px 20px 10px rgb(139, 161, 182) inset;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 20px;
-    text-shadow: 2px 2px #FF0000;
+    justify-content: space-between;
 }
 
-#navLeft {
-
-    width: 24%;
-    height: 500px;
-    margin: 10px;
-    border-radius: 3px;
-    float: left;
-
+.title {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#navLeft h3 {
-    color: #fff;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 3px;
-    text-align: left;
-    margin-left: 10px;
+#counter {
+    margin: 0;
+    margin-right: 5px;
+    color: black;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#navLeft ul {
-    list-style-type: none;
-    margin-top: 10px;
+.cartIcon {
+    margin-right: 10px;
 }
 
-#navLeft ul li {
-    height: 30px;
-    line-height: 30px;
-    border-radius: 3px;
+.userIcon {
+    margin-right: 10px;
+    font-size: 25px;
+    margin-top: 2px;
 }
 
-#navLeft ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding-left: 3%;
-    display: block;
+#authentication {
+    display: flex;
+    align-items: center;
 }
 
-#navLeft button {
-    background-color: rgba(18, 111, 197, 0.5);
-    border: none;
-    color: white;
-    padding: 5px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+a {
+    margin: 0;
+    font-size: 24px;
+    color: black;
     cursor: pointer;
+    text-decoration-line: none;
 }
 
-.fa-shopping-cart {
-    position: absolute;
-    top: -20px;
-    right: 16px;
-    text-shadow: 1px 1px 1px #ccc;
-    font-size: 1.5em;
-
+.button {
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-family: fantasy;
+    background-color: greenyellow;
 }
 
-label {
-    display: inline-block;
-    width: 4em;
-    margin-right: .5em;
-    padding-top: 1.5em;
-}
-
-input[type=text],
-input[type=password] {
-    display: inline-block;
-    width: 12em;
-    position: relative;
-
-
-}
-
-#aside {
+.container {
     display: flex;
-    width: 24%;
-    height: 400px;
-    margin: 10px;
-    border-radius: 3px;
-    color: #fff;
-
+    flex-wrap: wrap;
 }
 
-  .field-wrap {
-    position:relative;
-    margin-bottom:40px;
-  }
-  .field-wrap > div {
-    float:left;
-    width:48%;
-    margin-right:4%;
-  }
-    .field-wrap > div:last-child { 
-        margin:0;
-      }
-  .top-row :after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-  
-  .active a {
-    background:#1ab188;
-    color:white;
-  }
-#article {
+aside {
+    padding-left: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-family: fantasy;
+    background-color: greenyellow;
+}
+
+#allProds {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* #categoryItems {
+    background-color: black;
+    width: 10em;
+    height: 10em;
+} */
+
+.SubScribe {
+    margin: 0;
+}
+
+.footer {
+    background-color: rgb(102, 123, 132);
+    box-shadow: 2px 2px 20px 10px rgb(139, 161, 182) inset;
+    padding: 20px;
     display: flex;
-    width: 24%;
-    height: 300px;
-    margin: 10px;
-    border-radius: 3px;
-    color: #fff;
-
-}
-
-#productList {
-    border: 2px solid blue;
-    border-radius: 3px;
-}
-.button-block {
-    display:block;
-    width:100%;
-}
-  
-.forgot {
-    margin-top:-20px;
-    text-align:right;
-}
-#wrapper h1 {
-    font-size: 48px;
-    color: rgb(6, 106, 117);
-    padding: 2px 0 10px 0;
-    font-family: 'FranchiseRegular', 'Arial Narrow', Arial, sans-serif;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
     font-weight: bold;
-    text-align: center;
-    padding-bottom: 30px;
+    font-family: cursive;
+    color: greenyellow;
 }
-
-@media screen and (max-width: 800px) {
-    #navLeft {
-        width: 200px;
-        height: 250px;
-        border-radius: 3px;
-        left: 10px;
-    }
-
-    #navLeft ul li {
-        height: 30px;
-        line-height: 15px;
-        border-radius: 3px;
-        font-size: 15px;
-        margin-right: 28px;
-    }
-
-    #nav a {
-        float: none;
-        display: flex;
-        text-align: left;
-    }
-
-    #main>article {
-        left: 10px;
-        top: 280px;
-        display: flex;
-        width: 90%;
-        height: 300px;
-        margin: 10px;
-        border-radius: 3px;
-        color: #fff;
-    }
-
-    #main>aside {
-        left: 350px;
-
-        display: flex;
-        width: 30%;
-        height: 250px;
-        margin: 10px;
-        border-radius: 3px;
-        color: #fff;
-    }
-
-    label {
-        display: inline-block;
-        width: 6em;
-        margin-right: .5em;
-        padding-top: 1.5em;
-    }
-
-    input[type=text],
-    input[type=password] {
-        display: inline-block;
-        width: 6em;
-        position: relative;
-        top: .5em;
-
-    }
-
-    .loginsubmit {
-        display: inline-block;
-        width: 6em;
-        margin-right: .5em;
-        padding-top: 1.5em;
-        top: .5em;
-    }
-
-    #navLeft ul li:hover {
-        cursor: pointer;
-    }
-
-    .signup {
-        display: inline-block;
-        width: 6em;
-        position: relative;
-        top: .5em;
-    }
-
-    .fa-shopping-cart {
-
-        top: -20px;
-        right: 2px;
-
-    }
-}
-
-@media screen and (max-width: 600px) {
-    #navLeft {
-        width: 200px;
-        height: 250px;
-        border-radius: 3px;
-        left: 10px;
-    }
-
-    #navLeft ul li {
-        height: 30px;
-        line-height: 15px;
-        border-radius: 3px;
-        font-size: 15px;
-        margin-right: 28px;
-    }
-
-    #nav a {
-        float: none;
-        display: flex;
-        text-align: left;
-    }
-
-    #main>article {
-        left: 10px;
-        top: 270px;
-        display: flex;
-        width: 95%;
-        height: 320px;
-        margin: 10px;
-        border-radius: 3px;
-        color: #fff;
-    }
-
-    #main>aside {
-        left: 250px;
-        display: flex;
-        width: 35%;
-        height: 250px;
-        margin: 10px;
-        border-radius: 3px;
-        color: #fff;
-    }
-
-    label {
-        display: inline-block;
-        width: 6em;
-        margin-right: .5em;
-        padding-top: 1.5em;
-    }
-
-    input[type=text],
-    input[type=password] {
-        display: inline-block;
-        width: 6em;
-        position: relative;
-        top: .5em;
-
-    }
-
-    .loginsubmit {
-        display: inline-block;
-        width: 6em;
-        margin-right: .5em;
-        padding-top: 1.5em;
-        top: .5em;
-    }
-
-    .signup {
-        display: inline-block;
-        width: 6em;
-        position: relative;
-        top: .5em;
-    }
-
-    #navLeft ul li:hover {
-        cursor: pointer;
-    }
-
-    .fa-shopping-cart {
-
-        top: -20px;
-        right: 2px;
-
-    }
-}
-

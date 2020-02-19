@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.topnav {
+    height: 50px;
+    background-color: rgb(188, 200, 218);
+    padding: 20px;
+    box-shadow: 2px 2px 20px 10px rgb(139, 161, 182) inset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    padding-left: 20px;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#counter {
+    margin: 0;
+    margin-right: 5px;
+    color: black;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cartIcon {
+    margin-right: 10px;
+}
+
+.aIcon {
+    font-size: 24px;
+}
+
+.userIcon {
+    margin-right: 10px;
+    font-size: 25px;
+    margin-top: 2px;
+}
+
+#authentication {
+    display: flex;
+    align-items: center;
+}
+
+a {
+    margin: 0;
+    color: black;
+    cursor: pointer;
+    text-decoration-line: none;
+}
+
+.button {
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-family: fantasy;
+    background-color: greenyellow;
+}
+
+.signUpForm {
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: lightblue;
+    box-shadow: 5px 5px 5px 5px #888888;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+#titleSignUp {
+    padding-top: 3em;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+}
+
+.userFirstNlabel,
+.userFirstNInput,
+.userLastNlabel,
+.userLastNInput,
+.userEmaillabel,
+.userPwdlabel,
+.userPwdInput {
+    border: none;
+    padding: 5px 3px;
+    /*  text-align: center; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.userEmailInput {
+    border: none;
+    padding: 5px 3px;
+    /*  text-align: center; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.userSignup {
+    border: none;
+    color: white;
+    padding: 5px 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#crossReg {
+    top: 1px;
+    right: 1px;
+    float: right;
+}
+
+@media only screen and (max-width: 400px) {
+    .signUpForm {
+        width: 250px;
+        padding: 10px;
+    }
+}
