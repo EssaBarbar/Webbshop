@@ -5,15 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="./CSS/loginStyling.css">
+    <script defer type="module" src="./JS/loginJS.js"></script>
     <script defer type="module" src="./JS/mainJS.js"></script>
     <script src="https://kit.fontawesome.com/c9b461b663.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./CSS/loginStyling.css">
 </head>
-<!-- I WILL DO SOME LOGIN THINGS AND OTHER STUFFS THAT U JUST CAN REPLACE WHEN YOU DO YOUR CODING
-    BUT I NEED IT TO CONNECT THE IDEAS IN MY BRAIN :) 
-    THATS WHY YOU MAYBE FIND IT SCRATCHY DESIGNED-->
 
 <body>
     <header class="topnav">
@@ -29,28 +27,18 @@
             <div class="userIcon"><i class="fas fa-users"></i></div>
             <input id="username" type="text" placeholder="username">
             <input id="password" type="text" placeholder="password">
-            <button class="button">Submit</button>
+            <button id="login" class="button">Submit</button>
             <a href="./signupUser.html"><button class="button">Sign Up</button></a>
 
         </div>
-
-        <!-- We need here to get the inlog field and "OR register" to the top right
-        then the name of our website in the middle with a nice style -->
     </header>
     <main>
         <div class="container">
             <aside id="categories">
                 <p>Products<p>
-                        <!-- This div will have the list "Categs" in it
-                like all prods and pc games etc...-->
             </aside>
             <div id="categoryItems">
-                <!-- This div to be able to style this childs as this will contain all the items
-                    so we can place them right or left depending on the numbers of the items -->
                 <div>
-                    <!-- This one will have the place to get the content that the js will generate
-                    depending on the end point of the request
-                    BUUUUT we gonna generate it by js so delete this div when you write the js code or ask Essa if you dont understand-->
                 </div>
             </div>
             <div>
@@ -65,9 +53,7 @@
             <input type="text" placeholder="email">
             <button id="newsbtn" class="button">Submit</button>
         </div>
-        <div><a href="./adminFrontend/admin.html">go to admin site</a></div>
-
-        <!-- If we want to have footer for some reason -->
+        <div><a href="./admin.html">go to admin site</a></div>
     </footer>
 </body>
 

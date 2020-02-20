@@ -11,6 +11,5 @@ export function getCategories() {
             title.innerText = result[i].CategoryName
             catDiv.append(title)
         }
-        console.log(result)
     })
 }

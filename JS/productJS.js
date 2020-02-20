@@ -5,10 +5,8 @@ export function getProducts() {
     myData.append("endpoint", "getAllProducts");
     makeRequest("../api/recivers/productReciver.php", "GET", null, (result) => {
 
-        /* for (var i = 0; i < result.length; i++) {
-            console.log(result[i]);
+        for (var i = 0; i < result.length; i++) {
             document.getElementById("categories").innerHTML = result[i];
-        } */
-        console.log(result)
+        }
     })
 }
