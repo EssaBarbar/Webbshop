@@ -19,9 +19,11 @@ try {
                 echo json_encode($result);
             } else if($_POST["endpoint"] == "loginUser") {
                 $result = loginUser(
-                    $_POST['userName'],
-                    $_POST['password']);
-                    echo json_encode($result);
+                $_POST['userName'],
+                $_POST['password']);
+                if ($result == NULL) {
+                    echo json_encode("fuck off");
+                } else echo json_encode($result);
             }
             else {
                 throw new Exception("Not a valid endpoint", 501);
@@ -35,3 +37,4 @@ try {
 } catch (Exception $e) {
     echo json_encode(array("Message" => $e->getMessage(), "Status" => $e->getCode()));
 }
+?>

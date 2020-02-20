@@ -1,8 +1,6 @@
 import { makeRequest } from "./requestHandler.js"
 export function getUsers() {
     let myData = new FormData();
-    myData.append("entity", "user");
-    myData.append("endpoint", "getAllUsers");
     makeRequest("../API/recivers/userReciver.php", "GET", null, (result) => {
         let huvudusersDiv = document.getElementById("usersDiv")
         for (var i = 0; i < result.length; i++) {
