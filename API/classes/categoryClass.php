@@ -1,7 +1,6 @@
 <?php
 include(realpath(dirname(__FILE__)."/dbClass.php"));
 
-
 class Category {
     public $CategoryId;
     public $CategoryName;
@@ -14,28 +13,38 @@ class Category {
     }
 
     public function fetchAll() {
-        $query = "SELECT * FROM Categories";
+        $query = "SELECT * FROM categories;";
         $result = $this->db->runQuery($query);
         return $result;
     }
-
-    // public function fetch() {
-    //     $this->db->runQuery("SELECT * FROM.....");
-    // }
-
-    // public function insert($query, $values) {
-    //     $this->db->runQuery("INSERT INTO...");
-    // }
-
-    // public function delete() {
-    //     $this->db->runQuery("DELETE FROM... WHERE productID = $this->productId");
-    // }
-
-    // public function update() {
-    //     if ($this->unitPrice)
-    //     $this->db->runQuery("UPDATE... SET Unit");
-    // }
+    public function insert() {
+        $query = "INSERT INTO Categories (CategoryName) VALUES(:CategoryName);";
+        $value = array(":CategoryName"=>$this->CategoryName);
+        $result =$this->db->runQuery($query, $value);
     
+    public function delCategory() {         
+        $query = "DELETE FROM categories WHERE CategoryID = :CategoryID;";
+        $value = array(":CategoryID"=>$this->CategoryID);
+        $result =$this->db->runQuery($query);
+        return $result;
+    }
+    
+    public function insertCatAdmin() {         
+        $query = "INSERT INTO categories (CategoryName) VALUES(:CategoryName);";
+        $value = array(":CategoryName"=>$this->CategoryName);
+        $result =$this->db->runQuery($query, $value);
+        return $result;
+    }
+    
+    public function updateCatAdmin() {         
+        $query = "UPDATE categories SET CategoryID = NULL, CategoryName = :CategoryName WHERE CategoryID = :CategoryID;";
+        $query = "INSERT INTO categories (CategoryName) VALUES(:CategoryName);";
+        $value = array(":CategoryName"=>$this->CategoryName);
+        $result =$this->db->runQuery($query, $value);
+        return $result;
+    }
+
+        
 }
 
 ?>

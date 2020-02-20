@@ -25,17 +25,11 @@ class Product {
         $query = "SELECT ProductName, CoverPicture, Description, Price, CategoryID FROM Products;";
         return $this->db->runQuery($query);
     }
-
-    /* public function getProductID() {
-        return $this->productID;
+    public function flexFunction($flexQuery, $flexArray = null) {
+        return $this->db->runQuery($flexQuery, $flexArray);
     }
 
-    public function getCategoryID() {
-        return $this->categoryID;
-    }
-
-    public function makeRequest() {
-    } */
+    
 }
 
 ?>
