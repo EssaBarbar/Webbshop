@@ -30,4 +30,3 @@ function checkInloggedUser() {
         console.log(result)
     })
 }
-}
