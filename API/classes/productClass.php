@@ -5,24 +5,24 @@ class Product {
     public $productName;
     public $Price;
     public $description;
-    public $picture;
+    public $coverpicture;
     public $productID;
     public $categoryID;
     public $db;
 
     function __construct($productID = null, $productName = null, $Price = null, $description = null,
-    $picture = null, $categoryID = null) {
+    $coverpicture = null, $categoryID = null) {
         $this->productID= $productID;
         $this->productName = $productName;
         $this->Price = $Price;
         $this->description = $description;
-        $this->picture = $picture;
+        $this->coverpicture = $coverpicture;
         $this->categoryID = $categoryID;
         $this->db = new Database();
     }
 
     public function fetchAll() {
-        $query = "SELECT * FROM Products;";
+        $query = "SELECT ProductName, CoverPicture, Description, Price, CategoryID FROM Products;";
         return $this->db->runQuery($query);
     }
     public function flexFunction($flexQuery, $flexArray = null) {
