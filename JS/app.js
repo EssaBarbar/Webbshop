@@ -86,6 +86,9 @@ $('.catAdd').click(function() {
     $(".bdcOrdSend").hide(200);
     $(".bdcMangeAdminAdd").hide(200);
     $(".bdcMangeAdminDelUpp").hide(200);
+    $(".bdcMangeAdminDelUpp").hide(200);
+    $(".updateAdminCategory").hide();
+
 
 });
 
@@ -117,7 +120,7 @@ $('.catDelUpd').click(function() {
             columnSub.addClass("columnSub");
 
             var CategoryID = $("<div></div>");
-            CategoryID.text(result[i].CategoryName);
+            CategoryID.text(result[i].CategoryID);
             CategoryID.addClass("ColumnSubText");
 
             var CategoryName = $("<div></div>");
@@ -126,19 +129,39 @@ $('.catDelUpd').click(function() {
 
             var Update = $("<div></div>");
             Update.text("Update");
-            Update.addClass("Update");
+            Update.addClass("CategoryID Update");
             Update.on("click", function() {
-                alert($(this).text());
+                // alert($(".ColumnSubText").eq(1).text());
+                // alert($(".ColumnSubText").eq(0).text());
+                $('.Update').click(function() {
+                    $(".bdcCatAdd").show(200);
+                    $(".bdcCatDelUpp").hide(200);
+                    $(".bdcProAdd").hide(200);
+                    $(".bdcProDelUpp").hide(200);
+                    $(".bdcUseAdd").hide(200);
+                    $(".bdcUseDelUpp").hide(200);
+                    $(".bdcOrdSend").hide(200);
+                    $(".bdcMangeAdminAdd").hide(200);
+                    $(".bdcMangeAdminDelUpp").hide(200);
+                    $(".bdcMangeAdminDelUpp").hide(200);
+                    $(".updateAdminCategory").show();
+                    $(".AddAdminCategory").hide();
+                    alert()
+                    $("#CategoryName").value = $(".ColumnSubText").eq(1).text();
+
+
+                });
+
 
             });
 
             var Delete = $("<div></div>");
             Delete.text("Delete");
-            Delete.addClass("Delete");
+            Delete.addClass("CategoryID Delete");
             Delete.on("click", function() {
 
-                deleteCategory();
                 alert($(this).text());
+                deleteCategory();
 
             });
 
@@ -258,8 +281,9 @@ function deleteCategory() {
     var myData = new FormData();
     myData.append("entity", "enjoy");
     myData.append("endpoint", "delAdminCategory");
+    myData.append("CategoryID", querySelector(".CategoryID").innerHTML)
     makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
-        console.log("12321");
+        alert("fdsf")
         if (result) {
             $(".message").text("The category was Deleted successfully");
             $(".message").css('color', 'blue');
@@ -297,4 +321,25 @@ export function addCategory(event) {
 
     });
 }
+<<<<<<< Updated upstream
 }
+=======
+
+export function updateCategory(event) {
+    var myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "updateAdminCategory");
+    myData.append("CategoryName", document.querySelector('input[name=CategoryName]').value)
+    makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
+        if (result) {
+            $(".message").text("The category was added successfully");
+            $(".message").css('color', 'blue');
+            $('#message').fadeIn(3000);
+            $('#message').fadeOut(2000);
+            $('#CategoryName').text("");
+        }
+        console.log(result);
+
+    });
+}
+>>>>>>> Stashed changes

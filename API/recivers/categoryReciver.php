@@ -19,6 +19,15 @@ try{
             }
         }
     }
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {  
+        if ($_POST["entity"] == "enjoy") {      
+            if ($_POST["endpoint"] == "updateAdminCategory") {       
+        $result = updateCategory($result);
+        echo json_encode($result);
+            }
+        }
+    }
    
     if ($_POST["entity"] == "enjoy") {            
         if ($_POST["endpoint"] == "addAdminCategory") {       

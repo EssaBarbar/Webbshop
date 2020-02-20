@@ -27,4 +27,18 @@ function adminCatSubmit($categoryName)
     
     return $result;
 };
+
+
+function updateCategory($categoryName)
+{
+    $category = new Category(null, $categoryName);
+    $result = $category->updateCatAdmin();
+
+    if (empty($result)) {
+        throw new Exception("No Category found", 404);
+        exit;
+    }
+    
+    return $result;
+};
 ?>
