@@ -17,6 +17,12 @@ class Category {
         $result = $this->db->runQuery($query);
         return $result;
     }
+    public function insert() {
+        $query = "INSERT INTO Categories (CategoryName) VALUES(:CategoryName);";
+        $value = array(":CategoryName"=>$this->CategoryName);
+        $result =$this->db->runQuery($query, $value);
+        return $result;
+    }
 
     // public function fetch() {
     //     $this->db->runQuery("SELECT * FROM.....");

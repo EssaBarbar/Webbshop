@@ -21,7 +21,7 @@
     }
 
 
-     public function insert() {
+    public function insert() {
         $query = "INSERT INTO users (FirstName, LastName, Email, Password, Role) VALUES(:firstname, :lastname, :email, :Password, :role);";
         $value = array(":firstname"=>$this->firstName, ":lastname"=>$this->lastName, ":email"=>$this->email, 
         ":Password"=>$this->password, ":role"=>$this->role);

@@ -21,10 +21,25 @@ function getUsers()
     return $user->fetchAll();
     
 };
-function loginUser($userName, $password) {
+// function loginUser($userName, $password) {
+//     $user = new User();
+//     $allUsers = $user->fetchAll();
+//     for ($i=0; $i <=count($allUsers); $i++) {
+//         if ($userName == $allUsers[$i]["FirstName"]/*  && $password == $allUsers[$i]["Password"] */){
+//             return "Welcome"." ".$allUsers[$i]["FirstName"];
+//         }else {
+//             return "Wrong Username or passwords";
+//         };
+//     };
+// }
+function loginUser($userName, string$password) {
     $user = new User();
-    $allUsers = $user->fetchAll();
+    $allUsers == $user->fetchAll();
     for ($i=0; $i <=count($allUsers); $i++) {
-        return $allUsers[1]["FirstName"];
-    };
+        if ($userName === $allUsers[$i]["FirstName"] AND $password === $allUsers[$i]["Password"]){
+            session_start();
+            return "Welcome"." ".$allUsers[$i]["FirstName"];
+        }/* else return "whattt"; */
+
+    }
 }
