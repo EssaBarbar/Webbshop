@@ -14,6 +14,7 @@ function signUpSubmit($firstname, $lastname, $email, $password, $role)
     return $result;
 };
 
+
 function getUsers()
 {
     $user = new User();

@@ -26,16 +26,7 @@ class Product {
         return $this->db->runQuery($query);
     }
 
-    /* public function getProductID() {
-        return $this->productID;
-    }
-
-    public function getCategoryID() {
-        return $this->categoryID;
-    }
-
-    public function makeRequest() {
-    } */
+    
 }
 
 ?>

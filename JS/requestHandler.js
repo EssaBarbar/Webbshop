@@ -1,4 +1,4 @@
-export function makeRequest(url, method, formData, callback){
+export function makeRequest(url, method, formData, callback) {
     fetch(url, {
         method: method,
         body: formData
@@ -8,6 +8,6 @@ export function makeRequest(url, method, formData, callback){
     }).then((result) => {
         callback(result)
     }).catch((err) => {
-        console.log("Error : ",err); 
+        console.log("Error : ", err);
     })
 }

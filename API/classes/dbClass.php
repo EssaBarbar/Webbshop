@@ -17,6 +17,7 @@ class Database {
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
     }
+    
     public function runQuery($query, $inputArray = null) {
         try {
             $statement = $this->connection->prepare($query);

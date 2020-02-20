@@ -1,6 +1,6 @@
 <?php
 include("../handlers/userHandler.php");
-
+error_log("I am on post admin");
 try {
     if($_SERVER['REQUEST_METHOD'] === 'GET') {
         $result = getUsers();
@@ -16,8 +16,9 @@ try {
                     $_POST['password'],
                     $_POST['role']
                 );
-                echo json_encode($result);
-            } else {
+                echo json_encode($result);            
+
+            }else {
                 throw new Exception("Not a valid endpoint", 501);
             }
         } else {

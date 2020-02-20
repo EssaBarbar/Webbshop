@@ -1,4 +1,5 @@
 import { makeRequest } from "./requestHandler.js"
+
 export function getCategories() {
     let myData = new FormData();
     myData.append("entity", "category");

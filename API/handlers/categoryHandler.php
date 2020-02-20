@@ -6,4 +6,25 @@ function getCategories() {
     $result = $category->fetchAll();
     return $result;
 };
+
+function delCategory() {
+    $category = new Category();
+    $result = $category->delCategory();
+    return $result;
+};
+
+
+
+function adminCatSubmit($categoryName)
+{
+    $category = new Category(null, $categoryName);
+    $result = $category->insertCatAdmin();
+
+    if (empty($result)) {
+        throw new Exception("No Category found", 404);
+        exit;
+    }
+    
+    return $result;
+};
 ?>
