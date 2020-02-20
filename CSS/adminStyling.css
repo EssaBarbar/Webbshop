@@ -338,7 +338,7 @@ select {
     width: 300px;
 }
 
-#ColumnSubText {
+.ColumnSubText {
     height: 30px;
     color: Navy;
     padding-left: 10px;
@@ -355,6 +355,10 @@ select {
     text-align: left;
 }
 
+.inputContainer {
+    margin-top: 10px;
+}
+
 .columnSub {
     display: flex;
     flex-direction: row;
@@ -366,13 +370,13 @@ select {
     background-color: rgb(194, 188, 166);
 }
 
-#Update {
+.Update {
     color: darkgreen;
     width: 80px;
     cursor: pointer;
 }
 
-#Delete {
+.Delete {
     color: red;
     width: 80px;
     cursor: pointer;

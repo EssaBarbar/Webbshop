@@ -15,6 +15,7 @@ function signUpSubmit($firstname, $lastname, $email, $password, $role)
     return "no data was sent";
 };
 
+
 function getUsers()
 {
     $user = new User();

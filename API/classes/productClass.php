@@ -29,16 +29,7 @@ class Product {
         return $this->db->runQuery($flexQuery, $flexArray);
     }
 
-    /* public function getProductID() {
-        return $this->productID;
-    }
-
-    public function getCategoryID() {
-        return $this->categoryID;
-    }
-
-    public function makeRequest() {
-    } */
+    
 }
 
 ?>

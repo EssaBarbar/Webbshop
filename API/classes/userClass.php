@@ -1,5 +1,5 @@
 <?php
-  include(realpath(dirname(__FILE__)."/dbClass.php"));
+  include("../classes/dbClass.php");
 
   class User {
     public $userId;
@@ -9,8 +9,9 @@
     public $password;
     public $role;
     public $db;
+   
 
-    function __construct($userId = null, $firstName = null, $lastName = null, $email = null, $password = null, $role = null) {
+    function __construct($userId = null, $firstName = null, $lastName = null, $email = null, $password = null, $role = null, $CategoryName = null) {
         $this->userId= $userId;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
@@ -26,8 +27,10 @@
         $value = array(":firstname"=>$this->firstName, ":lastname"=>$this->lastName, ":email"=>$this->email, 
         ":Password"=>$this->password, ":role"=>$this->role);
         $result =$this->db->runQuery($query, $value);
-        return $result;
+        return $result;        
     }
+
+ 
 
     public function fetchAll() {
         $query = "SELECT * FROM Users;";

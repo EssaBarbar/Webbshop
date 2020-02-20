@@ -1,6 +1,6 @@
 <?php
 include("../handlers/userHandler.php");
-
+error_log("I am on post admin");
 try {
     if ($_SERVER["REQUEST_METHOD"] =='GET') {
         $result = getUsers();
