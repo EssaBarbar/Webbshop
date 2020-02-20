@@ -7,7 +7,7 @@ window.onload = init()
 function init() {
     getProducts()
     getCategories()
-
+    checkInloggedUser()
 }
 
 export function login() {
@@ -21,6 +21,12 @@ export function login() {
     myData.append("password", password)
 
     makeRequest("../API/recivers/userReciver.php", "POST", myData, (result) => {
+        console.log(result)
+    })
+}
+
+function checkInloggedUser() {
+    makeRequest("../API/recivers/userReciver.php", "GET", null, (result) => {
         console.log(result)
     })
 }

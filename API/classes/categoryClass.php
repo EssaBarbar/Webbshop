@@ -21,8 +21,8 @@ class Category {
         $query = "INSERT INTO Categories (CategoryName) VALUES(:CategoryName);";
         $value = array(":CategoryName"=>$this->CategoryName);
         $result =$this->db->runQuery($query, $value);
-    
-    public function delCategory() {         
+    }
+    public function delCategory() {
         $query = "DELETE FROM categories WHERE CategoryID = :CategoryID;";
         $value = array(":CategoryID"=>$this->CategoryID);
         $result =$this->db->runQuery($query);

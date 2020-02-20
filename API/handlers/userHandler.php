@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../classes/userClass.php");
 
 function signUpSubmit($firstname, $lastname, $email, $password, $role)
@@ -25,11 +26,14 @@ function getUsers()
 function loginUser($userName, $password) {
     $user = new User();
     $allUsers = $user->fetchAll();
-    for ($i=0; $i <=count($allUsers); $i++) {
+    for ($i=0; $i <= count($allUsers); $i++) {
         if ($userName === $allUsers[$i]["FirstName"] && $password === $allUsers[$i]["Password"]){
+            $_SESSION["inloggedUser"] = $userName;
             return "Welcome"." ".$allUsers[$i]["FirstName"];
-        }/* else {
+        }else if ($userName != $allUsers[$i]["FirstName"] && $password != $allUsers[$i]["Password"]){
+            $_SESSION["inloggedUser"] = $userName;
             return "Wrong Username or passwords";
-        }; */
+        };
     };
 }
+?>
