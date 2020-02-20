@@ -2,13 +2,16 @@ import { makeRequest } from "./requestHandler.js"
 import { getXboxProducts } from "./productJS.js"
 import { getPS4Products } from "./productJS.js"
 import { getPCProducts } from "./productJS.js"
+
 export function getCategories() {
     let myData = new FormData();
-    myData.append("entity", "category");
+    myData.append("entity", "enjoy");
     myData.append("endpoint", "getAllCategory");
-    makeRequest("../API/recivers/categoryReciver.php", "GET", null, (result) => {
+    makeRequest("../API/recivers/categoryReciver.php", "POST", myData, (result) => {
 
+        console.log(result)
         var catDiv = document.getElementById("categories")
+
         for (var i = 0; i < result.length; i++) {
             const title = document.createElement("p");
             title.innerText = result[i].CategoryName
