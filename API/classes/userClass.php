@@ -29,7 +29,12 @@
         $result =$this->db->runQuery($query, $value);
         return $result;        
     }
-
+    public function insertSubscriber() {
+        $query = "INSERT INTO newsletters (FirstName, LastName, Email) VALUES(:firstname, :lastname, :email);";
+        $value = array(":firstname"=>$this->firstName, ":lastname"=>$this->lastName, ":email"=>$this->email);
+        $result =$this->db->runQuery($query, $value);
+        return $result;
+}
  
 
     public function fetchAll() {

@@ -1,7 +1,7 @@
 import { signUpSubmit } from "./signupJS.js"
 import { getUsers } from "./adminJS.js"
 import { login } from "./loginJS.js"
-
+import { newsbtn } from "./newsletter.js"
 export function addEventListener() {
     const signup = document.getElementById("signUpSubmit")
     signup && signup.addEventListener("click", signUpSubmit)
@@ -9,6 +9,9 @@ export function addEventListener() {
     button && button.addEventListener("click", getUsers)
     const loggain = document.getElementById("login")
     loggain && loggain.addEventListener("click", login)
+    const newsbtnbutton = document.getElementById("newsbtn")    
+    newsbtnbutton && newsbtnbutton.addEventListener("click", newsbtn)
+
 }
 // =======
 // //import { signUpSubmit } from "./signupJS.js"
