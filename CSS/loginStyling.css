@@ -81,6 +81,10 @@ a {
 aside {
     padding-left: 15px;
     cursor: pointer;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-family: fantasy;
+    background-color: greenyellow;
 }
 
 #allProds {

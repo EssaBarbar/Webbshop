@@ -25,6 +25,9 @@ class Product {
         $query = "SELECT * FROM Products;";
         return $this->db->runQuery($query);
     }
+    public function flexFunction($flexQuery, $flexArray = null) {
+        return $this->db->runQuery($flexQuery, $flexArray);
+    }
 
     
 }

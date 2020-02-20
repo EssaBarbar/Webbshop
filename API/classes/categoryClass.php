@@ -17,6 +17,10 @@ class Category {
         $result = $this->db->runQuery($query);
         return $result;
     }
+    public function insert() {
+        $query = "INSERT INTO Categories (CategoryName) VALUES(:CategoryName);";
+        $value = array(":CategoryName"=>$this->CategoryName);
+        $result =$this->db->runQuery($query, $value);
     
     public function delCategory() {         
         $query = "DELETE FROM categories WHERE CategoryID = :CategoryID;";

@@ -5,13 +5,14 @@ function signUpSubmit($firstname, $lastname, $email, $password, $role)
 {
     $user = new User(null, $firstname, $lastname, $email, $password, $role);
     $result = $user->insert();
+    return "done";
 
     if (empty($result)) {
         throw new Exception("No user found", 404);
         exit;
     }
     
-    return $result;
+    return "no data was sent";
 };
 
 
@@ -21,3 +22,14 @@ function getUsers()
     return $user->fetchAll();
     
 };
+function loginUser($userName, $password) {
+    $user = new User();
+    $allUsers = $user->fetchAll();
+    for ($i=0; $i <=count($allUsers); $i++) {
+        if ($userName === $allUsers[$i]["FirstName"] && $password === $allUsers[$i]["Password"]){
+            return "Welcome"." ".$allUsers[$i]["FirstName"];
+        }/* else {
+            return "Wrong Username or passwords";
+        }; */
+    };
+}
