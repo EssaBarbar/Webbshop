@@ -14,8 +14,8 @@ try{
     if($_SERVER['REQUEST_METHOD'] === 'POST') {  
         if ($_POST["entity"] == "enjoy") {      
             if ($_POST["endpoint"] == "delAdminCategory") {       
-        $result = delCategory();
-        echo json_encode($result);
+                $result = delCategory();
+                echo json_encode($result);
             }
         }
     }
@@ -23,8 +23,8 @@ try{
     if($_SERVER['REQUEST_METHOD'] === 'POST') {  
         if ($_POST["entity"] == "enjoy") {      
             if ($_POST["endpoint"] == "updateAdminCategory") {       
-        $result = updateCategory($result);
-        echo json_encode($result);
+                $result = updateCategory($result);
+                echo json_encode($result);
             }
         }
     }
@@ -34,7 +34,7 @@ try{
             $result = adminCatSubmit(
             $_POST['CategoryName']            
             );
-            echo json_encode($result);
+                echo json_encode($result);
         }
     } 
     
