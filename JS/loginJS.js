@@ -1,13 +1,15 @@
 import { getProducts } from "./productJS.js"
 import { getCategories } from "./categoryJS.js"
 import { makeRequest } from "./requestHandler.js"
+
 window.onload = init()
 
-async function init() {
+function init() {
     getProducts()
     getCategories()
 
 }
+
 export function login() {
     let userName = document.getElementById("username").value
     let password = document.getElementById("password").value
