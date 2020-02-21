@@ -7,18 +7,11 @@ function getCategories() {
     return $result;
 };
 
-function delCategory() {
-    $category = new Category();
-    $result = $category->delCategory();
-    return $result;
-};
 
-
-
-function adminCatSubmit($categoryName)
+function insertToCategory($categoryName)
 {
     $category = new Category(null, $categoryName);
-    $result = $category->insertCatAdmin();
+    $result = $category->insert();
 
     if (empty($result)) {
         throw new Exception("No Category found", 404);
@@ -27,12 +20,10 @@ function adminCatSubmit($categoryName)
     
     return $result;
 };
-
-
 function updateCategory($categoryName)
 {
     $category = new Category(null, $categoryName);
-    $result = $category->updateCatAdmin();
+    $result = $category->update();
 
     if (empty($result)) {
         throw new Exception("No Category found", 404);
@@ -41,4 +32,14 @@ function updateCategory($categoryName)
     
     return $result;
 };
+
+function deleteFromCategory() {
+    $category = new Category();
+    $result = $category->delete();
+    return $result;
+};
+
+
+
+
 ?>

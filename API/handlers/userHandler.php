@@ -30,10 +30,9 @@ function loginUser($userName, $password) {
         if ($userName === $allUsers[$i]["FirstName"] && $password === $allUsers[$i]["Password"]){
             $_SESSION["inloggedUser"] = $userName;
             return "Welcome"." ".$allUsers[$i]["FirstName"];
-        }else if ($userName != $allUsers[$i]["FirstName"] && $password != $allUsers[$i]["Password"]){
-            $_SESSION["inloggedUser"] = $userName;
-            return "Wrong Username or passwords";
-        };
+        }
     };
+
+    return "Wrong Username or passwords";
 }
 ?>
