@@ -5,7 +5,7 @@ try{
     if($_SERVER['REQUEST_METHOD'] === 'POST') {  
         if ($_POST["entity"] == "enjoy") {      
             if ($_POST["endpoint"] == "getAllCategory") {       
-        $result = getCategories();
+        $result = getAllCategories();
         echo json_encode($result);
             }
         }

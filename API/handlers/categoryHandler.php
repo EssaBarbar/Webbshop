@@ -7,7 +7,7 @@ function getAllCategories() {
     return $result;
 };
 
-function delCategory() {
+function deleteCategory() {
     $category = new Category();
     $result = $category->delete();
     return $result;
