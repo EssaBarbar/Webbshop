@@ -1,9 +1,9 @@
 import { makeRequest } from './requestHandler.js'
-import { addEventListener } from './eventListeners.js'
+import { addEventListener } from './eventListenersJS.js/index.js'
 
 addEventListener()
 
-$('.dashBoard').click(function() {
+$('.dashBoard').click(function () {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -13,7 +13,7 @@ $('.dashBoard').click(function() {
 });
 
 
-$('.categoriesContainer').click(function() {
+$('.categoriesContainer').click(function () {
 
     $(".categorySubContainer").show(200);
     $(".productSubContainer").hide(200);
@@ -24,7 +24,7 @@ $('.categoriesContainer').click(function() {
 });
 
 
-$('.productsContainer').click(function() {
+$('.productsContainer').click(function () {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").show(200);
@@ -35,7 +35,7 @@ $('.productsContainer').click(function() {
 });
 
 
-$('.ordersContainer').click(function() {
+$('.ordersContainer').click(function () {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -43,7 +43,7 @@ $('.ordersContainer').click(function() {
     $(".usersSubContainer").hide(200);
     $(".mangeAdminSubContainer").hide(200);
 });
-$('.usersContainer').click(function() {
+$('.usersContainer').click(function () {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -51,7 +51,7 @@ $('.usersContainer').click(function() {
     $(".usersSubContainer").show(200);
     $(".mangeAdminSubContainer").hide(200);
 });
-$('.mangeAdminContainer').click(function() {
+$('.mangeAdminContainer').click(function () {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -61,7 +61,7 @@ $('.mangeAdminContainer').click(function() {
 });
 
 
-$('.dashBoard').click(function() {
+$('.dashBoard').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -75,7 +75,7 @@ $('.dashBoard').click(function() {
 
 });
 
-$('.catAdd').click(function() {
+$('.catAdd').click(function () {
 
     $(".bdcCatAdd").show(200);
     $(".bdcCatDelUpp").hide(200);
@@ -92,7 +92,7 @@ $('.catAdd').click(function() {
 
 });
 
-$('.catDelUpd').click(function() {
+$('.catDelUpd').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").show(200);
@@ -130,10 +130,10 @@ $('.catDelUpd').click(function() {
             var Update = $("<div></div>");
             Update.text("Update");
             Update.addClass("CategoryID Update");
-            Update.on("click", function() {
+            Update.on("click", function () {
                 // alert($(".ColumnSubText").eq(1).text());
                 // alert($(".ColumnSubText").eq(0).text());
-                $('.Update').click(function() {
+                $('.Update').click(function () {
                     $(".bdcCatAdd").show(200);
                     $(".bdcCatDelUpp").hide(200);
                     $(".bdcProAdd").hide(200);
@@ -158,7 +158,7 @@ $('.catDelUpd').click(function() {
             var Delete = $("<div></div>");
             Delete.text("Delete");
             Delete.addClass("CategoryID Delete");
-            Delete.on("click", function() {
+            Delete.on("click", function () {
 
                 alert($(this).text());
                 deleteCategory();
@@ -178,7 +178,7 @@ $('.catDelUpd').click(function() {
 
 });
 
-$('.proAdd').click(function() {
+$('.proAdd').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -192,7 +192,7 @@ $('.proAdd').click(function() {
 
 });
 
-$('.proDelUpp').click(function() {
+$('.proDelUpp').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -206,7 +206,7 @@ $('.proDelUpp').click(function() {
 
 });
 
-$('.usersAdd').click(function() {
+$('.usersAdd').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -220,7 +220,7 @@ $('.usersAdd').click(function() {
 
 });
 
-$('.usersDelUpp').click(function() {
+$('.usersDelUpp').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -234,7 +234,7 @@ $('.usersDelUpp').click(function() {
 
 });
 
-$('.ordSend').click(function() {
+$('.ordSend').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -248,7 +248,7 @@ $('.ordSend').click(function() {
 
 });
 
-$('.mangeAdminAdd').click(function() {
+$('.mangeAdminAdd').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -262,7 +262,7 @@ $('.mangeAdminAdd').click(function() {
 
 });
 
-$('.mangeAdminDelUpp').click(function() {
+$('.mangeAdminDelUpp').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -321,9 +321,7 @@ export function addCategory(event) {
 
     });
 }
-<<<<<<< Updated upstream
-}
-=======
+
 
 export function updateCategory(event) {
     var myData = new FormData();
@@ -342,4 +340,3 @@ export function updateCategory(event) {
 
     });
 }
->>>>>>> Stashed changes

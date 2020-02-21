@@ -1,5 +1,10 @@
 import { makeRequest } from "./requestHandler.js"
 
+function addEventListeners() {
+    const signup = document.getElementById("signUpSubmit")
+    signup && signup.addEventListener("click", signUpSubmit)
+}
+
 export function signUpSubmit(event) {
 
     var myData = new FormData();

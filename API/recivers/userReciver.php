@@ -28,7 +28,7 @@ try {
                 echo json_encode($result);
 
                 // if ($result == NULL) {
-                    // echo json_encode("fuck off"); FRÅÅÅGAAAAAA
+                    // echo json_encode("WHYYYYYYY"); FRÅÅÅGAAAAAA
                 // } else echo json_encode($result);
             }
             else {
