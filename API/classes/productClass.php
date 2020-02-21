@@ -2,7 +2,7 @@
 include(realpath(dirname(__FILE__)."/dbClass.php"));
 
 class Product {
-    Private $ProductID;
+    public $productID;
     public $CategoryID;
     public $ProductName;
     public $UnitInStock;
@@ -26,11 +26,6 @@ class Product {
         $this->db = new Database();
     }
     
-    function getProductID() {
-        return $this->ProductID;
-    }
-
-
 
     public function fetchAll() {
         $query = "SELECT * FROM Products;";
@@ -39,30 +34,31 @@ class Product {
 
     public function insert() {
         $query = "INSERT INTO Products (CategoryID, ProductName, UnitInStock, Price, CoverPicture, PNGPicture, Description)
-        VALUES(:userID, :OrderDate, :ShipperID, :Recieved, :Shipped);";
+        VALUES(:CategoryID, :ProductName, :UnitInStock, :Price, :CoverPicture, :PNGPicture, :Description);";
         
-        $value = array(":userID"=>$this->userID, ":OrderDate"=>$this->OrderDate, ":ShipperID"=>$this->ShipperID,
-        ":Recieved"=>$this->Recieved, ":Shipped"=>$this->Shipped);
+        $value = array(":CategoryID"=>$this->CategoryID, ":ProductName"=>$this->ProductName, ":UnitInStock"=>$this->UnitInStock,
+        ":Price"=>$this->Price, ":CoverPicture"=>$this->CoverPicture, ":PNGPicture"=>$this->PNGPicture, ":Description"=>$this->Description);
 
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
 
     public function update() {         
-        $query = "UPDATE orders SET orderID = NULL, userID = :userID, OrderDate = :OrderDate, ShipperID = :ShipperID, Recieved = :Recieved,
-        Shipped = :Shipped
-        WHERE orderID = :orderID;";
+        $query = "UPDATE Products SET productID = :productID, CategoryID = :CategoryID, ProductName = :ProductName, UnitInStock = :UnitInStock,
+        Price = :Price, CoverPicture = :CoverPicture, PNGPicture = :PNGPicture, Description = :Description
+        WHERE productID = :productID;";
 
-        $value = array(":userID"=>$this->userID, ":OrderDate"=>$this->OrderDate, ":ShipperID"=>$this->ShipperID,
-        ":Recieved"=>$this->Recieved, ":Shipped"=>$this->Shipped);
+        $value = array(":CategoryID"=>$this->CategoryID, ":ProductName"=>$this->ProductName, ":UnitInStock"=>$this->UnitInStock,
+        ":Price"=>$this->Price, ":CoverPicture"=>$this->CoverPicture, ":PNGPicture"=>$this->PNGPicture, ":Description"=>$this->Description,
+        ":productID"=>$this->productID);
 
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
 
     public function delete() {
-        $query = "DELETE FROM orders WHERE orderID = :orderID;";
-        $value = array(":orderID"=>$this->getUserId());
+        $query = "DELETE FROM Products WHERE productID = :productID;";
+        $value = array(":orderID"=>$this->productID);
         $result =$this->db->runQuery($query);
         return $result;
     }

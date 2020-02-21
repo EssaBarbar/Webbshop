@@ -24,13 +24,15 @@ class Category {
         return $result;
     }
     public function update() {         
-        $query = "UPDATE categories SET CategoryID = NULL, CategoryName = :CategoryName WHERE CategoryID = :CategoryID;";
-        $value = array(":CategoryName"=>$this->CategoryName);
+        $query = "UPDATE categories SET CategoryID = :CategoryID, CategoryName = :CategoryName
+        WHERE CategoryID = :CategoryID;";
+        $value = array(":CategoryID"=>$this->CategoryID, ":CategoryName"=>$this->CategoryName);
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
     public function delete() {
-        $query = "DELETE FROM categories WHERE CategoryID = :CategoryID;";
+        $query = "DELETE FROM categories
+        WHERE CategoryID = :CategoryID;";
         $value = array(":CategoryID"=>$this->CategoryID);
         $result =$this->db->runQuery($query);
         return $result;
