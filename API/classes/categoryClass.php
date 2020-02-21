@@ -21,27 +21,24 @@ class Category {
         $query = "INSERT INTO Categories (CategoryName) VALUES(:CategoryName);";
         $value = array(":CategoryName"=>$this->CategoryName);
         $result =$this->db->runQuery($query, $value);
+        return $result;
     }
-    public function delCategory() {
-        $query = "DELETE FROM categories WHERE CategoryID = :CategoryID;";
+    public function update() {         
+        $query = "UPDATE categories SET CategoryID = :CategoryID, CategoryName = :CategoryName
+        WHERE CategoryID = :CategoryID;";
+        $value = array(":CategoryID"=>$this->CategoryID, ":CategoryName"=>$this->CategoryName);
+        $result =$this->db->runQuery($query, $value);
+        return $result;
+    }
+    public function delete() {
+        $query = "DELETE FROM categories
+        WHERE CategoryID = :CategoryID;";
         $value = array(":CategoryID"=>$this->CategoryID);
         $result =$this->db->runQuery($query);
         return $result;
     }
-    
-    public function insertCatAdmin() {         
-        $query = "INSERT INTO categories (CategoryName) VALUES(:CategoryName);";
-        $value = array(":CategoryName"=>$this->CategoryName);
-        $result =$this->db->runQuery($query, $value);
-        return $result;
-    }
-    
-    public function updateCatAdmin() {         
-        $query = "UPDATE categories SET CategoryID = NULL, CategoryName = :CategoryName WHERE CategoryID = :CategoryID;";
-        $query = "INSERT INTO categories (CategoryName) VALUES(:CategoryName);";
-        $value = array(":CategoryName"=>$this->CategoryName);
-        $result =$this->db->runQuery($query, $value);
-        return $result;
+    public function flexFunction($flexQuery, $flexArray = null) {
+        return $this->db->runQuery($flexQuery, $flexArray);
     }
 
         
