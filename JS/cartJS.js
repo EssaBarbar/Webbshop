@@ -1,5 +1,8 @@
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 function addItem() {
     var pro = document.getElementById('Product').value // lägger till nya items i slutet på array
     var antal = document.getElementById('Antal').value // lägger till nya items i slutet på array
@@ -31,3 +34,7 @@ function displayCart(pro, antal, total) {
 
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
