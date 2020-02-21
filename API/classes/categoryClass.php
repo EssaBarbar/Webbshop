@@ -13,7 +13,7 @@ class Category {
     }
 
     public function fetchAll() {
-        $query = "SELECT * FROM Categories";
+        $query = "SELECT * FROM categories;";
         $result = $this->db->runQuery($query);
         return $result;
     }
@@ -23,24 +23,25 @@ class Category {
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
+    public function update() {         
+        $query = "UPDATE categories SET CategoryID = :CategoryID, CategoryName = :CategoryName
+        WHERE CategoryID = :CategoryID;";
+        $value = array(":CategoryID"=>$this->CategoryID, ":CategoryName"=>$this->CategoryName);
+        $result =$this->db->runQuery($query, $value);
+        return $result;
+    }
+    public function delete() {
+        $query = "DELETE FROM categories
+        WHERE CategoryID = :CategoryID;";
+        $value = array(":CategoryID"=>$this->CategoryID);
+        $result =$this->db->runQuery($query);
+        return $result;
+    }
+    public function flexFunction($flexQuery, $flexArray = null) {
+        return $this->db->runQuery($flexQuery, $flexArray);
+    }
 
-    // public function fetch() {
-    //     $this->db->runQuery("SELECT * FROM.....");
-    // }
-
-    // public function insert($query, $values) {
-    //     $this->db->runQuery("INSERT INTO...");
-    // }
-
-    // public function delete() {
-    //     $this->db->runQuery("DELETE FROM... WHERE productID = $this->productId");
-    // }
-
-    // public function update() {
-    //     if ($this->unitPrice)
-    //     $this->db->runQuery("UPDATE... SET Unit");
-    // }
-    
+        
 }
 
 ?>

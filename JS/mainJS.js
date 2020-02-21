@@ -1,6 +1,6 @@
 window.onload = init()
 
-import { addEventListener } from "./eventListeners.js"
+import { addEventListener } from "./eventListenersJS.js"
 
 function init() {
     addEventListener()

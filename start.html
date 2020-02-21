@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     <link rel="stylesheet" href="./CSS/loginStyling.css">
-    <script defer type="module" src="./JS/loginJS.js"></script>
     <script defer type="module" src="./JS/mainJS.js"></script>
+    <script defer type="module" src="./JS/startJS.js"></script>
     <script src="https://kit.fontawesome.com/c9b461b663.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./CSS/loginStyling.css">
 </head>
 
 <body>
     <header class="topnav">
-        <a href="./login.html">
+        <a href="./start.html">
             <h1 class="title">Enjoy</h1>
         </a>
 
@@ -29,15 +29,25 @@
             <input id="password" type="text" placeholder="password">
             <button id="login" class="button">Submit</button>
             <a href="./signupUser.html"><button class="button">Sign Up</button></a>
+        </div>
 
         </div>
     </header>
     <main>
         <div class="container">
             <aside id="categories">
-                <p>Products<p>
+                <a href="./login.html">
+                    <p id="getProds">Products</p>
+                </a>
+                <!-- This div will have the list "Categs" in it
+                like all prods and pc games etc...-->
             </aside>
-            <div id="categoryItems">
+            <div class="allProducts" id="allProducts">
+
+            </div>
+            <div class="categoryItems" id="categoryItems">
+                <!-- This div to be able to style this childs as this will contain all the items
+                    so we can place them right or left depending on the numbers of the items -->
                 <div>
                 </div>
             </div>
@@ -54,7 +64,11 @@
             <button id="newsbtn" class="button">Submit</button>
         </div>
         <div><a href="./admin.html">go to admin site</a></div>
+
+        <!-- If we want to have footer for some reason -->
     </footer>
 </body>
+
+</html>
 
 </html>
