@@ -1,7 +1,7 @@
 <?php
 include("../classes/categoryClass.php");
 
-function getCategories() {
+function getAllCategories() {
     $category = new Category();
     $result = $category->fetchAll();
     return $result;
@@ -9,16 +9,16 @@ function getCategories() {
 
 function delCategory() {
     $category = new Category();
-    $result = $category->delCategory();
+    $result = $category->delete();
     return $result;
 };
 
 
 
-function adminCatSubmit($categoryName)
+function addCategory($categoryName)
 {
     $category = new Category(null, $categoryName);
-    $result = $category->insertCatAdmin();
+    $result = $category->insert();
 
     if (empty($result)) {
         throw new Exception("No Category found", 404);
@@ -32,7 +32,7 @@ function adminCatSubmit($categoryName)
 function updateCategory($categoryName)
 {
     $category = new Category(null, $categoryName);
-    $result = $category->updateCatAdmin();
+    $result = $category->update();
 
     if (empty($result)) {
         throw new Exception("No Category found", 404);

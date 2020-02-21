@@ -131,7 +131,7 @@ $('.catDelUpd').click(function() {
             Update.text("Update");
             Update.addClass("CategoryID Update");
             Update.on("click", function() {
-                // alert($(".ColumnSubText").eq(1).text());
+                alert($(".ColumnSubText").eq(1).text());
                 // alert($(".ColumnSubText").eq(0).text());
                 $('.Update').click(function() {
                     $(".bdcCatAdd").show(200);
@@ -321,9 +321,7 @@ export function addCategory(event) {
 
     });
 }
-<<<<<<< Updated upstream
-}
-=======
+
 
 export function updateCategory(event) {
     var myData = new FormData();
@@ -342,4 +340,3 @@ export function updateCategory(event) {
 
     });
 }
->>>>>>> Stashed changes

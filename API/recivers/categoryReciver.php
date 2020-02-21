@@ -14,7 +14,7 @@ try{
     if($_SERVER['REQUEST_METHOD'] === 'POST') {  
         if ($_POST["entity"] == "enjoy") {      
             if ($_POST["endpoint"] == "delAdminCategory") {       
-        $result = delCategory();
+        $result = deleteCategory();
         echo json_encode($result);
             }
         }
@@ -31,7 +31,7 @@ try{
    
     if ($_POST["entity"] == "enjoy") {            
         if ($_POST["endpoint"] == "addAdminCategory") {       
-            $result = adminCatSubmit(
+            $result = addCategory(
             $_POST['CategoryName']            
             );
             echo json_encode($result);
