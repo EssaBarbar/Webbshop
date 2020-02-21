@@ -1,5 +1,5 @@
 import { makeRequest } from './requestHandler.js'
-import { addEventListener } from './eventListenersJS.js/index.js'
+import { addEventListener } from './eventListenersJS.js'
 
 addEventListener()
 
@@ -115,19 +115,19 @@ $('.catDelUpd').click(function () {
         $(".Update").remove();
         $(".Delete").remove();
 
-        for (var i = 0; i < result.length; i++) {
-            var columnSub = $("<div></div>");
+        for (let i = 0; i < result.length; i++) {
+            let columnSub = $("<div></div>");
             columnSub.addClass("columnSub");
 
-            var CategoryID = $("<div></div>");
+            let CategoryID = $("<div></div>");
             CategoryID.text(result[i].CategoryID);
             CategoryID.addClass("ColumnSubText");
 
-            var CategoryName = $("<div></div>");
+            let CategoryName = $("<div></div>");
             CategoryName.text(result[i].CategoryName);
             CategoryName.addClass("ColumnSubText");
 
-            var Update = $("<div></div>");
+            let Update = $("<div></div>");
             Update.text("Update");
             Update.addClass("CategoryID Update");
             Update.on("click", function () {
@@ -155,7 +155,7 @@ $('.catDelUpd').click(function () {
 
             });
 
-            var Delete = $("<div></div>");
+            let Delete = $("<div></div>");
             Delete.text("Delete");
             Delete.addClass("CategoryID Delete");
             Delete.on("click", function () {
