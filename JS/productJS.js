@@ -3,12 +3,169 @@ export function getProducts() {
     let myData = new FormData();
     myData.append("entity", "products");
     myData.append("endpoint", "getAllProducts");
-    makeRequest("../api/recivers/productReciver.php", "GET", null, (result) => {
+    makeRequest("../API/recivers/productReciver.php", "GET", null, (result) => {
 
-        /* for (var i = 0; i < result.length; i++) {
-            console.log(result[i]);
-            document.getElementById("categories").innerHTML = result[i];
-        } */
+        let productContainer = document.getElementById("allProducts")
+
+        for (let i = 0; i < result.length; i++) {
+            const productBox = document.createElement("div");
+            productBox.classList = "productBox"
+
+            const productName = document.createElement('p');
+            productName.innerText = result[i].ProductName
+            productBox.append(productName)
+
+            const pic = document.createElement('img');
+            pic.src = result[i].CoverPicture
+            pic.classList = "productPic"
+            productBox.append(pic)
+
+            const price = document.createElement('p');
+            price.innerText = result[i].Price + " " + "kr"
+            productBox.append(price)
+
+            const button = document.createElement('button');
+            button.innerText = 'Köp'
+            button.classList = 'button'
+            productBox.append(button)
+
+            productContainer.append(productBox)
+        }
         console.log(result)
+    })
+}
+
+export function getXboxProducts() {
+    let myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "getXboxProducts");
+    makeRequest("../API/recivers/productReciver.php", "POST", myData, (result) => {
+        console.log(result)
+
+
+        let thisContainer = document.getElementById("allProducts")
+        thisContainer.innerText = ""
+
+        let xboxBox = document.getElementById("allProducts")
+        xboxBox.classList = "categoryClass"
+
+        for (let i = 0; i < result.length; i++) {
+            const xboxProductBox = document.createElement("div");
+            xboxProductBox.classList = "productBox"
+            console.log(result[i]);
+
+            const xboxProductName = document.createElement('p');
+            xboxProductName.innerText = result[i].ProductName
+            xboxProductBox.append(xboxProductName)
+
+            const xboxDescrip = document.createElement('p');
+            xboxDescrip.innerText = result[i].Description
+            xboxProductBox.append(xboxDescrip)
+
+            const xboxPic = document.createElement('img');
+            xboxPic.src = result[i].CoverPicture
+            xboxPic.classList = "productPic"
+            xboxProductBox.append(xboxPic)
+
+            const xboxPrice = document.createElement('p');
+            xboxPrice.innerText = result[i].Price + " " + "kr"
+            xboxProductBox.append(xboxPrice)
+
+            const xboxButton = document.createElement('button');
+            xboxButton.innerText = 'Köp'
+            xboxButton.classList = 'button'
+            xboxProductBox.append(xboxButton)
+
+            xboxBox.append(xboxProductBox)
+        }
+    })
+}
+export function getPS4Products() {
+    let myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "getPS4Products");
+    makeRequest("../API/recivers/productReciver.php", "POST", myData, (result) => {
+        console.log(result)
+
+        let thisContainerTo = document.getElementById("allProducts")
+        thisContainerTo.innerText = ""
+
+        let ps4Box = document.getElementById("allProducts")
+        ps4Box.classList = "categoryClass"
+
+        for (let i = 0; i < result.length; i++) {
+            const ps4ProductBox = document.createElement("div");
+            ps4ProductBox.classList = "productBox"
+            console.log(result[i]);
+
+            const ps4ProductName = document.createElement('p');
+            ps4ProductName.innerText = result[i].ProductName
+            ps4ProductBox.append(ps4ProductName)
+
+            const ps4Descrip = document.createElement('p');
+            ps4Descrip.innerText = result[i].Description
+            ps4ProductBox.append(ps4Descrip)
+
+            const ps4Pic = document.createElement('img');
+            ps4Pic.src = result[i].CoverPicture
+            ps4Pic.classList = "productPic"
+            ps4ProductBox.append(ps4Pic)
+
+            const ps4Price = document.createElement('p');
+            ps4Price.innerText = result[i].Price + " " + "kr"
+            ps4ProductBox.append(ps4Price)
+
+            const ps4Button = document.createElement('button');
+            ps4Button.innerText = 'Köp'
+            ps4Button.classList = 'button'
+            ps4ProductBox.append(ps4Button)
+
+            ps4Box.append(ps4ProductBox)
+        }
+    })
+}
+
+export function getPCProducts() {
+    let myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "getPCProducts");
+    makeRequest("../API/recivers/productReciver.php", "POST", myData, (result) => {
+        console.log(result)
+
+        let andThisAlso = document.getElementById("allProducts")
+        andThisAlso.innerText = ""
+
+        let pcBox = document.getElementById("allProducts")
+        pcBox.classList = "categoryClass"
+
+        for (let i = 0; i < result.length; i++) {
+            const pcProductBox = document.createElement("div");
+            pcProductBox.classList = "productBox"
+            console.log(result[i]);
+
+            const pcProductName = document.createElement('p');
+            pcProductName.innerText = result[i].ProductName
+            pcProductBox.append(pcProductName)
+
+            const pcDescrip = document.createElement('p');
+            pcDescrip.innerText = result[i].Description
+            pcProductBox.append(pcDescrip)
+
+            const pcPic = document.createElement('img');
+            pcPic.src = result[i].CoverPicture
+            pcPic.classList = "productPic"
+            pcProductBox.append(pcPic)
+
+            const pcPrice = document.createElement('p');
+            pcPrice.innerText = result[i].Price + " " + "kr"
+            pcProductBox.append(pcPrice)
+
+            const pcButton = document.createElement('button');
+            pcButton.innerText = 'Köp'
+            pcButton.classList = 'button'
+            pcProductBox.append(pcButton)
+
+            pcBox.append(pcProductBox)
+        }
     })
 }
