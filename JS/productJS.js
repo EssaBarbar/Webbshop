@@ -6,27 +6,37 @@ export function getProducts() {
     makeRequest("../API/recivers/productReciver.php", "GET", null, (result) => {
 
         let productContainer = document.getElementById("allProducts")
+        var cartList = JSON.parse(sessionStorage.getItem("cart"));
+
+        if (cartList) {
+            count(cartList.length);
+        }
 
         for (let i = 0; i < result.length; i++) {
+            const product = result[i]
             const productBox = document.createElement("div");
             productBox.classList = "productBox"
 
             const productName = document.createElement('p');
-            productName.innerText = result[i].ProductName
+            productName.innerText = product.ProductName
             productBox.append(productName)
 
             const pic = document.createElement('img');
-            pic.src = result[i].CoverPicture
+            pic.src = product.CoverPicture
             pic.classList = "productPic"
             productBox.append(pic)
 
             const price = document.createElement('p');
-            price.innerText = result[i].Price + " " + "kr"
+            price.innerText = product.Price + " " + "kr"
             productBox.append(price)
 
             const button = document.createElement('button');
             button.innerText = 'Köp'
             button.classList = 'button'
+            button.data = product
+            button.onclick = function () {
+                toCart(this.data)
+            }
             productBox.append(button)
 
             productContainer.append(productBox)
@@ -168,4 +178,24 @@ export function getPCProducts() {
             pcBox.append(pcProductBox)
         }
     })
+}
+
+var cartList = JSON.parse(sessionStorage.getItem("cart"));
+export function toCart(product) {
+    if (cartList) {
+        cartList.push(product);
+        count(cartList.length);
+    } else {
+        cartList = [];
+        cartList.push(product);
+    }
+    sessionStorage.setItem("cart", JSON.stringify(cartList));
+    console.log(cartList)
+}
+
+export function count(length) {
+    if (cartList) {
+        document.getElementById("counter").innerText = length;
+        console.log(length)
+    }
 }
