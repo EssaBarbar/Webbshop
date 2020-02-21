@@ -115,23 +115,24 @@ $('.catDelUpd').click(function() {
         $(".Update").remove();
         $(".Delete").remove();
 
-        for (var i = 0; i < result.length; i++) {
-            var columnSub = $("<div></div>");
+        for (let i = 0; i < result.length; i++) {
+            let columnSub = $("<div></div>");
             columnSub.addClass("columnSub");
 
-            var CategoryID = $("<div></div>");
+            let CategoryID = $("<div></div>");
             CategoryID.text(result[i].CategoryID);
             CategoryID.addClass("ColumnSubText");
 
-            var CategoryName = $("<div></div>");
+            let CategoryName = $("<div></div>");
             CategoryName.text(result[i].CategoryName);
             CategoryName.addClass("ColumnSubText");
 
-            var Update = $("<div></div>");
+            let Update = $("<div></div>");
             Update.text("Update");
             Update.addClass("CategoryID Update");
+
             Update.on("click", function() {
-                alert($(".ColumnSubText").eq(1).text());
+                alert($(".ColumnSubText").eq(3).text());
                 // alert($(".ColumnSubText").eq(0).text());
                 $('.Update').click(function() {
                     $(".bdcCatAdd").show(200);
@@ -155,15 +156,16 @@ $('.catDelUpd').click(function() {
 
             });
 
-            var Delete = $("<div></div>");
+
+
+            let Delete = $("<div></div>");
             Delete.text("Delete");
-            Delete.addClass("CategoryID Delete");
-            Delete.on("click", function() {
+            Delete.addClass("Delete");
 
-                alert($(this).text());
-                deleteCategory();
 
-            });
+            // Delete.on("click", function() {
+            //     console.log(columnSub.eq(0).querySelectorAll('.ColumnSub'));
+            // });
 
             columnSub.append(CategoryID);
             columnSub.append(CategoryName);
@@ -278,7 +280,7 @@ $('.mangeAdminDelUpp').click(function() {
 
 
 function deleteCategory() {
-    var myData = new FormData();
+    let myData = new FormData();
     myData.append("entity", "enjoy");
     myData.append("endpoint", "delAdminCategory");
     myData.append("CategoryID", querySelector(".CategoryID").innerHTML)
@@ -298,7 +300,7 @@ function deleteCategory() {
 
 
 export function addCategory(event) {
-    var myData = new FormData();
+    let myData = new FormData();
     myData.append("entity", "enjoy");
     myData.append("endpoint", "addAdminCategory");
     myData.append("CategoryName", document.querySelector('input[name=CategoryName]').value)
@@ -324,7 +326,7 @@ export function addCategory(event) {
 
 
 export function updateCategory(event) {
-    var myData = new FormData();
+    let myData = new FormData();
     myData.append("entity", "enjoy");
     myData.append("endpoint", "updateAdminCategory");
     myData.append("CategoryName", document.querySelector('input[name=CategoryName]').value)
