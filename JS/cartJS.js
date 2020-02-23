@@ -7,7 +7,6 @@ if (cartList && cartList.length) {
     count(cartList.length)
 
     /* let totalPrice = 0; */
-
     for (let i = 0; i < cartList.length; i++) {
         let product = cartList[i]
 
@@ -48,8 +47,7 @@ if (cartList && cartList.length) {
 export function removeItem(index) {
     var cartList = JSON.parse(sessionStorage.getItem("cart"))
     cartList.splice(index, 1)
-    cartList.id = "remove"
     sessionStorage.setItem("cart", JSON.stringify(cartList))
     document.getElementsByTagName("main")[0].innerHTML = ""
-
+    location.href = "http://localhost:3001/Cart.html"
 }

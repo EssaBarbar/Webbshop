@@ -75,18 +75,15 @@ a {
 
 #cartProducts {
     width: 100vw;
-    height: 100vh;
-    padding: 1rem;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
+    display: flex;
     text-align: center;
+    justify-content: space-evenly;
 }
 
 .productBox {
     color: black;
     font-family: monospace;
+    padding-left: 8em;
 }
 
 .productPic {
