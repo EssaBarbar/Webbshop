@@ -196,6 +196,5 @@ export function toCart(product) {
 export function count(length) {
     if (cartList) {
         document.getElementById("counter").innerText = length;
-        console.log(length)
     }
 }

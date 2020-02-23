@@ -1,42 +1,55 @@
 import { toCart } from "./productJS.js"
 import { count } from "./productJS.js"
 
-
 var cartList = JSON.parse(sessionStorage.getItem("cart"));
 if (cartList && cartList.length) {
     console.log(cartList)
-    /* let productContainer = document.getElementById("allProducts")
+    count(cartList.length)
 
-    for (let i = 0; i < result.length; i++) {
-        const product = result[i]
-        const productBox = document.createElement("div");
-        productBox.classList = "productBox"
+    /* let totalPrice = 0; */
 
-        const productName = document.createElement('p');
-        productName.innerText = product.ProductName
-        productBox.append(productName)
+    for (let i = 0; i < cartList.length; i++) {
+        let product = cartList[i]
 
-        const pic = document.createElement('img');
-        pic.src = product.CoverPicture
-        pic.classList = "productPic"
-        productBox.append(pic)
+        /* totalPrice += product.price */
 
-        const price = document.createElement('p');
-        price.innerText = product.Price + " " + "kr"
-        productBox.append(price)
+        let cartProductContainer = document.getElementById('cartProducts')
 
-        const button = document.createElement('button');
-        button.innerText = 'Köp'
-        button.classList = 'button'
-        button.data = product
-        button.onclick = function () {
-            toCart(this.data)
+        const cartBox = document.createElement('div')
+        cartBox.classList = 'productBox'
+
+        const ProductName = document.createElement('p')
+        ProductName.innerText = product.ProductName
+        cartBox.append(ProductName)
+
+        const CoverPicture = document.createElement('img')
+        CoverPicture.src = product.CoverPicture
+        CoverPicture.classList = 'productPic'
+        cartBox.append(CoverPicture)
+
+        const Price = document.createElement('p')
+        Price.innerText = product.Price + " " + "kr"
+        cartBox.append(Price)
+
+        const removeProduct = document.createElement('button')
+        removeProduct.classList = 'button'
+        removeProduct.innerText = "Ta bort"
+        removeProduct.data = i;
+        removeProduct.onclick = function () {
+            removeItem(this.data);
         }
-        productBox.append(button)
 
-        productContainer.append(productBox)
+        cartBox.append(removeProduct)
+
+        cartProductContainer.append(cartBox)
     }
-    console.log(result)
-})
-} */
+}
+
+export function removeItem(index) {
+    var cartList = JSON.parse(sessionStorage.getItem("cart"))
+    cartList.splice(index, 1)
+    cartList.id = "remove"
+    sessionStorage.setItem("cart", JSON.stringify(cartList))
+    document.getElementsByTagName("main")[0].innerHTML = ""
+
 }

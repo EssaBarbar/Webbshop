@@ -73,6 +73,27 @@ a {
     background-color: greenyellow;
 }
 
+#cartProducts {
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    text-align: center;
+}
+
+.productBox {
+    color: black;
+    font-family: monospace;
+}
+
+.productPic {
+    height: 7em;
+    object-fit: contain;
+}
+
 .footer {
     background-color: rgb(102, 123, 132);
     box-shadow: 2px 2px 20px 10px rgb(139, 161, 182) inset;
