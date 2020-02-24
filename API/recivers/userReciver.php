@@ -4,7 +4,7 @@ include("../handlers/userHandler.php");
 try {
     if ($_SERVER["REQUEST_METHOD"] =='GET') {
         if (!isset($_SESSION['inloggedUser'])) {
-            $result = getUsers();
+            $result = "Access denied";
             echo json_encode($result);
         } else if (isset($_SESSION['inloggedUser'])) {
                 echo json_encode("Welcome"." ".$_SESSION["inloggedUser"]." "."from Session");
