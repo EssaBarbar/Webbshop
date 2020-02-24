@@ -75,7 +75,8 @@ a {
     width: 100vw;
     display: flex;
     text-align: center;
-    justify-content: space-evenly;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .productBox {
@@ -87,6 +88,32 @@ a {
 .productPic {
     height: 7em;
     object-fit: contain;
+}
+
+#checkBox {
+    width: 100vw;
+    height: 30vh;
+    text-align: start;
+    padding-left: 8em;
+}
+
+.shipContainer {
+    padding-top: 10em;
+    font-family: monospace;
+}
+
+.totalText {
+    font-family: monospace;
+    margin: 0;
+    padding-top: 1em;
+    padding-left: 7px;
+    padding-bottom: 1em;
+}
+
+.buyText {
+    font-size: 4em;
+    font-family: monospace;
+    padding-left: 15px;
 }
 
 .footer {
