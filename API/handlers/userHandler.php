@@ -24,12 +24,15 @@ function getUsers()
     
 };
 function loginUser($userName, $password) {
+    error_log('test');
     $user = new User();
     $allUsers = $user->fetchAll();
     for ($i=0; $i <= count($allUsers); $i++) {
-        if ($userName === $allUsers[$i]["FirstName"] && $password === $allUsers[$i]["Password"]){
-            $_SESSION["inloggedUser"] = $userName;
-            return "Welcome"." ".$allUsers[$i]["FirstName"];
+        if ($userName === $allUsers[$i]["Email"]) {
+            if (password_verify($password, $allUsers[$i]["Password"])) {
+                $_SESSION["inloggedUser"] = $userName;
+                return "Welcome"." ".$allUsers[$i]["FirstName"];
+            }
         }
     };
 
