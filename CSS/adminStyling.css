@@ -17,6 +17,7 @@ body {
     font-weight: bold;
     margin-top: 4px;
     width: 20%;
+    text-decoration: none;
 }
 
 #adminName {

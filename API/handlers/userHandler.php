@@ -24,17 +24,19 @@ function getUsers()
     
 };
 function loginUser($userName, $password) {
+    error_log('test');
     $user = new User();
     $allUsers = $user->fetchAll();
     for ($i=0; $i <= count($allUsers); $i++) {
-        if ($userName === $allUsers[$i]["FirstName"] && $password === $allUsers[$i]["Password"]){
-            $_SESSION["inloggedUser"] = $userName;
-            return "Welcome"." ".$allUsers[$i]["FirstName"];
-        }else if ($userName != $allUsers[$i]["FirstName"] && $password != $allUsers[$i]["Password"]){
-            $_SESSION["inloggedUser"] = $userName;
-            return "Wrong Username or passwords";
-        };
+        if ($userName === $allUsers[$i]["Email"]) {
+            if (password_verify($password, $allUsers[$i]["Password"])) {
+                $_SESSION["inloggedUser"] = $userName;
+                return "Welcome"." ".$allUsers[$i]["FirstName"];
+            }
+        }
     };
+
+    return "Wrong Username or passwords";
 }
 function newsbtn($firstname, $lastname, $email)
 {

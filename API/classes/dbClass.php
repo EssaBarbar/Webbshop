@@ -19,14 +19,9 @@ class Database {
     }
     
     public function runQuery($query, $inputArray = null) {
-        try {
-            $statement = $this->connection->prepare($query);
-            $statement->execute($inputArray);
-            return $statement->fetchALL(PDO::FETCH_ASSOC);
-        }  catch(\PDOException $e) {
-            error_log($e);
-            throw new Exception("Request not found", "501");
-        }
+        $statement = $this->connection->prepare($query);
+        $statement->execute($inputArray);
+        return $statement->fetchALL(PDO::FETCH_ASSOC);
     }
 }
 

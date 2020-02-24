@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/77e9819b86.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./CSS/adminStyling.css">
-    <script defer type="module" src="./JS/app.js"></script>
+    <script defer type="module" src="./JS/appJS.js"></script>
     <script defer type="module" src="./JS/mainJS.js"></script>
     <title>Admin interface</title>
 </head>
@@ -15,7 +15,9 @@
 
 <body>
     <header>
-        <div class="logo">ENJOY</div>
+        <a style="text-decoration: none;" href="./start.html">
+            <div class="logo">ENJOY</div>
+        </a>
         <div id="adminName">Bara Abdullatif</div>
         <div id="logout"><i class="fas fa-sign-out-alt"></i></div>
     </header>
@@ -67,12 +69,15 @@
 
                             <div class="row">
                                 <div class="label-left">Category Name</div>
-                                <input name="CategoryName" type="text" id="CategoryName" tabindex="1" placeholder="Category Name">
+                                <input name="CategoryName" type="text" id="CategoryName" tabindex="1"
+                                    placeholder="Category Name">
                             </div>
 
                             <div class="rowButton">
-                                <input name="adminCategory" type="button" id="button" class="AddAdminCategory" tabindex="2" value="Add Category">
-                                <input name="adminCategory" type="button" id="button" class="updateAdminCategory" tabindex="2" value="Update Category">
+                                <input name="adminCategory" type="button" id="button" class="AddAdminCategory"
+                                    tabindex="2" value="Add Category">
+                                <input name="adminCategory" type="button" id="button" class="updateAdminCategory"
+                                    tabindex="2" value="Update Category">
                             </div>
 
                         </div>
@@ -120,7 +125,8 @@
 
                                 <div class="row">
                                     <div class="label-left">Category Name</div>
-                                    <select name="CategoryName" id="CategoryName" tabindex="1" placeholder="Category Name">
+                                    <select name="CategoryName" id="CategoryName" tabindex="1"
+                                        placeholder="Category Name">
                                         <option value="AddCategory">Choice Category</option>
                                         <option value="PC">PC</option>
                                         <option value="X-Box">X-Box</option>
@@ -130,12 +136,14 @@
 
                                 <div class="row">
                                     <div class="label-left">Product Name</div>
-                                    <input name="ProductName" type="text" id="ProductName" tabindex="2" placeholder="Category Name">
+                                    <input name="ProductName" type="text" id="ProductName" tabindex="2"
+                                        placeholder="Category Name">
                                 </div>
 
                                 <div class="row">
                                     <div class="label-left">Unit In Stock</div>
-                                    <input name="UnitInStock" type="text" id="UnitInStock" tabindex="3" placeholder="Unit In Stock">
+                                    <input name="UnitInStock" type="text" id="UnitInStock" tabindex="3"
+                                        placeholder="Unit In Stock">
                                 </div>
 
                                 <div class="row">
@@ -145,16 +153,19 @@
 
                                 <div class="row">
                                     <div class="label-left">Product Name</div>
-                                    <input name="Description" type="text" id="Description" tabindex="5" placeholder="Description">
+                                    <input name="Description" type="text" id="Description" tabindex="5"
+                                        placeholder="Description">
                                 </div>
 
                                 <div class="row">
                                     <div class="rowButton">
-                                        <input name="CoverPicture" type="button" id="buttonAdd" tabindex="6" value="Add Cover Picture" onclick="">
+                                        <input name="CoverPicture" type="button" id="buttonAdd" tabindex="6"
+                                            value="Add Cover Picture" onclick="">
                                     </div>
 
                                     <div class="rowButton">
-                                        <input name="PNGPicture" type="button" id="buttonAdd" tabindex="7" value="Add PNG Picture" onclick="">
+                                        <input name="PNGPicture" type="button" id="buttonAdd" tabindex="7"
+                                            value="Add PNG Picture" onclick="">
                                     </div>
 
                                 </div>
@@ -173,7 +184,8 @@
                                     </div>
                                 </div>
                                 <div class="rowButton">
-                                    <input name="addCategory" type="button" id="button" tabindex="8" value="Add Category" onclick="">
+                                    <input name="addCategory" type="button" id="button" tabindex="8"
+                                        value="Add Category" onclick="">
                                 </div>
                             </div>
 
