@@ -6,7 +6,7 @@ if (cartList && cartList.length) {
     console.log(cartList)
     count(cartList.length)
 
-    let totalPrice = ""
+    let totalPrice = 0
 
     for (let i = 0; i < cartList.length; i++) {
         let product = cartList[i]
@@ -25,11 +25,10 @@ if (cartList && cartList.length) {
         CoverPicture.classList = 'productPic'
         cartBox.append(CoverPicture)
 
-        const Price = document.createElement('p')
-        Price.innerText = product.Price + " " + "kr"
+        const zz = document.createElement('p')
+        zz.innerText = product.Price + " " + "kr"
 
-        console.log(Price)
-        cartBox.append(Price)
+        cartBox.append(zz)
 
         const removeProduct = document.createElement('button')
         removeProduct.classList = 'button'
@@ -42,7 +41,8 @@ if (cartList && cartList.length) {
 
         cartProductContainer.append(cartBox)
     
-        totalPrice += parseFloat(product.Price)
+        totalPrice += Number(product.Price)
+        console.log(totalPrice)
     }
 
     let checkContainer = document.getElementById("checkBox")
@@ -55,7 +55,7 @@ if (cartList && cartList.length) {
     checkContainer.appendChild(priceText);
 }
 
-export function removeItem(index) {
+ export function removeItem(index) {
     let cartList = JSON.parse(sessionStorage.getItem("cart"))
     cartList.splice(index, 1)
     sessionStorage.setItem("cart", JSON.stringify(cartList))
