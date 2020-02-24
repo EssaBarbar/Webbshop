@@ -11,10 +11,8 @@ body {
 }
 
 main {
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
     flex: 1;
-    position: relative;
     background: rgb(217, 217, 224);
     box-shadow: 100px 2px 20px 10px rgb(139, 161, 182) inset;
 }
