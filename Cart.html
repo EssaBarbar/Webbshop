@@ -7,9 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cart</title>
     <link rel="stylesheet" href="./CSS/cartStyling.css">
+    <script src="https://kit.fontawesome.com/c9b461b663.js" crossorigin="anonymous"></script>
+    <script defer type="module" src="./JS/cartJS.js"></script>
+    <script defer type="module" src="./JS/mainJS.js"></script>
 </head>
 
 <body>
+    <header class="topnav">
+        <a href="./start.html">
+            <h1 class="title">Enjoy</h1>
+        </a>
+
+        <div id="authentication">
+            <p id="counter"></p>
+            <div class="cartIcon">
+                <a class="aIcon" href="./Cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="userIcon"><i class="fas fa-users"></i></div>
+            <input id="username" type="text" placeholder="username">
+            <input id="password" type="text" placeholder="password">
+            <button class="button">Submit</button>
+            <a href="./signupUser.html"><button class="button">Sign Up</button></a>
+        </div>
+
+        </div>
+    </header>
+    <main>
+        <div id="cartProducts">
+
+        </div>
+        <div id="checkBox">
+
+        </div>
+    </main>
+    <footer class="footer">
+        <div>
+            <h2 class="SubScribe">Subscribe Newsletter</h2>
+            <input type="text" placeholder="firstname">
+            <input type="text" placeholder="lastname">
+            <input type="text" placeholder="email">
+            <button id="newsbtn" class="button">Submit</button>
+        </div>
+    </footer>
     <a href="./checkout.html">go to checkout</a>
 </body>
 
