@@ -4,7 +4,7 @@ include("../handlers/userHandler.php");
 try {
     if ($_SERVER["REQUEST_METHOD"] =='GET') {
         if (!isset($_SESSION['inloggedUser'])) {
-            $result = getUsers();
+            $result = "Access denied";
             echo json_encode($result);
         } else if (isset($_SESSION['inloggedUser'])) {
                 echo json_encode("Welcome"." ".$_SESSION["inloggedUser"]." "."from Session");
@@ -13,11 +13,12 @@ try {
     else if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_POST["entity"] == "enjoy") {            
             if ($_POST["endpoint"] == "addUser") {
+                $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $result = signUpSubmit(
                     $_POST['firstname'],
                     $_POST['lastname'],
                     $_POST['email'],
-                    $_POST['password'],
+                    $hash,
                     $_POST['role']
                 );
                 echo json_encode($result);
