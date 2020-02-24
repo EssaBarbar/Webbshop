@@ -31,7 +31,14 @@ try {
                 // if ($result == NULL) {
                     // echo json_encode("WHYYYYYYY"); FRÅÅÅGAAAAAA
                 // } else echo json_encode($result);
-            }
+            }else if ($_POST["endpoint"] == "addSubscriber") {
+                $result = newsbtn(
+                    $_POST['firstname'],
+                    $_POST['lastname'],
+                    $_POST['email']
+                );
+                echo json_encode($result);
+            } 
             else {
                 throw new Exception("Not a valid endpoint", 501);
             }
