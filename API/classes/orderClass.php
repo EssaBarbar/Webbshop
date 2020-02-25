@@ -21,7 +21,12 @@ class Order {
 
 
     public function fetchAll() {
-        $query = "SELECT * FROM orders;";
+        $query = "SELECT ProductName, Price, CoverPicture FROM products
+        INNER JOIN order_details
+        ON order_details.ProductID = products.ProductID
+        INNER JOIN orders
+        ON orders.OrderID = order_details.OrderID
+        WHERE UserID = 2;";
         $result = $this->db->runQuery($query);
         return $result;
     }

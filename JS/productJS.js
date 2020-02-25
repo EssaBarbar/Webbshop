@@ -210,7 +210,7 @@ export function getPCProducts() {
     })
 }
 
-var cartList = JSON.parse(sessionStorage.getItem("cart"));
+var cartList = JSON.parse(localStorage.getItem("cart"));
 
 export function toCart(product) {
     if (cartList) {
@@ -220,7 +220,7 @@ export function toCart(product) {
         cartList = [];
         cartList.push(product);
     }
-    sessionStorage.setItem("cart", JSON.stringify(cartList));
+    localStorage.setItem("cart", JSON.stringify(cartList));
     console.log(cartList)
 }
 

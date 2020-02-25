@@ -1,7 +1,7 @@
 import { toCart } from "./productJS.js"
 import { count } from "./productJS.js"
 
-let cartList = JSON.parse(sessionStorage.getItem("cart"));
+let cartList = JSON.parse(localStorage.getItem("cart"));
 if (cartList && cartList.length) {
     console.log(cartList)
     count(cartList.length)
@@ -74,13 +74,14 @@ if (cartList && cartList.length) {
 }
 
 export function removeItem(index) {
-    let cartList = JSON.parse(sessionStorage.getItem("cart"))
+    let cartList = JSON.parse(localStorage.getItem("cart"))
     cartList.splice(index, 1)
-    sessionStorage.setItem("cart", JSON.stringify(cartList))
+    localStorage.setItem("cart", JSON.stringify(cartList))
     document.getElementsByTagName("main")[0].innerHTML = ""
     location.href = "./Cart.html"
 }
 
 function checkShipper() {
    alert("Fyll i frakt alternativ!")
+   location.href = "./mypages.html"
 }
