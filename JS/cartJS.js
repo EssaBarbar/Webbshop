@@ -26,13 +26,13 @@ if (cartList && cartList.length) {
         cartBox.append(CoverPicture)
 
         const zz = document.createElement('p')
-        zz.innerText = product.Price + " " + "kr"
+        zz.innerText = product.Price + " " + "SEK"
 
         cartBox.append(zz)
 
         const removeProduct = document.createElement('button')
         removeProduct.classList = 'button'
-        removeProduct.innerText = "Ta bort"
+        removeProduct.innerText = "Remove"
         removeProduct.data = i;
         removeProduct.onclick = function () {
             removeItem(this.data);
@@ -40,7 +40,7 @@ if (cartList && cartList.length) {
         cartBox.append(removeProduct)
 
         cartProductContainer.append(cartBox)
-    
+
         totalPrice += Number(product.Price)
         console.log(totalPrice)
     }
@@ -49,16 +49,38 @@ if (cartList && cartList.length) {
 
     let priceText = document.createElement("h2");
     priceText.innerText =
-        "Totalt" + " " + "pris:" + " " + totalPrice + " " + "kr";
+        "Total" + " " + "price:" + " " + totalPrice + " " + "SEK";
     priceText.classList = "totalText";
 
-    checkContainer.appendChild(priceText);
+    checkContainer.appendChild(priceText)
+
+    let finishButton = document.createElement("button")
+    finishButton.innerText = "Checkout"
+    finishButton.classList = "button"
+    finishButton.onclick = function() {
+        checkShipper()
+    }
+
+    checkContainer.appendChild(finishButton)
+
+}else {
+    let buyText = document.createElement("p")
+    buyText.classList = "buyText"
+    buyText.innerText = "You have no orders yet :)"
+
+    let container = document.getElementById("checkBox")
+
+    container.appendChild(buyText)
 }
 
- export function removeItem(index) {
+export function removeItem(index) {
     let cartList = JSON.parse(sessionStorage.getItem("cart"))
     cartList.splice(index, 1)
     sessionStorage.setItem("cart", JSON.stringify(cartList))
     document.getElementsByTagName("main")[0].innerHTML = ""
-    location.href = "http://localhost:3001/Cart.html"
+    location.href = "./Cart.html"
+}
+
+function checkShipper() {
+   alert("Fyll i frakt alternativ!")
 }

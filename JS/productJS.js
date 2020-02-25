@@ -26,11 +26,11 @@ export function getProducts() {
             productBox.append(pic)
 
             const price = document.createElement('p');
-            price.innerText = product.Price + " " + "kr"
+            price.innerText = product.Price + " " + "SEK"
             productBox.append(price)
 
             const button = document.createElement('button');
-            button.innerText = 'Köp'
+            button.innerText = 'Buy'
             button.classList = 'button'
             button.data = product
             button.onclick = function () {
@@ -83,11 +83,11 @@ export function getXboxProducts() {
             xboxProductBox.append(xboxPic)
 
             const xboxPrice = document.createElement('p');
-            xboxPrice.innerText = product.Price + " " + "kr"
+            xboxPrice.innerText = product.Price + " " + "SEK"
             xboxProductBox.append(xboxPrice)
 
             const xboxButton = document.createElement('button');
-            xboxButton.innerText = 'Köp'
+            xboxButton.innerText = 'Buy'
             xboxButton.classList = 'button'
             xboxButton.data = product
             xboxButton.onclick = function () {
@@ -137,11 +137,11 @@ export function getPS4Products() {
             ps4ProductBox.append(ps4Pic)
 
             const ps4Price = document.createElement('p');
-            ps4Price.innerText = product.Price + " " + "kr"
+            ps4Price.innerText = product.Price + " " + "SEK"
             ps4ProductBox.append(ps4Price)
 
             const ps4Button = document.createElement('button');
-            ps4Button.innerText = 'Köp'
+            ps4Button.innerText = 'Buy'
             ps4Button.classList = 'button'
             ps4Button.data = product
             ps4Button.onclick = function () {
@@ -192,11 +192,11 @@ export function getPCProducts() {
             pcProductBox.append(pcPic)
 
             const pcPrice = document.createElement('p');
-            pcPrice.innerText = product.Price + " " + "kr"
+            pcPrice.innerText = product.Price + " " + "SEK"
             pcProductBox.append(pcPrice)
 
             const pcButton = document.createElement('button');
-            pcButton.innerText = 'Köp'
+            pcButton.innerText = 'Buy'
             pcButton.classList = 'button'
             pcButton.data = product
             pcButton.onclick = function () {
