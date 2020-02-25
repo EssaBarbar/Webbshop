@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 include("../handlers/categoryHandler.php");
+
 try{
     if($_SERVER['REQUEST_METHOD'] === 'POST') {  
         if ($_POST["entity"] == "enjoy") {      
@@ -14,7 +15,7 @@ try{
     if($_SERVER['REQUEST_METHOD'] === 'POST') {  
         if ($_POST["entity"] == "enjoy") {      
             if ($_POST["endpoint"] == "delAdminCategory") {       
-                $result = delCategory();
+                $result = deleteCategory();
                 echo json_encode($result);
             }
         }
