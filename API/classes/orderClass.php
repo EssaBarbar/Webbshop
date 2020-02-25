@@ -1,4 +1,6 @@
 <?php
+include("../classes/dbClass.php");
+
 
 class Order {
     public $orderID;

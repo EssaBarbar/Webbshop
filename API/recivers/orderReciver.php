@@ -1,18 +1,26 @@
 <?php
 
+session_start();
+
+include("../handlers/orderHandler.php");
 try {
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if ($_POST["entity"] == "enjoy") {
-
-            if ($_POST["endpoint"] == "getOrders") {
-
-                include_once("./orderClass.php");
-
-                $database = new Database();
-                $result = $database->createOrder($_POST["newOrder"]);
+    if ($_SERVER["REQUEST_METHOD"] =='GET') {
+        if ($asd) {
+            echo json_encode($result);
+        } else if ($ss) {
+                echo json_encode();
+            } 
+    }
+    else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_POST["entity"] == "enjoy") {            
+            if ($_POST["endpoint"] == "") {
                 echo json_encode($result);
-            } else {
+            } else if($_POST["endpoint"] == "") {
+                echo json_encode($result);
+            }else if ($_POST["endpoint"] == "") {
+                echo json_encode($result);
+            } 
+            else {
                 throw new Exception("Not a valid endpoint", 501);
             }
         } else {

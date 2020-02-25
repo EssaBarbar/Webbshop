@@ -27,10 +27,6 @@ try {
                 $_POST['userName'],
                 $_POST['password']);
                 echo json_encode($result);
-
-                // if ($result == NULL) {
-                    // echo json_encode("WHYYYYYYY"); FRÅÅÅGAAAAAA
-                // } else echo json_encode($result);
             }else if ($_POST["endpoint"] == "addSubscriber") {
                 $result = newsbtn(
                     $_POST['firstname'],

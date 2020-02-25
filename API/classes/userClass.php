@@ -1,5 +1,5 @@
 <?php
-  include("../classes/dbClass.php");
+include("../classes/dbClass.php");
 
   class User {
     public $userId;
