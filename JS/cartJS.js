@@ -78,7 +78,7 @@ export function removeItem(index) {
     cartList.splice(index, 1)
     sessionStorage.setItem("cart", JSON.stringify(cartList))
     document.getElementsByTagName("main")[0].innerHTML = ""
-    location.href = "http://localhost:3001/Cart.html"
+    location.href = "./Cart.html"
 }
 
 function checkShipper() {
