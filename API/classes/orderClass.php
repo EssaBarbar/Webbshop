@@ -23,7 +23,7 @@ class Order {
 
 
     public function fetchAll() {
-        $query = "SELECT ProductName, Price, CoverPicture FROM products
+        $query = "SELECT * FROM products
         INNER JOIN order_details
         ON order_details.ProductID = products.ProductID
         INNER JOIN orders
