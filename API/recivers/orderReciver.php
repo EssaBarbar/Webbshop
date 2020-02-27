@@ -3,8 +3,9 @@
 session_start();
 
 include("../handlers/orderHandler.php");
+
 try {
-    if ($_SERVER["REQUEST_METHOD"] == 'GET') {
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $result = getOrders();
         echo json_encode($result);
     } else if ($_SERVER["REQUEST_METHOD"] == "POST") {

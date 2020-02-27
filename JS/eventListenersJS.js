@@ -2,6 +2,9 @@ import { signUpSubmit } from "./signupJS.js"
 import { getUsers } from "./adminJS.js"
 import { login } from "./loginJS.js"
 import { count } from "./productJS.js"
+import { getOrders } from "./mypagesJS.js"
+
+getOrders()
 
 export function addEventListener() {
     const signup = document.getElementById("signUpSubmit")

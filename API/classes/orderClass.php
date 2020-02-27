@@ -9,6 +9,7 @@ class Order {
     public $ShipperID;
     public $Recieved;
     public $Shipped;
+    public $db;
     
     function __construct($orderID = null, $userID = null, $OrderDate = null, $ShipperID = null, $Recieved = null, $Shipped = null) {
         $this->orderID = $orderID;
@@ -17,6 +18,7 @@ class Order {
         $this->ShipperID = $ShipperID;
         $this->Recieved = $Recieved;
         $this->Shipped = $Shipped;
+        $this->db = new Database();
     }
 
 
