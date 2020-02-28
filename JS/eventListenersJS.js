@@ -3,6 +3,7 @@ import { getUsers } from "./adminJS.js"
 import { login } from "./loginJS.js"
 import { count } from "./productJS.js"
 import { getOrders } from "./mypagesJS.js"
+import { receivedOrder } from "./mypagesJS.js"
 
 getOrders()
 
@@ -15,4 +16,6 @@ export function addEventListener() {
     loggain && loggain.addEventListener("click", login)
     const counter = document.getElementById("counter")
     counter && counter.addEventListener("load", count)
+    const received = document.getElementById("received")
+    received && received.addEventListener("input", receivedOrder)
 }

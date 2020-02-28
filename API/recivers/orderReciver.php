@@ -8,11 +8,15 @@ try {
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $result = getOrders();
         echo json_encode($result);
+
     } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_POST["entity"] == "enjoy") {
-            if ($_POST["endpoint"] == "") {
+            if ($_POST["endpoint"] == "receivedOrder") {
+                $result = receivedOrder( $_POST['Received']);
                 echo json_encode($result);
-            } else if ($_POST["endpoint"] == "") {
+
+            } else if ($_POST["endpoint"] == "shippedOrder") {
+                $result = shippedOrder($Shipped);
                 echo json_encode($result);
             } else if ($_POST["endpoint"] == "") {
                 echo json_encode($result);

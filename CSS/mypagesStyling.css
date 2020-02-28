@@ -10,15 +10,6 @@ body {
     margin: 0;
 }
 
-main {
-    max-width: 100vw;
-    max-height: 100vh;
-    justify-content: center;
-    flex: 1;
-    background: rgb(217, 217, 224);
-    box-shadow: 100px 2px 20px 10px rgb(139, 161, 182) inset;
-}
-
 .topnav {
     height: 50px;
     width: 100wv;
@@ -57,6 +48,15 @@ a {
     text-decoration-line: none;
 }
 
+main {
+    max-width: 100vw;
+    max-height: 100vh;
+    justify-content: center;
+    flex: 1;
+    background: rgb(217, 217, 224);
+    box-shadow: 100px 2px 20px 10px rgb(139, 161, 182) inset;
+}
+
 p {
     font-family: monospace;
     padding-left: 10px;
@@ -73,7 +73,19 @@ p {
     font-family: monospace;
 }
 
-#allProducts {
+#totalPrice {
+    font-family: monospace;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+#receivedOrders {
+    display: flex;
+    flex-direction: row;
+}
+
+#userProducts {
     max-width: 100vw;
     max-height: 100vh;
     display: flex;
@@ -101,94 +113,66 @@ p {
     justify-content: center;
 }
 
-#totalPrice {
-    font-family: monospace;
-    font-size: 2em;
-    margin: 0;
-    padding: 0;
-}
-
-#recivedOrders {
-   display: flex;
-   flex-direction: row;
-}
-
-h3 {
+#sendOrdersText {
     margin: 0;
     font-family: monospace;
     font-size: 15px;
 }
 
 @media screen and (max-width: 700px) and (min-width:400px) {
-    
     main {
         box-shadow: 0px 0px 20px 10px rgb(139, 161, 182) inset;
     }
-
     .topnav {
         padding: 10px;
     }
-
     .title {
         font-size: 25px;
     }
-
     #orderContainer {
-       padding: 30px;
+        padding: 30px;
     }
-
     #orders {
         font-size: 20px;
         margin: 0;
     }
-
     #totalPrice {
         font-size: 15px;
         padding-bottom: 10px;
     }
-
     #recivedOrders {
         padding: 10px;
     }
-
-    #allProducts {
+    #userProducts {
         padding: 10px;
     }
 }
 
 @media screen and (max-width: 400px) {
-
     main {
         box-shadow: 0px 0px 20px 10px rgb(139, 161, 182) inset;
     }
-
     .topnav {
         padding: 10px;
     }
-
     .title {
         font-size: 25px;
     }
-
     #orderContainer {
-       padding: 30px;
+        padding: 30px;
     }
-
     #orders {
         font-size: 20px;
         margin: 0;
     }
-
     #totalPrice {
         font-size: 15px;
         padding-bottom: 10px;
     }
-
     #recivedOrders {
         padding: 10px;
     }
-
-    #allProducts {
+    #userProducts {
         padding: 10px;
     }
 }

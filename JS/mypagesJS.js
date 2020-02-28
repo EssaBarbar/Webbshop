@@ -6,7 +6,7 @@ export function getOrders() {
     myData.append("endpoint", "getAllOrders");
     makeRequest("../API/recivers/orderReciver.php", "GET", null, (result) => {
 
-        let productContainer = document.getElementById("allProducts")
+        let productContainer = document.getElementById("userProducts")
 
         let totalPrice = 0
 
@@ -27,6 +27,14 @@ export function getOrders() {
             productContainer.append(productBox)
 
             totalPrice += Number(product.Price)
+
+            if (product.Shipped = "0") {
+                document.getElementById("sendOrdersText").innerText = "Your Orders Has Been Send! Weeeee :)"
+            } else if (product.Shipped = "0") {
+                document.getElementById("sendOrdersText").innerText = "Your Orders Has NOT Been Send Yet!"
+            }
+
+
         }
 
         let priceText = document.getElementById("totalPrice");
@@ -34,7 +42,26 @@ export function getOrders() {
             "Total" + " " + "price:" + " " + totalPrice + " " + "SEK";
 
         console.log(result)
-    }
+    })
+}
 
-    )
+export function receivedOrder() {
+    var myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "receivedOrder");
+    myData.append("Received", document.querySelector('input[name=received]').value)
+
+    makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
+        console.log(result)
+    })
+}
+
+export function shippedOrder() {
+    var myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "shippedOrder");
+
+    makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
+        console.log(result)
+    })
 }
