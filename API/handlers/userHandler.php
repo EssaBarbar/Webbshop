@@ -25,7 +25,6 @@ function getUsers()
     
 };
 function loginUser($email, $password) {
-    error_log('test');
     $user = new User();
     $allUsers = $user->fetchAll();
     for ($i=0; $i <= count($allUsers); $i++) {

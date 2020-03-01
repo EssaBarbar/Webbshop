@@ -35,12 +35,12 @@
     <main>
         <div id="cartProducts"></div>
         <div id="checkBox">
-            <div class="shipContainer">
-                <input type="submit" value="Select" name="Submit" id="shipperSubmit" class="button">
-                <input type="radio" name="ShippersOptions" value="DHL" id="DHL"> DHL
-                <input type="radio" name="ShippersOptions" value="Post" id="Post"> Post
-                <input type="radio" name="ShippersOptions" value="Online" id="Online"> Online-Code
-            </div>
+            <select id="shipper">
+                <option value="1">DHL</option>
+                <option value="2">Post</option>
+                <option value="3">Online</option>
+            </select>
+            <button id="checkout">Checkout</button>
         </div>
 
 
@@ -54,7 +54,6 @@
             <button id="newsbtn" class="button">Submit</button>
         </div>
     </footer>
-    <a href="./checkout.html">go to checkout</a>
 </body>
 
 </html>
