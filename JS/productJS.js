@@ -212,7 +212,7 @@ export function getPCProducts() {
 
 var cartList = JSON.parse(sessionStorage.getItem("cart"));
 
-export function toCart(product) {
+function toCart(product) {
     if (cartList) {
         cartList.push(product);
         count(cartList.length);
@@ -221,14 +221,12 @@ export function toCart(product) {
         cartList.push(product);
     }
     sessionStorage.setItem("cart", JSON.stringify(cartList));
-    console.log(cartList)
 }
 
 export function count(length) {
     if (cartList) {
         document.getElementById("counter").innerText = length;
-        console.log(length)
-    }if (length === 0) {
+    } if (length === 0) {
         document.getElementById("counter").innerText = "";
     }
 }

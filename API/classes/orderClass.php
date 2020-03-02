@@ -1,22 +1,24 @@
 <?php
-include("../classes/dbClass.php");
+require_once("../classes/dbClass.php");
 
 
 class Order {
-    public $orderID;
-    public $userID;
+    public $OrderID;
+    public $UserID;
     public $OrderDate;
     public $ShipperID;
     public $Recieved;
     public $Shipped;
+    public $db;
     
-    function __construct($orderID = null, $userID = null, $OrderDate = null, $ShipperID = null, $Recieved = null, $Shipped = null) {
-        $this->orderID = $orderID;
-        $this->userID = $userID;
+    function __construct($OrderID = null, $UserID = null, $OrderDate = null, $ShipperID = null, $Recieved = 0, $Shipped = 0) {
+        $this->OrderID = $OrderID;
+        $this->UserID = $UserID;
         $this->OrderDate = $OrderDate;
         $this->ShipperID = $ShipperID;
         $this->Recieved = $Recieved;
         $this->Shipped = $Shipped;
+        $this->db = new Database();
     }
 
 
@@ -26,35 +28,37 @@ class Order {
         return $result;
     }
     public function insert() {
-        $query = "INSERT INTO orders (userID, OrderDate, ShipperID, Recieved, Shipped)
-        VALUES(:userID, :OrderDate, :ShipperID, :Recieved, :Shipped);";
+        $query = "INSERT INTO orders (UserID, OrderDate, ShipperID, Recieved, Shipped)
+        VALUES(:UserID, :OrderDate, :ShipperID, :Recieved, :Shipped);";
         
-        $value = array(":OrderDate"=>$this->OrderDate, ":ShipperID"=>$this->ShipperID,
+        $value = array(":UserID"=>$this->UserID, ":OrderDate"=>$this->OrderDate, ":ShipperID"=>$this->ShipperID,
         ":Recieved"=>$this->Recieved, ":Shipped"=>$this->Shipped);
 
-        $result =$this->db->runQuery($query, $value);
+        $result =$this->db->runQueryAndGetID($query, $value);
         return $result;
     }
     public function update() {         
-        $query = "UPDATE orders SET orderID = :orderID, userID = :userID, OrderDate = :OrderDate, ShipperID = :ShipperID,
+        $query = "UPDATE orders SET OrderID = :OrderID, UserID = :UserID, OrderDate = :OrderDate, ShipperID = :ShipperID,
         Recieved = :Recieved, Shipped = :Shipped
-        WHERE orderID = :orderID;";
+        WHERE OrderID = :OrderID;";
 
-        $value = array(":userID"=>$this->userID, ":OrderDate"=>$this->OrderDate, ":ShipperID"=>$this->ShipperID,
+        $value = array(":UserID"=>$this->UserID, ":OrderDate"=>$this->OrderDate, ":ShipperID"=>$this->ShipperID,
         ":Recieved"=>$this->Recieved, ":Shipped"=>$this->Shipped, ":orderID"=>$this->orderID);
 
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
     public function delete() {
-        $query = "DELETE FROM orders WHERE orderID = :orderID;";
-        $value = array(":orderID"=>$this->orderID);
+        $query = "DELETE FROM orders WHERE OrderID = :OrderID;";
+        $value = array(":OrderID"=>$this->OrderID);
         $result =$this->db->runQuery($query);
         return $result;
     }
+
     public function flexFunction($flexQuery, $flexArray = null) {
         return $this->db->runQuery($flexQuery, $flexArray);
     }
+    
 }
 
 ?>
