@@ -21,21 +21,22 @@ export function getProducts() {
             productName.classList = "prodName"
             productBox.append(productName)
 
-            const pic = document.createElement('img');
+            const pic = document.createElement('img');           
             pic.src = product.CoverPicture
-            pic.classList = "productPic"
+            pic.classList = "productPic"            
             productBox.append(pic)
+            
+            const productDescp = document.createElement('div');
+            productDescp.innerText = product.Description
+            productDescp.classList ="prodDescb"
+            productBox.append(productDescp)
 
             const price = document.createElement('div');
             price.innerText = product.Price + " " + "SEK"
             price.classList = "productPris"
             productBox.append(price)
 
-            const productDescp = document.createElement('div');
-            productDescp.innerText = product.Description
-            productDescp.classList ="prodDescb"
-            productBox.append(productDescp)
-
+          
             const button = document.createElement('button');
             button.innerText = 'Buy'
             button.classList = 'shopBtn'
