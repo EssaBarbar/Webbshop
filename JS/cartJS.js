@@ -1,9 +1,13 @@
-import { toCart } from "./productJS.js"
 import { count } from "./productJS.js"
+import { makeRequest } from "./requestHandler.js"
 
-let cartList = JSON.parse(localStorage.getItem("cart"));
+
+const submitOrder = document.getElementById("checkout")
+submitOrder && submitOrder.addEventListener("click", checkout)
+
+let cartList = JSON.parse(sessionStorage.getItem("cart"));
+let cartProductContainer = document.getElementById('cartProducts')
 if (cartList && cartList.length) {
-    console.log(cartList)
     count(cartList.length)
 
     let totalPrice = 0
@@ -11,9 +15,8 @@ if (cartList && cartList.length) {
     for (let i = 0; i < cartList.length; i++) {
         let product = cartList[i]
 
-        let cartProductContainer = document.getElementById('cartProducts')
 
-        const cartBox = document.createElement('div')
+        let cartBox = document.createElement('div')
         cartBox.classList = 'productBox'
 
         const ProductName = document.createElement('p')
@@ -25,10 +28,10 @@ if (cartList && cartList.length) {
         CoverPicture.classList = 'productPic'
         cartBox.append(CoverPicture)
 
-        const zz = document.createElement('p')
-        zz.innerText = product.Price + " " + "SEK"
+        const price = document.createElement('p')
+        price.innerText = product.Price + " " + "SEK"
 
-        cartBox.append(zz)
+        cartBox.append(totalPrice)
 
         const removeProduct = document.createElement('button')
         removeProduct.classList = 'button'
@@ -42,7 +45,6 @@ if (cartList && cartList.length) {
         cartProductContainer.append(cartBox)
 
         totalPrice += Number(product.Price)
-        console.log(totalPrice)
     }
 
     let checkContainer = document.getElementById("checkBox")
@@ -54,16 +56,7 @@ if (cartList && cartList.length) {
 
     checkContainer.appendChild(priceText)
 
-    let finishButton = document.createElement("button")
-    finishButton.innerText = "Checkout"
-    finishButton.classList = "button"
-    finishButton.onclick = function() {
-        checkShipper()
-    }
-
-    checkContainer.appendChild(finishButton)
-
-}else {
+} else {
     let buyText = document.createElement("p")
     buyText.classList = "buyText"
     buyText.innerText = "You have no orders yet :)"
@@ -80,8 +73,60 @@ export function removeItem(index) {
     document.getElementsByTagName("main")[0].innerHTML = ""
     location.href = "./Cart.html"
 }
+export function checkout(event) {
+    let shippers = document.getElementById("shipper");
+    let selectedShipper = shippers.options[shippers.selectedIndex].value;
 
-function checkShipper() {
-   alert("Fyll i frakt alternativ!")
-   location.href = "./mypages.html"
+    const date = new Date();
+    let dd = date.getDate();
+
+    let mm = date.getMonth() + 1;
+    const yyyy = date.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    const orderDate = yyyy + '-' + mm + '-' + dd;
+
+    const ProductIDAndQuantityInCart = []
+
+    for (let i = 0; i < cartList.length; i++) {
+
+        let prod = cartList[i]
+        let shouldAdd = true
+
+        for (let z = 0; z < ProductIDAndQuantityInCart.length; z++) {
+
+            if (ProductIDAndQuantityInCart[z][0] == prod.ProductID) {
+                ProductIDAndQuantityInCart[z][1]++
+                shouldAdd = false
+            }
+
+        }
+
+        if (shouldAdd) {
+            ProductIDAndQuantityInCart.push([prod.ProductID, 1, prod.Price])
+        }
+
+    }
+    let myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "addOrder");
+    myData.append("orderDate", orderDate)
+    myData.append("ShipperID", selectedShipper)
+    myData.append("orderProducts", ProductIDAndQuantityInCart)
+
+    makeRequest("../API/recivers/OrderReciver.php", "POST", myData, (result) => {
+        if (result == true) {
+            sessionStorage.removeItem("cart")
+            cartProductContainer.innerHTML = ""
+            location.reload()
+        } else {
+            alert(result)
+        }
+    }
+    )
 }

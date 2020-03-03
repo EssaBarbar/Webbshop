@@ -16,22 +16,30 @@ export function getProducts() {
             const productBox = document.createElement("div");
             productBox.classList = "productBox"
 
-            const productName = document.createElement('p');
+            const productName = document.createElement('div');
             productName.innerText = product.ProductName
+            productName.classList = "prodName"
             productBox.append(productName)
 
-            const pic = document.createElement('img');
+            const pic = document.createElement('img');           
             pic.src = product.CoverPicture
-            pic.classList = "productPic"
+            pic.classList = "productPic"            
             productBox.append(pic)
+            
+            const productDescp = document.createElement('div');
+            productDescp.innerText = product.Description
+            productDescp.classList ="prodDescb"
+            productBox.append(productDescp)
 
-            const price = document.createElement('p');
+            const price = document.createElement('div');
             price.innerText = product.Price + " " + "SEK"
+            price.classList = "productPris"
             productBox.append(price)
 
+          
             const button = document.createElement('button');
             button.innerText = 'Buy'
-            button.classList = 'button'
+            button.classList = 'shopBtn'
             button.data = product
             button.onclick = function () {
                 toCart(this.data)
@@ -57,8 +65,7 @@ export function getXboxProducts() {
         thisContainer.innerText = ""
 
         let xboxBox = document.getElementById("allProducts")
-        xboxBox.classList = "categoryClass"
-
+        
         if (cartList) {
             count(cartList.length);
         }
@@ -69,26 +76,29 @@ export function getXboxProducts() {
             xboxProductBox.classList = "productBox"
             console.log(result[i]);
 
-            const xboxProductName = document.createElement('p');
+            const xboxProductName = document.createElement('div');
             xboxProductName.innerText = product.ProductName
+            xboxProductName.classList = "prodName"
             xboxProductBox.append(xboxProductName)
-
-            const xboxDescrip = document.createElement('p');
-            xboxDescrip.innerText = product.Description
-            xboxProductBox.append(xboxDescrip)
 
             const xboxPic = document.createElement('img');
             xboxPic.src = product.CoverPicture
             xboxPic.classList = "productPic"
             xboxProductBox.append(xboxPic)
 
-            const xboxPrice = document.createElement('p');
+            const xboxPrice = document.createElement('div');
             xboxPrice.innerText = product.Price + " " + "SEK"
+            xboxPrice.classList = "productPris"
             xboxProductBox.append(xboxPrice)
+
+            const xboxDescrip = document.createElement('div');
+            xboxDescrip.innerText = product.Description
+            xboxDescrip.classList ="prodDescb"
+            xboxProductBox.append(xboxDescrip)
 
             const xboxButton = document.createElement('button');
             xboxButton.innerText = 'Buy'
-            xboxButton.classList = 'button'
+            xboxButton.classList = 'shopBtn'
             xboxButton.data = product
             xboxButton.onclick = function () {
                 toCart(this.data)
@@ -111,7 +121,7 @@ export function getPS4Products() {
         thisContainerTo.innerText = ""
 
         let ps4Box = document.getElementById("allProducts")
-        ps4Box.classList = "categoryClass"
+       /*  ps4Box.classList = "categoryClass" */
 
         if (cartList) {
             count(cartList.length);
@@ -123,12 +133,14 @@ export function getPS4Products() {
             ps4ProductBox.classList = "productBox"
             console.log(result[i]);
 
-            const ps4ProductName = document.createElement('p');
+            const ps4ProductName = document.createElement('div');
             ps4ProductName.innerText = product.ProductName
+            ps4ProductName.classList = "prodName"
             ps4ProductBox.append(ps4ProductName)
 
-            const ps4Descrip = document.createElement('p');
+            const ps4Descrip = document.createElement('div');
             ps4Descrip.innerText = product.Description
+            ps4Descrip.classList ="prodDescb"
             ps4ProductBox.append(ps4Descrip)
 
             const ps4Pic = document.createElement('img');
@@ -136,13 +148,14 @@ export function getPS4Products() {
             ps4Pic.classList = "productPic"
             ps4ProductBox.append(ps4Pic)
 
-            const ps4Price = document.createElement('p');
+            const ps4Price = document.createElement('div');
             ps4Price.innerText = product.Price + " " + "SEK"
+            ps4Price.classList = "productPris"
             ps4ProductBox.append(ps4Price)
 
             const ps4Button = document.createElement('button');
             ps4Button.innerText = 'Buy'
-            ps4Button.classList = 'button'
+            ps4Button.classList = 'shopBtn'
             ps4Button.data = product
             ps4Button.onclick = function () {
                 toCart(this.data)
@@ -165,8 +178,7 @@ export function getPCProducts() {
         let andThisAlso = document.getElementById("allProducts")
         andThisAlso.innerText = ""
 
-        let pcBox = document.getElementById("allProducts")
-        pcBox.classList = "categoryClass"
+        let pcBox = document.getElementById("allProducts")       
 
         if (cartList) {
             count(cartList.length);
@@ -178,12 +190,14 @@ export function getPCProducts() {
             pcProductBox.classList = "productBox"
             console.log(result[i]);
 
-            const pcProductName = document.createElement('p');
+            const pcProductName = document.createElement('div');
             pcProductName.innerText = product.ProductName
+            pcProductName.classList = "prodName"
             pcProductBox.append(pcProductName)
 
-            const pcDescrip = document.createElement('p');
+            const pcDescrip = document.createElement('div');
             pcDescrip.innerText = product.Description
+            pcDescrip.classList ="prodDescb"
             pcProductBox.append(pcDescrip)
 
             const pcPic = document.createElement('img');
@@ -191,13 +205,14 @@ export function getPCProducts() {
             pcPic.classList = "productPic"
             pcProductBox.append(pcPic)
 
-            const pcPrice = document.createElement('p');
+            const pcPrice = document.createElement('div');
             pcPrice.innerText = product.Price + " " + "SEK"
+            pcPrice.classList = "productPris"
             pcProductBox.append(pcPrice)
 
             const pcButton = document.createElement('button');
             pcButton.innerText = 'Buy'
-            pcButton.classList = 'button'
+            pcButton.classList = 'shopBtn'
             pcButton.data = product
             pcButton.onclick = function () {
                 toCart(this.data)
@@ -212,7 +227,7 @@ export function getPCProducts() {
 
 var cartList = JSON.parse(localStorage.getItem("cart"));
 
-export function toCart(product) {
+function toCart(product) {
     if (cartList) {
         cartList.push(product);
         count(cartList.length);
@@ -220,15 +235,13 @@ export function toCart(product) {
         cartList = [];
         cartList.push(product);
     }
-    localStorage.setItem("cart", JSON.stringify(cartList));
-    console.log(cartList)
+    sessionStorage.setItem("cart", JSON.stringify(cartList));
 }
 
 export function count(length) {
     if (cartList) {
         document.getElementById("counter").innerText = length;
-        console.log(length)
-    }if (length === 0) {
+    } if (length === 0) {
         document.getElementById("counter").innerText = "";
     }
 }

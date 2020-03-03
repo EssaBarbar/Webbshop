@@ -2,40 +2,33 @@
 
 session_start();
 
-include("../classes/orderClass.php");
+require_once("../classes/orderClass.php");
+require_once("../handlers/orderDetailsHandler.php");
 
-function getOrders() {
-    $order = new Order();
-    $result = $order->fetchAll();
-    return $result;
-};
 
-function receivedOrder($Received)
-{
-    $received = new Order(null, null, null, null, null, $Received, null);
-    $result = $received->update();
-    return "done";
+ function addorder($UserID, $OrderDate, $ShipperID, $orderProducts) {
+        $order = new Order(null, $UserID, $OrderDate, $ShipperID,);
+        $orderIdInOrders = $order->insert();
 
-    if (empty($result)) {
-        throw new Exception("No user found", 404);
-        exit;
-    }
-    
-    return "no data was sent";
-};
 
-function shippedOrder($Shipped)
-{
-    $shipped = new Order(null, null, null, null, null, null, $Shipped);
-    $result = $shipped->update();
-    return "alsoDone";
+        $newOrder = array();
+        $explodedArray = explode(',',$orderProducts);
+        $z = 2; 
+        for ($i = 0; $i < count($explodedArray); $i++) {
+               if($i == $z) {
+                      $z= $z + 3;
+              } else {
+                     $oneproduct = array();
+                     $oneproduct = array("id"=>$explodedArray[$z - 2],"qauntity"=>$explodedArray[$z - 1],
+                     "price"=>$explodedArray[$z]);
+                     $resultFromDetails = addOrderDetails($orderIdInOrders, $explodedArray[$z - 2], $explodedArray[$z - 1], $explodedArray[$z]);
+                     array_push($newOrder, $oneproduct);
+                     unset($oneproduct);
+                     $i++;
+              }
+       }
 
-    if (empty($result)) {
-        throw new Exception("No user found", 404);
-        exit;
-    }
-    
-    return "no data was sent";
+       return true;
 };
 
 ?>
