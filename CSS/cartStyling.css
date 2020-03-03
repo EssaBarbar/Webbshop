@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
 body {
@@ -8,28 +10,43 @@ body {
     flex-direction: column;
     margin: 0;
     flex-wrap: wrap;
+   
 }
 
 main {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    flex-wrap: wrap;
     text-align: center;
     flex: 1;
-    background: rgb(217, 217, 224);
-    box-shadow: 100px 2px 20px 10px rgb(139, 161, 182) inset;
+    background: #001F3F;
+    box-shadow: rgb(94, 96, 97) 100px 2px 20px 10px inset;
+    margin: 0 auto;
+    padding: 0 1.5em;
+    padding-top: 95px;
+    padding-bottom: 20px;
+    top: 80px;
+    
 }
 
 .topnav {
-    height: 50px;
-    background-color: rgb(188, 200, 218);
+    background-color: #00389d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
     padding: 40px;
-    box-shadow: 2px 2px 20px 10px rgb(139, 161, 182) inset;
+    color: #FFF;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    height: 50px;
+    width: 100%;
 }
 
 .title {
     font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:  'Bowlby One SC', cursive;
+    color: #FFF;
 }
 
 #counter {
@@ -54,6 +71,7 @@ main {
 #authentication {
     display: flex;
     align-items: center;
+    
 }
 
 a {
@@ -68,11 +86,12 @@ a {
     margin-left: 10px;
     border-radius: 10px;
     font-family: fantasy;
-    background-color: greenyellow;
+    background-color:cyan;
 }
 
 #cartProducts {
     width: 100vw;
+    margin: 10px;
     display: flex;
     text-align: center;
     padding-left: 10px;
@@ -117,8 +136,8 @@ a {
 }
 
 .footer {
-    background-color: rgb(102, 123, 132);
-    box-shadow: 2px 2px 20px 10px rgb(139, 161, 182) inset;
+    background-color: #00389d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -126,5 +145,35 @@ a {
     margin: 0;
     font-weight: bold;
     font-family: cursive;
-    color: greenyellow;
+    color: #FFF;
+    z-index: 1;
+}
+@media only screen and (max-width: 500px) {
+    .topnav {
+        height: 100px;
+    }
+    #authentication {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 12px;
+ 
+    }
+}
+@media only screen and (max-width: 900px) {
+    .topnav {
+        height: 100px;
+    }
+    #authentication {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 12px;
+ 
+    }
+
 }
