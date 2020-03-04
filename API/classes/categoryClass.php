@@ -23,10 +23,15 @@ class Category {
         $value = array(":CategoryName"=>$this->CategoryName);
         $result =$this->db->runQuery($query, $value);
     }
+    
     public function delete() {         
         $query = "DELETE FROM categories WHERE CategoryID = :CategoryID;";
         $value = array(":CategoryID"=>$this->CategoryID);
-        $result =$this->db->runQuery($query);
+        $result =$this->db->runQuery($query, $value);        
+        if (!$result){
+            throw new Exception("No products to delete", 500);
+            exit;
+        }
         return $result;
     }
     

@@ -157,7 +157,9 @@ $('.catDelUpd').click(function() {
             Delete.addClass("Delete");
 
             Delete.on("click", function() {
+                deleteCategory(result[i].CategoryID)
                 console.log(result[i].CategoryID);
+
             });
 
             columnSub.append(CategoryID);
@@ -273,24 +275,19 @@ $('.mangeAdminDelUpp').click(function() {
 
 
 function deleteCategory(id) {
+
     let myData = new FormData();
-    myData.append("entity", "enjoy");
     myData.append("endpoint", "delAdminCategory");
     myData.append("CategoryID", id)
+    console.log("1")
     makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
+        console.log("1")
         alert("fdsf")
-        if (result) {
-            $(".message").text("The category was Deleted successfully");
-            $(".message").css('color', 'blue');
-            $('#message').fadeIn(3000);
-            $('#message').fadeOut(2000);
-            $('#CategoryName').text("");
-        }
+
         console.log(result);
 
     });
 }
-
 
 export function addCategory(event) {
     let myData = new FormData();

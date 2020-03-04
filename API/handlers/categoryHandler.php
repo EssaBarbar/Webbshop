@@ -14,7 +14,6 @@ function deleteCategory() {
 };
 
 
-
 function addCategory($categoryName)
 {
     $category = new Category(null, $categoryName);
