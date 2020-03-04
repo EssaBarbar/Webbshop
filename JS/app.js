@@ -132,7 +132,7 @@ $('.catDelUpd').click(function() {
             Update.addClass("CategoryID Update");
 
             Update.on("click", function() {
-                alert($(".ColumnSubText").eq(3).text());
+                // alert($(".ColumnSubText").eq(3).text());
                 // alert($(".ColumnSubText").eq(0).text());
                 $('.Update').click(function() {
                     $(".bdcCatAdd").show(200);
@@ -147,25 +147,18 @@ $('.catDelUpd').click(function() {
                     $(".bdcMangeAdminDelUpp").hide(200);
                     $(".updateAdminCategory").show();
                     $(".AddAdminCategory").hide();
-                    alert()
                     $("#CategoryName").value = $(".ColumnSubText").eq(1).text();
-
-
                 });
-
-
             });
-
-
 
             let Delete = $("<div></div>");
             Delete.text("Delete");
+
             Delete.addClass("Delete");
 
-
-            // Delete.on("click", function() {
-            //     console.log(columnSub.eq(0).querySelectorAll('.ColumnSub'));
-            // });
+            Delete.on("click", function() {
+                console.log(result[i].CategoryID);
+            });
 
             columnSub.append(CategoryID);
             columnSub.append(CategoryName);
@@ -279,11 +272,11 @@ $('.mangeAdminDelUpp').click(function() {
 });
 
 
-function deleteCategory() {
+function deleteCategory(id) {
     let myData = new FormData();
     myData.append("entity", "enjoy");
     myData.append("endpoint", "delAdminCategory");
-    myData.append("CategoryID", querySelector(".CategoryID").innerHTML)
+    myData.append("CategoryID", id)
     makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
         alert("fdsf")
         if (result) {
