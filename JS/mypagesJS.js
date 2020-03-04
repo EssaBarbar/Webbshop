@@ -1,67 +1,126 @@
 import { makeRequest } from "./requestHandler.js"
 
-export function getOrders() {
+
+
+
+window.onload = init()
+
+function init() {
+    loadOrdersOnload()
+
+}
+let resultFromGetOrders
+function loadOrdersOnload() {
     let myData = new FormData();
-    myData.append("entity", "orders");
-    myData.append("endpoint", "getAllOrders");
-    makeRequest("../API/recivers/orderReciver.php", "GET", null, (result) => {
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "getOrdersToMyPages");
+    myData.append("inloggedUserId", sessionStorage.getItem("inloggedUserId"));
+    makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
+        resultFromGetOrders = result
+        renderOrdersData()
+    })
+}
 
-        let productContainer = document.getElementById("userProducts")
+function renderOrdersData() {
 
-        let totalPrice = 0
+    let arrayWithAllOrders = []
+    let arrayForOneOrder = []
 
-        for (let i = 0; i < result.length; i++) {
-            const product = result[i]
-            const productBox = document.createElement("div");
-            productBox.classList = "productBox"
+    for (let i = 0; i < resultFromGetOrders.length; i++) {
+        let order = resultFromGetOrders[i]
+        let orderTotalPricebefore = 0
 
-            const productName = document.createElement('p');
-            productName.innerText = product.ProductName
-            productBox.append(productName)
+        let shouldPush = true
+        let theSpecificInfoForProductOfOrder = {}
 
-            const pic = document.createElement('img');
-            pic.src = product.CoverPicture
-            pic.classList = "productPic"
-            productBox.append(pic)
+        for (let j = 0; j < arrayWithAllOrders.length; j++) {
+            if (order.OrderID == arrayWithAllOrders[j][0].OrderID) {
+                orderTotalPricebefore = arrayWithAllOrders[j][0].orderTotalPrice
+                for (let z = 1; z <= arrayWithAllOrders[j].length; z++) {
+                    console.log(arrayWithAllOrders[j])
+                    orderTotalPricebefore += arrayWithAllOrders[j][z].Quantity * arrayWithAllOrders[j][z].UnitPrice
+                    arrayWithAllOrders[j][0].orderTotalPrice = orderTotalPricebefore
+                }
+                shouldPush = false
+                theSpecificInfoForProductOfOrder.ProductID = order.ProductID
+                theSpecificInfoForProductOfOrder.Quantity = order.Quantity
+                theSpecificInfoForProductOfOrder.UnitPrice = order.UnitPrice
+                arrayWithAllOrders[j].push(theSpecificInfoForProductOfOrder)
 
-            productContainer.append(productBox)
-
-            totalPrice += Number(product.Price)
-
-            if (product.Shipped = "0") {
-                document.getElementById("sendOrdersText").innerText = "Your Orders Has Been Send! Weeeee :)"
-            } else if (product.Shipped = "0") {
-                document.getElementById("sendOrdersText").innerText = "Your Orders Has NOT Been Send Yet!"
             }
 
+        }
+        if (shouldPush == true) {
+            let theGeneralInfoForiOrder = {}
+            theGeneralInfoForiOrder.OrderID = order.OrderID
+            theGeneralInfoForiOrder.OrderDate = order.OrderDate
+            theGeneralInfoForiOrder.UserID = order.UserID
+            theGeneralInfoForiOrder.ShipperID = order.ShipperID
+            theGeneralInfoForiOrder.Recieved = order.Recieved
+            theGeneralInfoForiOrder.Shipped = order.Shipped
+            theGeneralInfoForiOrder.orderTotalPrice = order.Quantity * order.UnitPrice
+            arrayForOneOrder.push(theGeneralInfoForiOrder)
+            theSpecificInfoForProductOfOrder.ProductID = order.ProductID
+            theSpecificInfoForProductOfOrder.Quantity = order.Quantity
+            theSpecificInfoForProductOfOrder.UnitPrice = order.UnitPrice
+            arrayForOneOrder.push(theSpecificInfoForProductOfOrder)
+        }
+
+        if (arrayForOneOrder.length) {
+            arrayWithAllOrders.push(arrayForOneOrder)
+            arrayForOneOrder = []
+        }
+
+    }
+    console.log(arrayWithAllOrders)
+    let ordersContainer = document.getElementById("ordersContainer")
+    for (let i = 0; i < arrayWithAllOrders.length; i++) {
+        const generalInfoDiv = document.createElement("div")
+        let paraFOrProdid = document.createElement("p")
+        paraFOrProdid.innerText = arrayWithAllOrders[i][0].OrderID
+        let paraFOrProddate = document.createElement("p")
+        paraFOrProddate.innerText = arrayWithAllOrders[i][0].OrderDate
+        let paraFOrProdRecieved = document.createElement("p")
+        paraFOrProdRecieved.innerText = arrayWithAllOrders[i][0].Recieved
+        let paraFOrProdShipped = document.createElement("p")
+        paraFOrProdShipped.innerText = arrayWithAllOrders[i][0].Shipped
+        let paraFOrProdorderTotalPrice = document.createElement("p")
+        paraFOrProdorderTotalPrice.innerText = arrayWithAllOrders[i][0].orderTotalPrice
+        let mywholeorderDic = document.createElement("h5")
+        mywholeorderDic.innerText = "this is the main div"
+        ordersContainer.append(paraFOrProdid)
+        ordersContainer.append(paraFOrProddate)
+        ordersContainer.append(paraFOrProdRecieved)
+        ordersContainer.append(paraFOrProdShipped)
+        ordersContainer.append(paraFOrProdorderTotalPrice)
+        ordersContainer.append(mywholeorderDic)
+
+        for (let j = 1; j < arrayWithAllOrders[i].length; j++) {
+            let specOrderInfo = document.createElement("div")
+            ordersContainer.append(specOrderInfo)
+
+            let paraFOrProdProductID = document.createElement("p")
+            paraFOrProdProductID.innerText = arrayWithAllOrders[i][j].ProductID
+            let paraFOrProdProductQuantity = document.createElement("p")
+            paraFOrProdProductQuantity.innerText = arrayWithAllOrders[i][j].Quantity
+            let paraFOrProdProductUnitPrice = document.createElement("p")
+            paraFOrProdProductUnitPrice.innerText = arrayWithAllOrders[i][j].UnitPrice
+
+            specOrderInfo.append(paraFOrProdProductID)
+            specOrderInfo.append(paraFOrProdProductQuantity)
+            specOrderInfo.append(paraFOrProdProductUnitPrice)
+            let myspecDic = document.createElement("h5")
+            myspecDic.innerText = "this is the  part for many prods info"
+            specOrderInfo.append(myspecDic)
 
         }
 
-        let priceText = document.getElementById("totalPrice");
-        priceText.innerText =
-            "Total" + " " + "price:" + " " + totalPrice + " " + "SEK";
 
-        console.log(result)
-    })
-}
+        ordersContainer.append(generalInfoDiv)
 
-export function receivedOrder() {
-    var myData = new FormData();
-    myData.append("entity", "enjoy");
-    myData.append("endpoint", "receivedOrder");
-    myData.append("Received", document.querySelector('input[name=received]').value)
+    }
 
-    makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
-        console.log(result)
-    })
-}
 
-export function shippedOrder() {
-    var myData = new FormData();
-    myData.append("entity", "enjoy");
-    myData.append("endpoint", "shippedOrder");
 
-    makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
-        console.log(result)
-    })
+
 }

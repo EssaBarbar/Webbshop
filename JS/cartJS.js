@@ -1,6 +1,18 @@
 import { count } from "./productJS.js"
 import { makeRequest } from "./requestHandler.js"
 
+let myPagesIcon = document.getElementsByClassName("userIcon")[0]
+// let signOutBitton = document.getElementbywhatever
+if (sessionStorage.inloggedUserId && sessionStorage.inloggedUserId != "") {
+    myPagesIcon.style.display = "inherit"
+    // signOutBitton.style.display = "inherit"
+}
+else {
+    myPagesIcon.style.display = "none"
+    // signOutBitton.style.display = "inherit"
+
+}
+
 
 const submitOrder = document.getElementById("checkout")
 submitOrder && submitOrder.addEventListener("click", checkout)
