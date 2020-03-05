@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+error_log("I am in reciver page");
 
 include("../handlers/newsletterHandler.php");
 try {
@@ -8,16 +9,18 @@ try {
         if ($asd) {
             echo json_encode($result);
         } else if ($ss) {
-                echo json_encode();
+               echo json_encode("");
             } 
+            
     }
-    else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    else if ($_SERVER["REQUEST_METHOD"] == "POST") {        
         if ($_POST["entity"] == "enjoy") {            
-            if ($_POST["endpoint"] == "") {
-                echo json_encode($result);
-            } else if($_POST["endpoint"] == "") {
-                echo json_encode($result);
-            }else if ($_POST["endpoint"] == "") {
+            if ($_POST["endpoint"] == "addSubscriber") {             
+                $result = subscribeNews(
+                    $_POST['firstname'],
+                    $_POST['lastname'],
+                    $_POST['email']
+                );
                 echo json_encode($result);
             } 
             else {

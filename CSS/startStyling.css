@@ -29,7 +29,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  /*   background-color: rgb(70, 189, 197); */
     background-color: #00389d;
     padding: 40px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .5);   
@@ -295,42 +294,20 @@ aside {
       
     }
     
-/* .cartIcon {
-    display: flex;
-    margin-right: 10px;
-    font-size: 24px;
-    top: 11px;
-   left: 800px;
-}
-    #authentication {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        top: 10px;
-      
-        flex-wrap: wrap;
-    } */
-    
 }
 @media only screen and (max-width: 500px) {
-    .title {
-        font-size: 40px;
-        margin: 12px;
-        top:10px;            
-        font-family:  'Bowlby One SC', cursive;
-    }
-    .topnav {
-        display: flex;       
-        justify-content: flex-start;
-        align-items: center;       
-        background-color: #00389d;
-        padding: 30px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, .5);   
-        z-index: 1;
-        position: fixed;
-        height: 100px;
-        width: 100%;
 
+    .topnav {
+        height: 100px;
+    }
+    #authentication {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 12px;
+ 
     }
     #categories {
         font-family: Arial, Helvetica, sans-serif;
@@ -400,21 +377,6 @@ aside {
         margin: 4px 2px;
         padding: 1px 2px;
     }
-    #authentication {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        top: 10px;    
-        padding: 5px;
-        margin: 10px;
-        
-    }
-    .button {
-        cursor: pointer;
-        margin-left: 1px;
-        border-radius: 5px; 
-        margin: 4px 40px;
-        padding: 4px 30px;
-    }
+
     
 }

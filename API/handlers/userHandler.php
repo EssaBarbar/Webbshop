@@ -39,16 +39,5 @@ function loginUser($email, $password) {
 
     return "Wrong Username or passwords";
 }
-function newsbtn($firstname, $lastname, $email)
-{
-    $user = new User(null, $firstname, $lastname, $email);
-    $result = $user->insertSubscriber();
 
-    if (empty($result)) {
-        throw new Exception("No subscribtion found", 404);
-        exit;
-    }
-    
-    return $result;
-};
 ?>

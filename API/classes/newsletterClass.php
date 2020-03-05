@@ -1,20 +1,20 @@
 <?php
 include("../classes/dbClass.php");
 
-class newsletter {
-    public $NewsletterID;
-    public $UserID;
-    public $FirstName;
-    public $LastName;
-    public $Email;
+class Newsletter {
+    public $newsletterID;
+    public $userId;
+    public $firstName;
+    public $lastName;
+    public $email;
     public $db;
 
-    function __construct($NewsletterID = null, $UserID = null, $FirstName = null, $LastName = null, $Email =null) {
-        $this->NewsletterID= $NewsletterID;
-        $this->UserID = $UserID;
-        $this->FirstName = $FirstName;
-        $this->LastName = $LastName;
-        $this->Email = $Email;
+    function __construct($newsletterID = null, $userId = null, $firstName = null, $lastName = null, $email =null) {
+        $this->newsletterID= $newsletterID;
+        $this->userId = $userId;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->email = $email;
         $this->db = new Database();
     }
 
@@ -24,10 +24,8 @@ class newsletter {
         return $result;
     }
     public function insert() {
-        $query = "INSERT INTO newsletter (UserID, FirstName, LastName, Email)
-        VALUES(:UserID, :FirstName, :LastName, :Email);";
-        $value = array(":UserID"=>$this->UserID, ":FirstName"=>$this->FirstName,
-        ":LastName"=>$this->LastName, ":Email"=>$this->Email);
+        $query = "INSERT INTO newsletters (FirstName, LastName, Email) VALUES(:firstname, :lastname, :email);";
+        $value = array(":firstname"=>$this->firstName, ":lastname"=>$this->lastName, ":email"=>$this->email);
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
