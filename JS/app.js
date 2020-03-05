@@ -104,75 +104,7 @@ $('.catDelUpd').click(function() {
     $(".bdcMangeAdminAdd").hide(200);
     $(".bdcMangeAdminDelUpp").hide(200);
 
-    let myData = new FormData();
-    myData.append("entity", "enjoy");
-    myData.append("endpoint", "getAllCategory");
-    makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
-
-        $(".columnSub").remove();
-        $(".ColumnSubText").remove();
-        $(".ColumnSubText").remove();
-        $(".Update").remove();
-        $(".Delete").remove();
-
-        for (let i = 0; i < result.length; i++) {
-            let columnSub = $("<div></div>");
-            columnSub.addClass("columnSub");
-
-            let CategoryID = $("<div></div>");
-            CategoryID.text(result[i].CategoryID);
-            CategoryID.addClass("ColumnSubText");
-
-            let CategoryName = $("<div></div>");
-            CategoryName.text(result[i].CategoryName);
-            CategoryName.addClass("ColumnSubText");
-
-            let Update = $("<div></div>");
-            Update.text("Update");
-            Update.addClass("CategoryID Update");
-
-            Update.on("click", function() {
-                // alert($(".ColumnSubText").eq(3).text());
-                // alert($(".ColumnSubText").eq(0).text());
-                $('.Update').click(function() {
-                    $(".bdcCatAdd").show(200);
-                    $(".bdcCatDelUpp").hide(200);
-                    $(".bdcProAdd").hide(200);
-                    $(".bdcProDelUpp").hide(200);
-                    $(".bdcUseAdd").hide(200);
-                    $(".bdcUseDelUpp").hide(200);
-                    $(".bdcOrdSend").hide(200);
-                    $(".bdcMangeAdminAdd").hide(200);
-                    $(".bdcMangeAdminDelUpp").hide(200);
-                    $(".bdcMangeAdminDelUpp").hide(200);
-                    $(".updateAdminCategory").show();
-                    $(".AddAdminCategory").hide();
-                    $("#CategoryName").value = $(".ColumnSubText").eq(1).text();
-                });
-            });
-
-            let Delete = $("<div></div>");
-            Delete.text("Delete");
-
-            Delete.addClass("Delete");
-
-            Delete.on("click", function() {
-                deleteCategory(result[i].CategoryID)
-                console.log(result[i].CategoryID);
-
-            });
-
-            columnSub.append(CategoryID);
-            columnSub.append(CategoryName);
-            columnSub.append(Update);
-            columnSub.append(Delete);
-
-            $(".columnContainer").append(columnSub);
-        }
-
-        console.log(result)
-    })
-
+    getAllCategories();
 });
 
 $('.proAdd').click(function() {
@@ -274,20 +206,96 @@ $('.mangeAdminDelUpp').click(function() {
 });
 
 
-function deleteCategory(id) {
-
-    let myData = new FormData();
-    myData.append("endpoint", "delAdminCategory");
-    myData.append("CategoryID", id)
-    console.log("1")
+function getAllCategories() {
+    /*let myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "getAllCategory");
     makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
-        console.log("1")
-        alert("fdsf")
+        console.log("In getAll")
+        console.log(result);
+        return result
+    });
+    */
+    let myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "getAllCategory");
+    makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
+
+        $(".columnSub").remove();
+        $(".ColumnSubText").remove();
+        $(".ColumnSubText").remove();
+        $(".Update").remove();
+        $(".Delete").remove();
+
+        for (let i = 0; i < result.length; i++) {
+            let columnSub = $("<div></div>");
+            columnSub.addClass("columnSub");
+
+            let CategoryID = $("<div></div>");
+            CategoryID.text(result[i].CategoryID);
+            CategoryID.addClass("ColumnSubText");
+
+            let CategoryName = $("<div></div>");
+            CategoryName.text(result[i].CategoryName);
+            CategoryName.addClass("ColumnSubText");
+
+            let Update = $("<div></div>");
+            Update.text("Update");
+            Update.addClass("CategoryID Update");
+
+            Update.on("click", function() {
+                $('.Update').click(function() {
+                    $(".bdcCatAdd").show(200);
+                    $(".bdcCatDelUpp").hide(200);
+                    $(".bdcProAdd").hide(200);
+                    $(".bdcProDelUpp").hide(200);
+                    $(".bdcUseAdd").hide(200);
+                    $(".bdcUseDelUpp").hide(200);
+                    $(".bdcOrdSend").hide(200);
+                    $(".bdcMangeAdminAdd").hide(200);
+                    $(".bdcMangeAdminDelUpp").hide(200);
+                    $(".bdcMangeAdminDelUpp").hide(200);
+                    $(".updateAdminCategory").show();
+                    $(".AddAdminCategory").hide();
+                    $("#CategoryName").value = $(".ColumnSubText").eq(1).text();
+                });
+            });
+            let Delete = $("<div></div>");
+            Delete.text("Delete");
+            Delete.addClass("Delete");
+
+            Delete.on("click", function() {
+                console.log(i);
+                deleteCategory(result[i].CategoryID)
+                var index = Delete.index(this);
+                $(".columnSub")[i].remove();
+            });
+
+            columnSub.append(CategoryID);
+            columnSub.append(CategoryName);
+            columnSub.append(Update);
+            columnSub.append(Delete);
+            $(".columnContainer").append(columnSub);
+        }
+    })
+}
+
+
+function deleteCategory(CategoryID) {
+    console.log(CategoryID)
+    let myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "delAdminCategory");
+    myData.append("CategoryID", CategoryID)
+    makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
+        console.log("in req")
 
         console.log(result);
 
     });
 }
+
+
 
 export function addCategory(event) {
     let myData = new FormData();
@@ -296,12 +304,6 @@ export function addCategory(event) {
     myData.append("CategoryName", document.querySelector('input[name=CategoryName]').value)
     makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
 
-        // if (document.querySelector('input[name=CategoryName]').value == "") {
-        //     $(".message").show(200);
-        //     $(".message").text("Please Enter the Category Name!");
-        //     $(".message").css('color', 'red');
-
-        // } else 
         if (result) {
             $(".message").text("The category was added successfully");
             $(".message").css('color', 'blue');

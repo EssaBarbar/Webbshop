@@ -2,12 +2,12 @@
 include(realpath(dirname(__FILE__)."/dbClass.php"));
 
 class Category {
-    public $CategoryId;
+    public $CategoryID;
     public $CategoryName;
     public $db;
 
-    function __construct($categoryId = null, $categoryName = null) {
-        $this->CategoryId= $categoryId;
+    function __construct($CategoryID = null, $categoryName = null) {
+        $this->CategoryID= $CategoryID;
         $this->CategoryName = $categoryName;
         $this->db = new Database();
     }
@@ -19,15 +19,17 @@ class Category {
         
     }
     public function insert() {
-        $query = "INSERT INTO Categories (CategoryName) VALUES(:CategoryName);";
+        $query = "INSERT INTO categories (CategoryName) VALUES(:CategoryName);";
         $value = array(":CategoryName"=>$this->CategoryName);
         $result =$this->db->runQuery($query, $value);
     }
     
-    public function delete() {         
+    public function delete() {  
+              
         $query = "DELETE FROM categories WHERE CategoryID = :CategoryID;";
         $value = array(":CategoryID"=>$this->CategoryID);
-        $result =$this->db->runQuery($query, $value);        
+        $result =$this->db->runQuery($query, $value);     
+
         if (!$result){
             throw new Exception("No products to delete", 500);
             exit;
@@ -37,7 +39,7 @@ class Category {
     
         
     public function update() {         
-        $query = "UPDATE categories SET CategoryID = NULL, CategoryName = :CategoryName WHERE CategoryID = :CategoryID;";        
+        $query = "UPDATE Categories SET CategoryID = NULL, CategoryName = :CategoryName WHERE CategoryID = :CategoryID;";        
         $value = array(":CategoryName"=>$this->CategoryName);
         $result =$this->db->runQuery($query, $value);
         return $result;

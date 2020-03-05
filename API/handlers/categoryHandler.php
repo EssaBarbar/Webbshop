@@ -7,9 +7,11 @@ function getAllCategories() {
     return $result;
 };
 
-function deleteCategory() {
-    $category = new Category();
+function deleteCategory($CategoryID) {
+    $category = new Category($CategoryID,null);
     $result = $category->delete();
+    error_log('deleteCategory');
+    error_log($result);
     return $result;
 };
 
@@ -22,8 +24,7 @@ function addCategory($categoryName)
     if (empty($result)) {
         throw new Exception("No Category found", 404);
         exit;
-    }
-    
+    }    
     return $result;
 };
 
