@@ -1,5 +1,4 @@
 import { makeRequest } from "./requestHandler.js"
-console.log("NEWSLETTER JS")
 
 export function newsSubscribe(event) {
   var myData = new FormData();
@@ -8,7 +7,7 @@ export function newsSubscribe(event) {
   myData.append("firstname", document.querySelector('input[name=firstname]').value)
   myData.append("lastname", document.querySelector('input[name=lastname]').value)
   myData.append("email", document.querySelector('input[name=email]').value)
- 
+
   makeRequest("../API/recivers/newsletterReciver.php", "POST", myData, (result) => {
     console.log(result)
   })

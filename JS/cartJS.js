@@ -78,13 +78,15 @@ if (cartList && cartList.length) {
     container.appendChild(buyText)
 }
 
-export function removeItem(index) {
-    let cartList = JSON.parse(localStorage.getItem("cart"))
+function removeItem(index) {
+    cartList = JSON.parse(sessionStorage.getItem("cart"));
+    console.log(cartList)
     cartList.splice(index, 1)
-    localStorage.setItem("cart", JSON.stringify(cartList))
+    sessionStorage.setItem("cart", JSON.stringify(cartList))
     document.getElementsByTagName("main")[0].innerHTML = ""
     location.href = "./Cart.html"
 }
+
 export function checkout(event) {
     let shippers = document.getElementById("shipper");
     let selectedShipper = shippers.options[shippers.selectedIndex].value;
