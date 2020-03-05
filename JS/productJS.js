@@ -1,4 +1,5 @@
 import { makeRequest } from "./requestHandler.js"
+let cartList = JSON.parse(sessionStorage.getItem("cart"));
 export function getProducts() {
     let myData = new FormData();
     myData.append("entity", "products");
@@ -224,7 +225,6 @@ export function getPCProducts() {
     })
 }
 
-var cartList = JSON.parse(localStorage.getItem("cart"));
 
 function toCart(product) {
     if (cartList) {
@@ -239,7 +239,7 @@ function toCart(product) {
 
 export function count(length) {
     if (cartList) {
-        document.getElementById("counter").innerText = length;
+        document.getElementById("counter").innerText = cartList.length;
     } if (length === 0) {
         document.getElementById("counter").innerText = "";
     }

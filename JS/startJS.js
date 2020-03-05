@@ -1,6 +1,7 @@
 import { getProducts } from "./productJS.js"
 import { getCategories } from "./categoryJS.js"
 import { makeRequest } from "./requestHandler.js"
+import { count } from "./productJS.js"
 
 let myPagesIcon = document.getElementsByClassName("userIcon")[0]
 // let signOutBitton = document.getElementbywhatever
@@ -20,6 +21,7 @@ function init() {
     getProducts()
     getCategories()
     checkInloggedUser()
+    count()
 }
 
 
