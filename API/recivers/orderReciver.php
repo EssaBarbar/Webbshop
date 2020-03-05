@@ -6,14 +6,14 @@ require_once("../handlers/orderHandler.php");
 try {
     if ($_SERVER["REQUEST_METHOD"] =='GET') {
         if($_GET["entity"] == "enjoy") {
-        if ($_GET["endpoint"] == "") {
+        /* if ($_GET["endpoint"] == "") {
             echo json_encode($result);
         } else if ($ss) {
-                echo json_encode();
+                echo json_encode("KKK");
             } 
             else {
                 throw new Exception("Not a valid endpoint", 501);
-            }
+            } */
         } else {
         throw new Exception("Not a valid entity method for GET", 501);}
     } else if ($_SERVER["REQUEST_METHOD"] == "POST") {

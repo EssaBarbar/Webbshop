@@ -133,7 +133,7 @@ export function checkout(event) {
     myData.append("ShipperID", selectedShipper)
     myData.append("orderProducts", ProductIDAndQuantityInCart)
 
-    makeRequest("../API/recivers/OrderReciver.php", "POST", myData, (result) => {
+    makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
         if (result == true) {
             sessionStorage.removeItem("cart")
             cartProductContainer.innerHTML = ""
