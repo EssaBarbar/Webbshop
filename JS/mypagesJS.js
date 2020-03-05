@@ -28,23 +28,19 @@ function renderOrdersData() {
 
     for (let i = 0; i < resultFromGetOrders.length; i++) {
         let order = resultFromGetOrders[i]
-        let orderTotalPricebefore = 0
+        let orderTotalPrice = 0
 
         let shouldPush = true
         let theSpecificInfoForProductOfOrder = {}
 
         for (let j = 0; j < arrayWithAllOrders.length; j++) {
             if (order.OrderID == arrayWithAllOrders[j][0].OrderID) {
-                orderTotalPricebefore = arrayWithAllOrders[j][0].orderTotalPrice
-                for (let z = 1; z <= arrayWithAllOrders[j].length; z++) {
-                    console.log(arrayWithAllOrders[j])
-                    orderTotalPricebefore += arrayWithAllOrders[j][z].Quantity * arrayWithAllOrders[j][z].UnitPrice
-                    arrayWithAllOrders[j][0].orderTotalPrice = orderTotalPricebefore
-                }
                 shouldPush = false
                 theSpecificInfoForProductOfOrder.ProductID = order.ProductID
                 theSpecificInfoForProductOfOrder.Quantity = order.Quantity
                 theSpecificInfoForProductOfOrder.UnitPrice = order.UnitPrice
+                console.log(order.Quantity)
+                console.log(order.UnitPrice)
                 arrayWithAllOrders[j].push(theSpecificInfoForProductOfOrder)
 
             }
@@ -59,6 +55,8 @@ function renderOrdersData() {
             theGeneralInfoForiOrder.Recieved = order.Recieved
             theGeneralInfoForiOrder.Shipped = order.Shipped
             theGeneralInfoForiOrder.orderTotalPrice = order.Quantity * order.UnitPrice
+            console.log(order.Quantity)
+            console.log(order.UnitPrice)
             arrayForOneOrder.push(theGeneralInfoForiOrder)
             theSpecificInfoForProductOfOrder.ProductID = order.ProductID
             theSpecificInfoForProductOfOrder.Quantity = order.Quantity
