@@ -43,4 +43,14 @@ function getOrdersToMyPages($inloggedUserId) {
        return $result;
 }
 
+function setThisAsReceived($orderId) {
+       $receivedOrder = new Order();
+       $flexQuery = "UPDATE orders SET Recieved = :Recieved
+       WHERE OrderID = :OrderID;";
+       $flexArray = array(":OrderID"=>$orderId, ":Recieved"=>1);
+       $receivedOrder->flexFunction($flexQuery, $flexArray);
+
+       return true;
+}
+
 ?>

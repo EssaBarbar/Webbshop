@@ -28,7 +28,6 @@ function renderOrdersData() {
 
     for (let i = 0; i < resultFromGetOrders.length; i++) {
         let order = resultFromGetOrders[i]
-        let orderTotalPrice = 0
 
         let shouldPush = true
         let theSpecificInfoForProductOfOrder = {}
@@ -39,9 +38,8 @@ function renderOrdersData() {
                 theSpecificInfoForProductOfOrder.ProductID = order.ProductID
                 theSpecificInfoForProductOfOrder.Quantity = order.Quantity
                 theSpecificInfoForProductOfOrder.UnitPrice = order.UnitPrice
-                console.log(order.Quantity)
-                console.log(order.UnitPrice)
                 arrayWithAllOrders[j].push(theSpecificInfoForProductOfOrder)
+                arrayWithAllOrders[j][0].orderTotalPrice += order.UnitPrice * order.Quantity
 
             }
 
@@ -55,8 +53,6 @@ function renderOrdersData() {
             theGeneralInfoForiOrder.Recieved = order.Recieved
             theGeneralInfoForiOrder.Shipped = order.Shipped
             theGeneralInfoForiOrder.orderTotalPrice = order.Quantity * order.UnitPrice
-            console.log(order.Quantity)
-            console.log(order.UnitPrice)
             arrayForOneOrder.push(theGeneralInfoForiOrder)
             theSpecificInfoForProductOfOrder.ProductID = order.ProductID
             theSpecificInfoForProductOfOrder.Quantity = order.Quantity
@@ -70,7 +66,6 @@ function renderOrdersData() {
         }
 
     }
-    console.log(arrayWithAllOrders)
     let ordersContainer = document.getElementById("ordersContainer")
     for (let i = 0; i < arrayWithAllOrders.length; i++) {
         const generalInfoDiv = document.createElement("div")
@@ -78,18 +73,34 @@ function renderOrdersData() {
         paraFOrProdid.innerText = arrayWithAllOrders[i][0].OrderID
         let paraFOrProddate = document.createElement("p")
         paraFOrProddate.innerText = arrayWithAllOrders[i][0].OrderDate
-        let paraFOrProdRecieved = document.createElement("p")
-        paraFOrProdRecieved.innerText = arrayWithAllOrders[i][0].Recieved
+        let recivedButton = document.createElement("Button")
+        recivedButton.onclick = function thisOrderIsRecived() {
+            thisOrderIsReceived(arrayWithAllOrders[i][0].OrderID)
+        }
+        if (arrayWithAllOrders[i][0].Recieved == 0) {
+            recivedButton.innerHTML = "I Received this order " + arrayWithAllOrders[i][0].OrderID
+        } else {
+            recivedButton.style.display = "None"
+        }
+
         let paraFOrProdShipped = document.createElement("p")
-        paraFOrProdShipped.innerText = arrayWithAllOrders[i][0].Shipped
+        if (arrayWithAllOrders[i][0].Shipped == 0) {
+            paraFOrProdShipped.innerText = "No"
+
+        } else {
+            paraFOrProdShipped.innerText = "Yes"
+        }
+
         let paraFOrProdorderTotalPrice = document.createElement("p")
         paraFOrProdorderTotalPrice.innerText = arrayWithAllOrders[i][0].orderTotalPrice
         let mywholeorderDic = document.createElement("h5")
         mywholeorderDic.innerText = "this is the main div"
         ordersContainer.append(paraFOrProdid)
         ordersContainer.append(paraFOrProddate)
-        ordersContainer.append(paraFOrProdRecieved)
+
+        ordersContainer.append(recivedButton)
         ordersContainer.append(paraFOrProdShipped)
+
         ordersContainer.append(paraFOrProdorderTotalPrice)
         ordersContainer.append(mywholeorderDic)
 
@@ -119,6 +130,18 @@ function renderOrdersData() {
     }
 
 
+
+
+}
+function thisOrderIsReceived(theReceivedOrderId) {
+
+    let myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "theOrderIsReceived");
+    myData.append("theReceivedOrderId", theReceivedOrderId);
+    makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
+        console.log(result)
+    })
 
 
 }

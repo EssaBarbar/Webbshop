@@ -33,7 +33,10 @@ try {
                 } else if($_POST["endpoint"] == "getOrdersToMyPages") {
                     $result = getOrdersToMyPages($_POST["inloggedUserId"]);
                     echo json_encode($result);
-                }else if ($_POST["endpoint"] == "") {
+                }else if ($_POST["endpoint"] == "theOrderIsReceived") {
+                    $result = setThisAsReceived(
+                        $_POST['theReceivedOrderId'],
+                    );
                     echo json_encode($result);
                 } 
                 else {

@@ -23,6 +23,7 @@ class Database {
         $statement->execute($inputArray);
         return $statement->fetchALL(PDO::FETCH_ASSOC);
     }
+    
     public function runQueryAndGetID($query, $inputArray = null) {
 
         $statement = $this->connection->prepare($query);

@@ -40,14 +40,14 @@ class Order {
     }
 
     public function update() {         
-        $query = "UPDATE orders SET OrderID = :OrderID, UserID = :UserID, OrderDate = :OrderDate, ShipperID = :ShipperID,
+        $query = "UPDATE orders SET UserID = :UserID, OrderDate = :OrderDate, ShipperID = :ShipperID,
         Recieved = :Recieved, Shipped = :Shipped
         WHERE OrderID = :OrderID;";
 
         $value = array(":UserID"=>$this->UserID, ":OrderDate"=>$this->OrderDate, ":ShipperID"=>$this->ShipperID,
-        ":Recieved"=>$this->Recieved, ":Shipped"=>$this->Shipped, ":orderID"=>$this->orderID);
+        ":Recieved"=>$this->Recieved, ":Shipped"=>$this->Shipped, ":OrderID"=>$this->orderID);
 
-        $result =$this->db->runQuery($query/* , $value */);
+        $result =$this->db->runQuery($query, $value);
         return $result;
     }
 
