@@ -1,19 +1,24 @@
 <?php
+session_start();
 include("../handlers/userHandler.php");
-error_log("I am on post admin");
 try {
     if ($_SERVER["REQUEST_METHOD"] =='GET') {
-        $result = getUsers();
-        echo json_encode($result);
+        if (!isset($_SESSION['inloggedUser'])) {
+            $result = "Access denied";
+            echo json_encode($result);
+        } else if (isset($_SESSION['inloggedUser'])) {
+                echo json_encode("Welcome"." ".$_SESSION["inloggedUser"]." "."from Session");
+            } 
     }
     else if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_POST["entity"] == "enjoy") {            
             if ($_POST["endpoint"] == "addUser") {
+                $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $result = signUpSubmit(
                     $_POST['firstname'],
                     $_POST['lastname'],
                     $_POST['email'],
-                    $_POST['password'],
+                    $hash,
                     $_POST['role']
                 );
                 echo json_encode($result);
@@ -21,11 +26,8 @@ try {
                 $result = loginUser(
                 $_POST['userName'],
                 $_POST['password']);
-                if ($result == NULL) {
-                    echo json_encode("fuck off");
-                } else echo json_encode($result);
-            }
-            else {
+                echo json_encode($result);
+            }else {
                 throw new Exception("Not a valid endpoint", 501);
             }
         } else {

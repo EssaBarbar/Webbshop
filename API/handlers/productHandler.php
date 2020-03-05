@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 include("../classes/productClass.php");
 
 function getProducts() {

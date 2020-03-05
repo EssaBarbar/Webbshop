@@ -1,5 +1,6 @@
 <?php
 
+
 class Database {
     private $connection;
 
@@ -7,7 +8,6 @@ class Database {
         $dsn = 'mysql:host=localhost;dbname=Enjoy';
         $user = 'root';
         $password = 'root';
-        error_log('before');
         
         try {
             $this->connection = new PDO($dsn, $user, $password);
@@ -19,14 +19,17 @@ class Database {
     }
     
     public function runQuery($query, $inputArray = null) {
-        try {
-            $statement = $this->connection->prepare($query);
-            $statement->execute($inputArray);
-            return $statement->fetchALL(PDO::FETCH_ASSOC);
-        }  catch(\PDOException $e) {
-            error_log($e);
-            throw new Exception("Request not found", "501");
-        }
+        $statement = $this->connection->prepare($query);
+        $statement->execute($inputArray);
+        return $statement->fetchALL(PDO::FETCH_ASSOC);
+    }
+    public function runQueryAndGetID($query, $inputArray = null) {
+
+        $statement = $this->connection->prepare($query);
+        $statement->execute($inputArray);
+        $ID = $this->connection->lastInsertId();
+        return $ID;
+
     }
 }
 
