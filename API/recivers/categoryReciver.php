@@ -17,7 +17,7 @@ try{
             error_log('enjoyDel');    
             if ($_POST["endpoint"] == "delAdminCategory") {                 
                 error_log('endpointDel');
-                $result = deleteCategory(
+                $result = deleteFromCategory(
                 $_POST['CategoryID']
                 );        
                 echo json_encode($result);
@@ -36,7 +36,7 @@ try{
     if($_SERVER['REQUEST_METHOD'] === 'POST') {  
         if ($_POST["entity"] == "enjoy") {            
             if ($_POST["endpoint"] == "addAdminCategory") {       
-                $result = addCategory(
+                $result = insertToCategory(
                 $_POST['CategoryName']            
                 );
                 echo json_encode($result);
