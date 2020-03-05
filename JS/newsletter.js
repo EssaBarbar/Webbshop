@@ -1,7 +1,7 @@
 import { makeRequest } from "./requestHandler.js"
-/* import { newsbtn } from "./mainJS" */
+console.log("NEWSLETTER JS")
 
-export function newsbtn(event) {
+export function newsSubscribe(event) {
   var myData = new FormData();
   myData.append("entity", "enjoy");
   myData.append("endpoint", "addSubscriber");
@@ -9,10 +9,7 @@ export function newsbtn(event) {
   myData.append("lastname", document.querySelector('input[name=lastname]').value)
   myData.append("email", document.querySelector('input[name=email]').value)
  
-  makeRequest("./API/recivers/userReciver.php", "POST", myData, (result) => {
-    for (var i = 0; i < result.length; i++) {
-     // console.log(result[i]);
-
-    }
+  makeRequest("../API/recivers/newsletterReciver.php", "POST", myData, (result) => {
+    console.log(result)
   })
 }
