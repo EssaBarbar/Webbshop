@@ -18,6 +18,7 @@ function loadOrdersOnload() {
     makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
         resultFromGetOrders = result
         renderOrdersData()
+        console.log(result)
     })
 }
 

@@ -77,10 +77,10 @@ if (cartList && cartList.length) {
 
     container.appendChild(buyText)
 }
+console.log(cartList)
 
 function removeItem(index) {
     cartList = JSON.parse(sessionStorage.getItem("cart"));
-    console.log(cartList)
     cartList.splice(index, 1)
     sessionStorage.setItem("cart", JSON.stringify(cartList))
     document.getElementsByTagName("main")[0].innerHTML = ""
@@ -126,21 +126,27 @@ export function checkout(event) {
         }
 
     }
-    let myData = new FormData();
-    myData.append("entity", "enjoy");
-    myData.append("endpoint", "addOrder");
-    myData.append("orderDate", orderDate)
-    myData.append("ShipperID", selectedShipper)
-    myData.append("orderProducts", ProductIDAndQuantityInCart)
 
-    makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
-        if (result == true) {
-            sessionStorage.removeItem("cart")
-            cartProductContainer.innerHTML = ""
-            location.reload()
-        } else {
-            alert(result)
+    addOrder()
+
+    function addOrder() {
+        let myData = new FormData();
+        myData.append("entity", "enjoy");
+        myData.append("endpoint", "addOrder");
+        myData.append("orderDate", orderDate)
+        myData.append("shipperID", selectedShipper)
+        myData.append("orderProducts", ProductIDAndQuantityInCart)
+        console.log(myData)
+
+        makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
+            if (result == true) {
+                sessionStorage.removeItem("cart")
+                cartProductContainer.innerHTML = ""
+                location.reload()
+            } else {
+                alert(result)
+            }
         }
+        )
     }
-    )
 }
