@@ -5,13 +5,18 @@ session_start();
 require_once("../handlers/orderHandler.php");
 try {
     if ($_SERVER["REQUEST_METHOD"] =='GET') {
-        if ($asd) {
+        if($_GET["entity"] == "enjoy") {
+        if ($_GET["endpoint"] == "") {
             echo json_encode($result);
         } else if ($ss) {
                 echo json_encode();
             } 
-    }
-    else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            else {
+                throw new Exception("Not a valid endpoint", 501);
+            }
+        } else {
+        throw new Exception("Not a valid entity method for GET", 501);}
+    } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($_POST["entity"] == "enjoy") {            
                 if ($_POST["endpoint"] == "addOrder") {
                     if (isset($_SESSION["inloggedUser"])) {
@@ -25,16 +30,20 @@ try {
                     }else {
                         echo json_encode("Need to login to do this");
                     }
-                } else if($_POST["endpoint"] == "") {
+                } else if($_POST["endpoint"] == "getOrdersToMyPages") {
+                    $result = getOrdersToMyPages($_POST["inloggedUserId"]);
                     echo json_encode($result);
-                }else if ($_POST["endpoint"] == "") {
+                }else if ($_POST["endpoint"] == "theOrderIsReceived") {
+                    $result = setThisAsReceived(
+                        $_POST['theReceivedOrderId'],
+                    );
                     echo json_encode($result);
                 } 
                 else {
                     throw new Exception("Not a valid endpoint", 501);
                 }
             } else {
-                throw new Exception("Not a valid entity method", 501);
+                throw new Exception("Not a valid entity method for POST", 501);
             }
     } else {
         throw new Exception("Not valid request method", 405);

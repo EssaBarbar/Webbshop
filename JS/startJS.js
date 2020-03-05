@@ -2,6 +2,18 @@ import { getProducts } from "./productJS.js"
 import { getCategories } from "./categoryJS.js"
 import { makeRequest } from "./requestHandler.js"
 
+let myPagesIcon = document.getElementsByClassName("userIcon")[0]
+// let signOutBitton = document.getElementbywhatever
+if (sessionStorage.inloggedUserId && sessionStorage.inloggedUserId != "") {
+    myPagesIcon.style.display = "inherit"
+    // signOutBitton.style.display = "inherit"
+}
+else {
+    myPagesIcon.style.display = "none"
+    // signOutBitton.style.display = "inherit"
+
+}
+
 window.onload = init()
 
 function init() {
@@ -10,6 +22,7 @@ function init() {
     checkInloggedUser()
 }
 
+console.log(sessionStorage, localStorage)
 
 
 

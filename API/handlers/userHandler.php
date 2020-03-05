@@ -32,7 +32,7 @@ function loginUser($email, $password) {
             if (password_verify($password, $allUsers[$i]["Password"])) {
                 $_SESSION["inloggedUser"] = $allUsers[$i]["FirstName"];
                 $_SESSION["inloggedUserID"] = $allUsers[$i]["UserID"];
-                return array("success" => true, "userName" => "welcome ".$allUsers[$i]["FirstName"]);
+                return array("success" => true, "userName" => "welcome ".$allUsers[$i]["FirstName"], "inloggedUserId" => $allUsers[$i]["UserID"]);
             }
         }
     };

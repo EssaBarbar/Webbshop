@@ -27,6 +27,7 @@ class Order {
         $result = $this->db->runQuery($query);
         return $result;
     }
+
     public function insert() {
         $query = "INSERT INTO orders (UserID, OrderDate, ShipperID, Recieved, Shipped)
         VALUES(:UserID, :OrderDate, :ShipperID, :Recieved, :Shipped);";
@@ -37,17 +38,19 @@ class Order {
         $result =$this->db->runQueryAndGetID($query, $value);
         return $result;
     }
+
     public function update() {         
-        $query = "UPDATE orders SET OrderID = :OrderID, UserID = :UserID, OrderDate = :OrderDate, ShipperID = :ShipperID,
+        $query = "UPDATE orders SET UserID = :UserID, OrderDate = :OrderDate, ShipperID = :ShipperID,
         Recieved = :Recieved, Shipped = :Shipped
         WHERE OrderID = :OrderID;";
 
         $value = array(":UserID"=>$this->UserID, ":OrderDate"=>$this->OrderDate, ":ShipperID"=>$this->ShipperID,
-        ":Recieved"=>$this->Recieved, ":Shipped"=>$this->Shipped, ":orderID"=>$this->orderID);
+        ":Recieved"=>$this->Recieved, ":Shipped"=>$this->Shipped, ":OrderID"=>$this->orderID);
 
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
+
     public function delete() {
         $query = "DELETE FROM orders WHERE OrderID = :OrderID;";
         $value = array(":OrderID"=>$this->OrderID);

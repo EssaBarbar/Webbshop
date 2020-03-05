@@ -21,14 +21,14 @@ export function getProducts() {
             productName.classList = "prodName"
             productBox.append(productName)
 
-            const pic = document.createElement('img');           
+            const pic = document.createElement('img');
             pic.src = product.CoverPicture
-            pic.classList = "productPic"            
+            pic.classList = "productPic"
             productBox.append(pic)
-            
+
             const productDescp = document.createElement('div');
             productDescp.innerText = product.Description
-            productDescp.classList ="prodDescb"
+            productDescp.classList = "prodDescb"
             productBox.append(productDescp)
 
             const price = document.createElement('div');
@@ -36,7 +36,7 @@ export function getProducts() {
             price.classList = "productPris"
             productBox.append(price)
 
-          
+
             const button = document.createElement('button');
             button.innerText = 'Buy'
             button.classList = 'shopBtn'
@@ -49,7 +49,6 @@ export function getProducts() {
 
             productContainer.append(productBox)
         }
-        console.log(result)
     })
 }
 
@@ -65,7 +64,7 @@ export function getXboxProducts() {
         thisContainer.innerText = ""
 
         let xboxBox = document.getElementById("allProducts")
-        
+
         if (cartList) {
             count(cartList.length);
         }
@@ -93,7 +92,7 @@ export function getXboxProducts() {
 
             const xboxDescrip = document.createElement('div');
             xboxDescrip.innerText = product.Description
-            xboxDescrip.classList ="prodDescb"
+            xboxDescrip.classList = "prodDescb"
             xboxProductBox.append(xboxDescrip)
 
             const xboxButton = document.createElement('button');
@@ -121,7 +120,7 @@ export function getPS4Products() {
         thisContainerTo.innerText = ""
 
         let ps4Box = document.getElementById("allProducts")
-       /*  ps4Box.classList = "categoryClass" */
+        /*  ps4Box.classList = "categoryClass" */
 
         if (cartList) {
             count(cartList.length);
@@ -140,7 +139,7 @@ export function getPS4Products() {
 
             const ps4Descrip = document.createElement('div');
             ps4Descrip.innerText = product.Description
-            ps4Descrip.classList ="prodDescb"
+            ps4Descrip.classList = "prodDescb"
             ps4ProductBox.append(ps4Descrip)
 
             const ps4Pic = document.createElement('img');
@@ -178,7 +177,7 @@ export function getPCProducts() {
         let andThisAlso = document.getElementById("allProducts")
         andThisAlso.innerText = ""
 
-        let pcBox = document.getElementById("allProducts")       
+        let pcBox = document.getElementById("allProducts")
 
         if (cartList) {
             count(cartList.length);
@@ -197,7 +196,7 @@ export function getPCProducts() {
 
             const pcDescrip = document.createElement('div');
             pcDescrip.innerText = product.Description
-            pcDescrip.classList ="prodDescb"
+            pcDescrip.classList = "prodDescb"
             pcProductBox.append(pcDescrip)
 
             const pcPic = document.createElement('img');
@@ -225,7 +224,7 @@ export function getPCProducts() {
     })
 }
 
-var cartList = JSON.parse(sessionStorage.getItem("cart"));
+var cartList = JSON.parse(localStorage.getItem("cart"));
 
 function toCart(product) {
     if (cartList) {

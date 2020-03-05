@@ -31,4 +31,26 @@ require_once("../handlers/orderDetailsHandler.php");
        return true;
 };
 
+function getOrdersToMyPages($inloggedUserId) {
+       $fromOrder = new Order();
+       $flexQuery = "SELECT * FROM orders
+       INNER JOIN order_details
+       ON order_details.OrderID = orders.OrderID
+       WHERE userId = :userId;";
+       $flexArray = array(":userId"=>$inloggedUserId);
+
+       $result = $fromOrder->flexFunction($flexQuery, $flexArray);
+       return $result;
+}
+
+function setThisAsReceived($orderId) {
+       $receivedOrder = new Order();
+       $flexQuery = "UPDATE orders SET Recieved = :Recieved
+       WHERE OrderID = :OrderID;";
+       $flexArray = array(":OrderID"=>$orderId, ":Recieved"=>1);
+       $receivedOrder->flexFunction($flexQuery, $flexArray);
+
+       return true;
+}
+
 ?>

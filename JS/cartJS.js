@@ -1,6 +1,18 @@
 import { count } from "./productJS.js"
 import { makeRequest } from "./requestHandler.js"
 
+let myPagesIcon = document.getElementsByClassName("userIcon")[0]
+// let signOutBitton = document.getElementbywhatever
+if (sessionStorage.inloggedUserId && sessionStorage.inloggedUserId != "") {
+    myPagesIcon.style.display = "inherit"
+    // signOutBitton.style.display = "inherit"
+}
+else {
+    myPagesIcon.style.display = "none"
+    // signOutBitton.style.display = "inherit"
+
+}
+
 
 const submitOrder = document.getElementById("checkout")
 submitOrder && submitOrder.addEventListener("click", checkout)
@@ -67,9 +79,9 @@ if (cartList && cartList.length) {
 }
 
 export function removeItem(index) {
-    let cartList = JSON.parse(sessionStorage.getItem("cart"))
+    let cartList = JSON.parse(localStorage.getItem("cart"))
     cartList.splice(index, 1)
-    sessionStorage.setItem("cart", JSON.stringify(cartList))
+    localStorage.setItem("cart", JSON.stringify(cartList))
     document.getElementsByTagName("main")[0].innerHTML = ""
     location.href = "./Cart.html"
 }
