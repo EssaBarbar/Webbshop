@@ -139,6 +139,7 @@ export function checkout(event) {
         console.log(myData)
 
         makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
+            console.log(result)
             if (result == true) {
                 sessionStorage.removeItem("cart")
                 cartProductContainer.innerHTML = ""
