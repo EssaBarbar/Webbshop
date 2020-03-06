@@ -105,6 +105,7 @@ $('.catDelUpd').click(function() {
     $(".bdcMangeAdminDelUpp").hide(200);
 
     getAllCategories();
+    ss();
 });
 
 $('.proAdd').click(function() {
@@ -118,6 +119,26 @@ $('.proAdd').click(function() {
     $(".bdcOrdSend").hide(200);
     $(".bdcMangeAdminAdd").hide(200);
     $(".bdcMangeAdminDelUpp").hide(200);
+
+    $(function() {
+        $('select[name="CategoryName"]')
+            .append($('<option />') // Create new <option> element
+                .val('Hello') // Set value as "Hello"
+                .text('Hello') // Set textContent as "Hello"
+                .prop('selected', true) // Mark it selected
+                .data({ // Set multiple data-* attributes
+                    brand: 'abc',
+                    model: '123'
+                })
+            );
+    });
+
+    /* $(function() {
+        $('select').change(function() {
+            var selected = $(this).find('option:selected');
+            var extra = selected.data('foo');
+        });
+    }); */
 
 });
 
@@ -205,6 +226,25 @@ $('.mangeAdminDelUpp').click(function() {
 
 });
 
+async function ss() {
+    var rr = await getAllCategories1();
+    alert(rr);
+}
+
+function getAllCategories1() {
+    let myData = new FormData();
+    let result1
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "getAllCategory");
+    makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
+        var result2 = result
+        console.log(result)
+        result1 = result
+        return result2
+    });
+    result1 = result2
+    alert(result1)
+}
 
 function getAllCategories() {
     /*let myData = new FormData();
@@ -289,13 +329,10 @@ function deleteCategory(CategoryID) {
     myData.append("CategoryID", CategoryID)
     makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
         console.log("in req")
-
         console.log(result);
 
     });
 }
-
-
 
 export function addCategory(event) {
     let myData = new FormData();

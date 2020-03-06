@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 include("../classes/categoryClass.php");
 
 function getAllCategories() {
@@ -7,16 +10,8 @@ function getAllCategories() {
     return $result;
 };
 
-function deleteCategory($CategoryID) {
-    $category = new Category($CategoryID,null);
-    $result = $category->delete();
-    error_log('deleteCategory');
-    error_log($result);
-    return $result;
-};
 
-
-function addCategory($categoryName)
+function insertToCategory($categoryName)
 {
     $category = new Category(null, $categoryName);
     $result = $category->insert();
@@ -28,7 +23,6 @@ function addCategory($categoryName)
     return $result;
 };
 
-
 function updateCategory($categoryName)
 {
     $category = new Category(null, $categoryName);
@@ -37,8 +31,22 @@ function updateCategory($categoryName)
     if (empty($result)) {
         throw new Exception("No Category found", 404);
         exit;
-    }
-    
+    }    
     return $result;
 };
+
+function deleteFromCategory($categoryId) {
+    $category = new Category($categoryId, null);
+    $result = $category->delete();
+
+    if (empty($result)) {
+        throw new Exception("No Category found", 404);
+        exit;
+    }
+    return $result;
+};
+
+
+
+
 ?>

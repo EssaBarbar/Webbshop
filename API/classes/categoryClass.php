@@ -1,5 +1,5 @@
 <?php
-include("../classes/dbClass.php");
+include(realpath(dirname(__FILE__)."/dbClass.php"));
 
 class Category {
     public $CategoryId;
@@ -15,30 +15,28 @@ class Category {
     public function fetchAll() {
         $query = "SELECT * FROM categories;";
         $result = $this->db->runQuery($query);
-        return $result;
+        return $result;        
     }
+    
     public function insert() {
         $query = "INSERT INTO Categories (CategoryName) VALUES(:CategoryName);";
         $value = array(":CategoryName"=>$this->CategoryName);
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
+    
+    public function delete() {         
+        $query = "DELETE FROM categories WHERE CategoryID = :CategoryID;";
+        $value = array(":CategoryID"=>$this->CategoryId);        
+        $result =$this->db->runQuery($query, $value);                   
+        return $result;
+    }
+            
     public function update() {         
-        $query = "UPDATE categories SET CategoryID = :CategoryID, CategoryName = :CategoryName
-        WHERE CategoryID = :CategoryID;";
-        $value = array(":CategoryID"=>$this->CategoryID, ":CategoryName"=>$this->CategoryName);
+        $query = "UPDATE categories SET CategoryID = NULL, CategoryName = :CategoryName WHERE CategoryID = :CategoryID;";        
+        $value = array(":CategoryName"=>$this->CategoryName);
         $result =$this->db->runQuery($query, $value);
         return $result;
-    }
-    public function delete() {
-        $query = "DELETE FROM categories
-        WHERE CategoryID = :CategoryID;";
-        $value = array(":CategoryID"=>$this->CategoryID);
-        $result =$this->db->runQuery($query);
-        return $result;
-    }
-    public function flexFunction($flexQuery, $flexArray = null) {
-        return $this->db->runQuery($flexQuery, $flexArray);
     }
 
         

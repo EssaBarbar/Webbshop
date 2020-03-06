@@ -2,24 +2,22 @@
 
 include("../handlers/categoryHandler.php");
 try{
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {         
-        if ($_POST["entity"] == "enjoy") {                  
-            if ($_POST["endpoint"] == "getAllCategory") {                     
-        $result = getAllCategories();
-        echo json_encode($result);
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {  
+        if ($_POST["entity"] == "enjoy") {      
+            if ($_POST["endpoint"] == "getAllCategory") {       
+                $result = getAllCategories();
+                echo json_encode($result);
             }
         }
     }
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {   
-        error_log('POSTDel');     
-        if ($_POST["entity"] == "enjoy") {  
-            error_log('enjoyDel');    
-            if ($_POST["endpoint"] == "delAdminCategory") {                 
-                error_log('endpointDel');
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {          
+        if ($_POST["entity"] == "enjoy") {            
+            if ($_POST["endpoint"] == "delAdminCategory") {                
                 $result = deleteFromCategory(
-                $_POST['CategoryID']
-                );        
+                $_POST['CategoryID']                            
+                );
                 echo json_encode($result);
             }
         }
@@ -33,6 +31,7 @@ try{
             }
         }
     }
+   
     if($_SERVER['REQUEST_METHOD'] === 'POST') {  
         if ($_POST["entity"] == "enjoy") {            
             if ($_POST["endpoint"] == "addAdminCategory") {       
