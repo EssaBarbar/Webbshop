@@ -90,51 +90,12 @@ h1 {
 
 .orderBox {
     width: 100vw;
-    background-color: whitesmoke;
     margin-bottom: 10px;
 }
 
 .generalInfo {
-    background-color: turquoise;
-}
-
-#receivedOrders {
-    display: flex;
-    flex-direction: row;
-}
-
-#userProducts {
-    max-width: 100vw;
-    max-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
-    padding-top: 5em;
-}
-
-.productBox {
-    width: 20em;
-    height: 10em;
-    color: black;
-    font-family: monospace;
-}
-
-.productPic {
-    height: 7em;
-    object-fit: contain;
-}
-
-#adminContainer {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
-
-#sendOrdersText {
-    margin: 0;
-    font-family: monospace;
-    font-size: 15px;
+    background-color: whitesmoke;
+    margin-bottom: 3em;
 }
 
 @media screen and (max-width: 700px) and (min-width:400px) {
@@ -147,23 +108,21 @@ h1 {
     .title {
         font-size: 25px;
     }
-    #orderContainer {
+    #authentication {
+        padding-right: 2em;
+    }
+    #ordersContainer {
         padding: 30px;
     }
-    #orders {
+    h1 {
         font-size: 20px;
         margin: 0;
     }
-    #totalPrice {
+    .totalPrice {
         font-size: 15px;
         padding-bottom: 10px;
     }
-    #recivedOrders {
-        padding: 10px;
-    }
-    #userProducts {
-        padding: 10px;
-    }
+   
 }
 
 @media screen and (max-width: 400px) {
@@ -176,21 +135,18 @@ h1 {
     .title {
         font-size: 25px;
     }
-    #orderContainer {
+    #authentication {
+        padding-right: 2em;
+    }
+    #ordersContainer {
         padding: 30px;
     }
-    #orders {
+    h1 {
         font-size: 20px;
         margin: 0;
     }
-    #totalPrice {
+    .totalPrice {
         font-size: 15px;
         padding-bottom: 10px;
-    }
-    #recivedOrders {
-        padding: 10px;
-    }
-    #userProducts {
-        padding: 10px;
     }
 }
