@@ -70,58 +70,71 @@ function renderOrdersData() {
     let ordersContainer = document.getElementById("ordersContainer")
     for (let i = 0; i < arrayWithAllOrders.length; i++) {
         const generalInfoDiv = document.createElement("div")
+        generalInfoDiv.classList = "generalInfo"
         let paraFOrProdid = document.createElement("p")
-        paraFOrProdid.innerText = arrayWithAllOrders[i][0].OrderID
+        paraFOrProdid.innerText = "Order#" + " " + arrayWithAllOrders[i][0].OrderID
         let paraFOrProddate = document.createElement("p")
-        paraFOrProddate.innerText = arrayWithAllOrders[i][0].OrderDate
+        paraFOrProddate.innerText = "Orderdate:" + " " + arrayWithAllOrders[i][0].OrderDate
         let recivedButton = document.createElement("Button")
+        recivedButton.classList = "button"
         recivedButton.onclick = function thisOrderIsRecived() {
             thisOrderIsReceived(arrayWithAllOrders[i][0].OrderID)
         }
         if (arrayWithAllOrders[i][0].Recieved == 0) {
-            recivedButton.innerHTML = "I Received this order " + arrayWithAllOrders[i][0].OrderID
+            recivedButton.innerHTML = "Push if Received" + " " + "Order#" + arrayWithAllOrders[i][0].OrderID
         } else {
             recivedButton.style.display = "None"
         }
 
         let paraFOrProdShipped = document.createElement("p")
         if (arrayWithAllOrders[i][0].Shipped == 0) {
-            paraFOrProdShipped.innerText = "No"
+            paraFOrProdShipped.innerText = "Recived Order:" + " " + "No"
 
         } else {
             paraFOrProdShipped.innerText = "Yes"
         }
 
         let paraFOrProdorderTotalPrice = document.createElement("p")
-        paraFOrProdorderTotalPrice.innerText = arrayWithAllOrders[i][0].orderTotalPrice
-        let mywholeorderDic = document.createElement("h5")
-        mywholeorderDic.innerText = "this is the main div"
-        ordersContainer.append(paraFOrProdid)
-        ordersContainer.append(paraFOrProddate)
+        paraFOrProdorderTotalPrice.classList = "totalPrice"
+        paraFOrProdorderTotalPrice.innerText = "Total price for this order:" + " " + arrayWithAllOrders[i][0].orderTotalPrice + " " + "SEK"
+        /* let mywholeorderDic = document.createElement("h5")
+        mywholeorderDic.innerText = "this is the main div" */
+        generalInfoDiv.append(paraFOrProdid)
+        generalInfoDiv.append(paraFOrProddate)
 
-        ordersContainer.append(recivedButton)
-        ordersContainer.append(paraFOrProdShipped)
+        generalInfoDiv.append(recivedButton)
+        generalInfoDiv.append(paraFOrProdShipped)
 
-        ordersContainer.append(paraFOrProdorderTotalPrice)
-        ordersContainer.append(mywholeorderDic)
+        generalInfoDiv.append(paraFOrProdorderTotalPrice)
+        /* generalInfoDiv.append(mywholeorderDic) */
+
+        ordersContainer.append(generalInfoDiv)
 
         for (let j = 1; j < arrayWithAllOrders[i].length; j++) {
             let specOrderInfo = document.createElement("div")
+            specOrderInfo.classList = "orderBox"
             ordersContainer.append(specOrderInfo)
 
             let paraFOrProdProductID = document.createElement("p")
             paraFOrProdProductID.innerText = arrayWithAllOrders[i][j].ProductID
+            if ( arrayWithAllOrders[i][j].ProductID <= 4 ) {
+                paraFOrProdProductID.innerText = "Xbox Game"
+            } if ( arrayWithAllOrders[i][j].ProductID >= 5 ) {
+                paraFOrProdProductID.innerText = "PS4 Game"
+            } if ( arrayWithAllOrders[i][j].ProductID >= 9 ) {
+                paraFOrProdProductID.innerText = "PC Game"
+            }
             let paraFOrProdProductQuantity = document.createElement("p")
-            paraFOrProdProductQuantity.innerText = arrayWithAllOrders[i][j].Quantity
+            paraFOrProdProductQuantity.innerText = "Quantity" + " " + arrayWithAllOrders[i][j].Quantity
             let paraFOrProdProductUnitPrice = document.createElement("p")
-            paraFOrProdProductUnitPrice.innerText = arrayWithAllOrders[i][j].UnitPrice
+            paraFOrProdProductUnitPrice.innerText = arrayWithAllOrders[i][j].UnitPrice + " " + "SEK"
 
             specOrderInfo.append(paraFOrProdProductID)
             specOrderInfo.append(paraFOrProdProductQuantity)
             specOrderInfo.append(paraFOrProdProductUnitPrice)
-            let myspecDic = document.createElement("h5")
+            /* let myspecDic = document.createElement("h5")
             myspecDic.innerText = "this is the  part for many prods info"
-            specOrderInfo.append(myspecDic)
+            specOrderInfo.append(myspecDic) */
 
         }
 
