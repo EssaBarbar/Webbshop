@@ -99,6 +99,16 @@ a {
     padding: 2px 10px;
 }
 
+#signOut {
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-family: fantasy;
+    background-color: cyan;
+    margin: 4px 2px;
+    padding: 2px 10px;
+}
+
 .container {
     display: flex;
 
