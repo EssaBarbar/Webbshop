@@ -7,7 +7,7 @@ try {
             $result = "Access denied";
             echo json_encode($result);
         } else if (isset($_SESSION['inloggedUser'])) {
-                echo json_encode("Welcome"." ".$_SESSION["inloggedUser"]." "."from Session");
+                echo json_encode("Welcome"." ".$_SESSION["inloggedUser"]);
             } 
     }
     else if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -9,7 +9,7 @@ let signOutButton = document.getElementById("signOut")
 if (sessionStorage.inloggedUserId && sessionStorage.inloggedUserId != "") {
     myPagesIcon.style.display = "inherit"
     authentication.style.display = "none"
-    
+
     signOutButton.style.display = "inherit"
 }
 else {
@@ -33,5 +33,9 @@ function init() {
 function checkInloggedUser() {
     makeRequest("../API/recivers/userReciver.php", "GET", null, (result) => {
         console.log(result)
+        if (sessionStorage.inloggedUserId && sessionStorage.inloggedUserId != "") {
+            let welcomeText = document.getElementById("welcome")
+            welcomeText.innerText = result
+        } else welcomeText.innerText = ""
     })
 }
