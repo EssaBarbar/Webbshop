@@ -19,5 +19,6 @@ export function login() {
         } else {
             console.log("Wrong inlogg info")
         }
+        location.href = "./start.html"
     })
 }
