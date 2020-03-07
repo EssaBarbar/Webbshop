@@ -2,14 +2,17 @@ import { count } from "./productJS.js"
 import { makeRequest } from "./requestHandler.js"
 
 let myPagesIcon = document.getElementsByClassName("userIcon")[0]
-// let signOutBitton = document.getElementbywhatever
+let authentication = document.getElementById("authentication")
+let signOutButton = document.getElementById("signOut")
 if (sessionStorage.inloggedUserId && sessionStorage.inloggedUserId != "") {
     myPagesIcon.style.display = "inherit"
-    // signOutBitton.style.display = "inherit"
+    authentication.style.display = "none"
+    
+    signOutButton.style.display = "inherit"
 }
 else {
     myPagesIcon.style.display = "none"
-    // signOutBitton.style.display = "inherit"
+    signOutButton.style.display = "none"
 
 }
 
