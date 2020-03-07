@@ -2,7 +2,8 @@
 
 session_start();
 
-require_once("../handlers/orderHandler.php");
+include("../handlers/orderHandler.php");
+
 try {
     if ($_SERVER["REQUEST_METHOD"] =='GET') {
         if($_GET["entity"] == "enjoy") {
@@ -23,9 +24,8 @@ try {
                     $result = addorder(
                         $_SESSION["inloggedUserID"],
                         $_POST['orderDate'],
-                        $_POST['ShipperID'],
-                        $_POST['orderProducts'],
-                    );
+                        $_POST['shipperID'],
+                        $_POST['orderProducts']);
                     echo json_encode($result);
                     }else {
                         echo json_encode("Need to login to do this");
@@ -35,8 +35,7 @@ try {
                     echo json_encode($result);
                 }else if ($_POST["endpoint"] == "theOrderIsReceived") {
                     $result = setThisAsReceived(
-                        $_POST['theReceivedOrderId'],
-                    );
+                        $_POST['theReceivedOrderId']);
                     echo json_encode($result);
                 } 
                 else {

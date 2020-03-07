@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 include("../classes/categoryClass.php");
 

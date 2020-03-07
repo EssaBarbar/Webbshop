@@ -1,13 +1,10 @@
 <?php
 
-session_start();
-
-require_once("../classes/orderClass.php");
-require_once("../handlers/orderDetailsHandler.php");
-
+include("../classes/orderClass.php");
+include("../handlers/orderDetailsHandler.php");
 
  function addorder($UserID, $OrderDate, $ShipperID, $orderProducts) {
-        $order = new Order(null, $UserID, $OrderDate, $ShipperID,);
+        $order = new Order(null, $UserID, $OrderDate, $ShipperID);
         $orderIdInOrders = $order->insert();
 
 

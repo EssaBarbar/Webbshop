@@ -5,7 +5,7 @@ class Database {
     private $connection;
 
     function __construct() {
-        $dsn = 'mysql:host=localhost;dbname=Enjoy';
+        $dsn = 'mysql:host=localhost;dbname=enjoy';
         $user = 'root';
         $password = 'root';
         

@@ -3,10 +3,11 @@ export function makeRequest(url, method, formData, callback) {
         method: method,
         body: formData
     }).then((response) => {
-        // console.log(response)
+        console.log(response)
         return response.json()
     }).then((result) => {
         callback(result)
+        console.log(result)
     }).catch((err) => {
         console.log("Error : ", err);
     })
