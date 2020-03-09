@@ -28,7 +28,7 @@ try {
                         $_POST['orderProducts']);
                     echo json_encode($result);
                     }else {
-                        echo json_encode("Need to login to do this");
+                        echo json_encode("You need to SignUp! Click on Enjoy then SignUp Button to register. You can use this password: ");
                     }
                 } else if($_POST["endpoint"] == "getOrdersToMyPages") {
                     $result = getOrdersToMyPages($_POST["inloggedUserId"]);
