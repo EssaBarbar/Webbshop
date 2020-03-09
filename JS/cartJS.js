@@ -145,9 +145,17 @@ export function checkout(event) {
                 cartProductContainer.innerHTML = ""
                 location.reload()
             } else {
-                alert(result)
+                printPassword()
+                function printPassword() {
+                    var code = Math.random().toString(36)
+                    var x = code.substring(2, 10)
+                    console.log(x)
+                    alert(result + " " + x)
+                }
             }
         }
         )
     }
 }
+
+
