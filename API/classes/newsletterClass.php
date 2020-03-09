@@ -24,8 +24,8 @@ class Newsletter {
         return $result;
     }
     public function insert() {
-        $query = "INSERT INTO newsletters (FirstName, LastName, Email) VALUES(:firstname, :lastname, :email);";
-        $value = array(":firstname"=>$this->firstName, ":lastname"=>$this->lastName, ":email"=>$this->email);
+        $query = "INSERT INTO newsletters (UserID,FirstName, LastName, Email) VALUES(:userId,:firstname, :lastname, :email);";
+        $value = array(":userId"=>$this->userId,":firstname"=>$this->firstName, ":lastname"=>$this->lastName, ":email"=>$this->email);
         $result =$this->db->runQuery($query, $value);
         return $result;
     }

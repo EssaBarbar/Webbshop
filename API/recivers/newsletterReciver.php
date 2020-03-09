@@ -17,6 +17,7 @@ try {
         if ($_POST["entity"] == "enjoy") {            
             if ($_POST["endpoint"] == "addSubscriber") {             
                 $result = subscribeNews(
+                    $_SESSION['inloggedUserId'],
                     $_POST['firstname'],
                     $_POST['lastname'],
                     $_POST['email']
