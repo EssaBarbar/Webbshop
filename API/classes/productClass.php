@@ -1,8 +1,8 @@
 <?php
-include(realpath(dirname(__FILE__)."/dbClass.php"));
+require_once(realpath(dirname(__FILE__)."/dbClass.php"));
 
 class Product {
-    public $productID;
+    public $ProductID;
     public $CategoryID;
     public $ProductName;
     public $UnitInStock;
@@ -13,9 +13,9 @@ class Product {
     public $db;
 
     
-    function __construct($productID = null, $CategoryID = null, $ProductName = null, $UnitInStock = null,
+    function __construct($ProductID = null, $CategoryID = null, $ProductName = null, $UnitInStock = null,
     $Price = null, $CoverPicture = null, $PNGPicture = null, $Description = null) {
-        $this->productID= $productID;
+        $this->ProductID= $ProductID;
         $this->CategoryID = $CategoryID;
         $this->ProductName = $ProductName;
         $this->UnitInStock = $UnitInStock;
@@ -44,20 +44,20 @@ class Product {
     }
 
     public function update() {         
-        $query = "UPDATE Products SET productID = :productID, CategoryID = :CategoryID, ProductName = :ProductName, UnitInStock = :UnitInStock,
+        $query = "UPDATE Products SET ProductID = :ProductID, CategoryID = :CategoryID, ProductName = :ProductName, UnitInStock = :UnitInStock,
         Price = :Price, CoverPicture = :CoverPicture, PNGPicture = :PNGPicture, Description = :Description
-        WHERE productID = :productID;";
+        WHERE ProductID = :ProductID;";
 
         $value = array(":CategoryID"=>$this->CategoryID, ":ProductName"=>$this->ProductName, ":UnitInStock"=>$this->UnitInStock,
         ":Price"=>$this->Price, ":CoverPicture"=>$this->CoverPicture, ":PNGPicture"=>$this->PNGPicture, ":Description"=>$this->Description,
-        ":productID"=>$this->productID);
+        ":ProductID"=>$this->ProductID);
 
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
 
     public function delete() {
-        $query = "DELETE FROM Products WHERE productID = :productID;";
+        $query = "DELETE FROM Products WHERE ProductID = :ProductID;";
         $value = array(":orderID"=>$this->productID);
         $result =$this->db->runQuery($query);
         return $result;

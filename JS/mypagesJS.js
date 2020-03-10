@@ -117,11 +117,11 @@ function renderOrdersData() {
 
             let paraFOrProdProductID = document.createElement("p")
             paraFOrProdProductID.innerText = arrayWithAllOrders[i][j].ProductID
-            if ( arrayWithAllOrders[i][j].ProductID <= 4 ) {
+            if (arrayWithAllOrders[i][j].ProductID <= 4) {
                 paraFOrProdProductID.innerText = "Xbox Game"
-            } if ( arrayWithAllOrders[i][j].ProductID >= 5 ) {
+            } if (arrayWithAllOrders[i][j].ProductID >= 5) {
                 paraFOrProdProductID.innerText = "PS4 Game"
-            } if ( arrayWithAllOrders[i][j].ProductID >= 9 ) {
+            } if (arrayWithAllOrders[i][j].ProductID >= 9) {
                 paraFOrProdProductID.innerText = "PC Game"
             }
             let paraFOrProdProductQuantity = document.createElement("p")
@@ -132,10 +132,6 @@ function renderOrdersData() {
             specOrderInfo.append(paraFOrProdProductID)
             specOrderInfo.append(paraFOrProdProductQuantity)
             specOrderInfo.append(paraFOrProdProductUnitPrice)
-            /* let myspecDic = document.createElement("h5")
-            myspecDic.innerText = "this is the  part for many prods info"
-            specOrderInfo.append(myspecDic) */
-
         }
 
 
