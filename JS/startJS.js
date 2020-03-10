@@ -27,9 +27,6 @@ function init() {
     count()
 }
 
-
-
-
 function checkInloggedUser() {
     makeRequest("../API/recivers/userReciver.php", "GET", null, (result) => {
         console.log(result)

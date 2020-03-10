@@ -58,8 +58,6 @@ export function getXboxProducts() {
     myData.append("entity", "enjoy");
     myData.append("endpoint", "getXboxProducts");
     makeRequest("../API/recivers/productReciver.php", "POST", myData, (result) => {
-        console.log(result)
-
 
         let thisContainer = document.getElementById("allProducts")
         thisContainer.innerText = ""
@@ -74,7 +72,6 @@ export function getXboxProducts() {
             const product = result[i]
             const xboxProductBox = document.createElement("div");
             xboxProductBox.classList = "productBox"
-            console.log(result[i]);
 
             const xboxProductName = document.createElement('div');
             xboxProductName.innerText = product.ProductName
@@ -115,7 +112,6 @@ export function getPS4Products() {
     myData.append("entity", "enjoy");
     myData.append("endpoint", "getPS4Products");
     makeRequest("../API/recivers/productReciver.php", "POST", myData, (result) => {
-        console.log(result)
 
         let thisContainerTo = document.getElementById("allProducts")
         thisContainerTo.innerText = ""
@@ -131,7 +127,6 @@ export function getPS4Products() {
             const product = result[i]
             const ps4ProductBox = document.createElement("div");
             ps4ProductBox.classList = "productBox"
-            console.log(result[i]);
 
             const ps4ProductName = document.createElement('div');
             ps4ProductName.innerText = product.ProductName
@@ -173,7 +168,6 @@ export function getPCProducts() {
     myData.append("entity", "enjoy");
     myData.append("endpoint", "getPCProducts");
     makeRequest("../API/recivers/productReciver.php", "POST", myData, (result) => {
-        console.log(result)
 
         let andThisAlso = document.getElementById("allProducts")
         andThisAlso.innerText = ""
@@ -188,7 +182,6 @@ export function getPCProducts() {
             const product = result[i]
             const pcProductBox = document.createElement("div");
             pcProductBox.classList = "productBox"
-            console.log(result[i]);
 
             const pcProductName = document.createElement('div');
             pcProductName.innerText = product.ProductName
