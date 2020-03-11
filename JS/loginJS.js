@@ -16,9 +16,10 @@ export function login() {
         if (result.success) {
             sessionStorage.setItem("inloggedUserId", result.inloggedUserId)
             console.log(result)
+            console.log(result.inloggedUserId)
         } else {
             console.log("Wrong inlogg info")
         }
-        location.href = "./start.html"
+        /* location.href = "./start.html" */
     })
 }

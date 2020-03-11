@@ -16,7 +16,7 @@ try {
             if ($_POST["endpoint"] == "addSubscriber") {
                 if (!isset($_SESSION["inloggedUserId"])) {
                     $result = subscribeNews(
-                        $_POST[true],
+                        $_POST[null],
                         $_POST['firstname'],
                         $_POST['lastname'],
                         $_POST['email']
@@ -24,10 +24,10 @@ try {
                     echo json_encode($result);
                 } else {
                     $result = subscribeNews(
-                        $_POST[true],
-                        $_POST[null],
-                        $_POST[null],
-                        $_POST[null]
+                        $_SESSION['inloggedUserId'],
+                        $_POST['firstname'],
+                        $_POST['lastname'],
+                        $_POST['email']
                     );
                     echo json_encode($result);
                 }
