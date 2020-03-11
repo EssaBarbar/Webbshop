@@ -14,22 +14,24 @@ try {
     } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_POST["entity"] == "enjoy") {
             if ($_POST["endpoint"] == "addSubscriber") {
-                if (!isset($_SESSION["inloggedUserId"])) {
+                if (isset($_SESSION["inloggedUser"])) {
                     $result = subscribeNews(
-                        $_POST[null],
+                        $_SESSION['inloggedUserID'],
+                        $_POST['firstname'],
+                        $_POST['lastname'],
+                        $_POST['email']
+                    );
+                    echo json_encode($result);
+                } else if (!isset($_SESSION["inloggedUser"])) {
+                    $result = subscribeNews(
+                        $_SESSION['inloggedUserID'],
                         $_POST['firstname'],
                         $_POST['lastname'],
                         $_POST['email']
                     );
                     echo json_encode($result);
                 } else {
-                    $result = subscribeNews(
-                        $_SESSION['inloggedUserId'],
-                        $_POST['firstname'],
-                        $_POST['lastname'],
-                        $_POST['email']
-                    );
-                    echo json_encode($result);
+                    echo json_encode("Yes");
                 }
             } else {
                 throw new Exception("Not a valid endpoint", 501);

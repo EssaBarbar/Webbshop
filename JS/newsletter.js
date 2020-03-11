@@ -5,7 +5,7 @@ export function newsSubscribe(event) {
   var myData = new FormData();
   myData.append("entity", "enjoy");
   myData.append("endpoint", "addSubscriber");
-  myData.append("inloggedUserId", sessionStorage.getItem("inloggedUserId"))
+  myData.append("inloggedUserID", sessionStorage.getItem("inloggedUserID"))
   myData.append("firstname", document.querySelector('input[name=firstname]').value)
   myData.append("lastname", document.querySelector('input[name=lastname]').value)
   myData.append("email", document.querySelector('input[name=email]').value)
