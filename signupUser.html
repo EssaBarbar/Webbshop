@@ -15,48 +15,38 @@
 </head>
 
 <body>
+
     <header class="topnav">
         <a href="./start.html">
             <h1 class="title">Enjoy</h1>
         </a>
-
-        <div id="authentication">
-            <p id="counter">1</p>
-            <div class="cartIcon">
-                <a class="aIcon" href="./Cart.html"><i class="fas fa-shopping-cart"></i></a>
-            </div>
-            <div class="userIcon"><i class="fas fa-users"></i></div>
-            <input id="username" type="text" placeholder="username">
-            <input id="password" type="text" placeholder="password">
-            <button class="button">Submit</button>
-        </div>
+       
     </header>
-    <p id="demo"></p>
-    <div class="signupContainer" id="signupContainer">
-        <h2 id="titleSignUp">Registration Form</h2>
+    <main>
+        <div class="signupContainer" id="signupContainer">
+            <h2 id="titleSignUp">Registration Form</h2>
 
-        <div class="signUpForm">
+            <div class="signUpForm">
+                <a href="./start.html" id="crossReg"><i class="fas fa-times"></i></a>
+                <label for="firstname" class="userFirstNlabel">Firstname</label>
+                <input type="text" value="" class="userFirstNInput" name="firstname" id="firstname">
 
-            <a href="./login.html" id="crossReg"><i class="fas fa-times"></i></a>
-            <label for="firstname" class="userFirstNlabel">Firstname</label>
-            <input type="text" value="" class="userFirstNInput" name="firstname" id="firstname">
+                <label for="userLastNlabel" class="userLastNlabel">Lastname</label>
+                <input type="text" value="" class="userLastNInput" name="lastname" id="lastname">
 
-            <label for="userLastNlabel" class="userLastNlabel">Lastname</label>
-            <input type="text" value="" class="userLastNInput" name="lastname" id="lastname">
+                <label for="firstname" class="userEmaillabel">Email </label>
+                <input type="text" value="" class="userEmailInput" name="email" id="email">
 
-            <label for="firstname" class="userEmaillabel">Email </label>
-            <input type="text" value="" class="userEmailInput" name="email" id="email">
+                <label for="firstname" class="userPwdlabel">Password</label>
+                <input type="text" value="" class="userPwdInput" name="userPwdInput" id="userPwdInput"> <br>
 
-            <label for="firstname" class="userPwdlabel">Password</label>
-            <input type="text" value="" class="userPwdInput" name="userPwdInput" id="userPwdInput"> <br>
+                <input type="radio" name="role" value="Customer" id="role"> Customer
+                <input type="radio" name="role" value="admin" id="role">Admin <br>
+                <input type="submit" value="Submit" name="Submit" id="signUpSubmit" />
 
-            <input type="radio" name="role" value="Customer" id="role"> Customer
-            <input type="radio" name="role" value="admin" id="role">Admin <br>
-            <input type="submit" value="Submit" name="Submit" id="signUpSubmit" />
-
+            </div>
         </div>
-    </div>
-
+    </main>
 </body>
 
 </html>

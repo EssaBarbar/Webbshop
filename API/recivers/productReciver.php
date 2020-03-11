@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 include("../handlers/productHandler.php");
 try {
     if ($_SERVER["REQUEST_METHOD"] =='GET') {

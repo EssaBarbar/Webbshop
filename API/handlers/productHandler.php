@@ -1,4 +1,5 @@
 <?php
+
 include("../classes/productClass.php");
 
 function getProducts() {

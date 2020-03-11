@@ -1,13 +1,13 @@
 <?php
 
+
 class Database {
     private $connection;
 
     function __construct() {
-        $dsn = 'mysql:host=localhost;dbname=Enjoy';
+        $dsn = 'mysql:host=localhost;dbname=enjoy';
         $user = 'root';
         $password = 'root';
-        error_log('before');
         
         try {
             $this->connection = new PDO($dsn, $user, $password);
@@ -22,6 +22,15 @@ class Database {
         $statement = $this->connection->prepare($query);
         $statement->execute($inputArray);
         return $statement->fetchALL(PDO::FETCH_ASSOC);
+    }
+    
+    public function runQueryAndGetID($query, $inputArray = null) {
+
+        $statement = $this->connection->prepare($query);
+        $statement->execute($inputArray);
+        $ID = $this->connection->lastInsertId();
+        return $ID;
+
     }
 }
 

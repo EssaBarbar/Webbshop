@@ -1,4 +1,6 @@
 <?php
+
+
 include("../classes/categoryClass.php");
 
 function getCategories() {

@@ -13,6 +13,12 @@ export function login() {
     myData.append("password", password)
 
     makeRequest("../API/recivers/userReciver.php", "POST", myData, (result) => {
-        console.log(result)
+        if (result.success) {
+            sessionStorage.setItem("inloggedUserId", result.inloggedUserId)
+            console.log(result)
+        } else {
+            console.log("Wrong inlogg info")
+        }
+        location.href = "./start.html"
     })
 }

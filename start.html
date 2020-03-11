@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-    <link rel="stylesheet" href="./CSS/loginStyling.css">
+    <link rel="stylesheet" href="./CSS/startStyling.css">
     <script defer type="module" src="./JS/mainJS.js"></script>
     <script defer type="module" src="./JS/startJS.js"></script>
     <script src="https://kit.fontawesome.com/c9b461b663.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./CSS/loginStyling.css">
 </head>
 
 <body>
@@ -19,48 +18,40 @@
             <h1 class="title">Enjoy</h1>
         </a>
 
+        <h3 id="welcome"></h3>
+
+        <p id="counter"></p>
+        <div class="cartIcon">
+            <a class="aIcon" href="./Cart.html"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+        <a class="userIcon" href="./mypages.html"><i class="fas fa-users"></i></a>
         <div id="authentication">
-            <p id="counter">1</p>
-            <div class="cartIcon">
-                <a class="aIcon" href="./Cart.html"><i class="fas fa-shopping-cart"></i></a>
-            </div>
-            <div class="userIcon"><i class="fas fa-users"></i></div>
-            <input id="username" type="text" placeholder="username">
+            <input id="username" type="text" placeholder="email">
             <input id="password" type="text" placeholder="password">
             <button id="login" class="button">Submit</button>
             <a href="./signupUser.html"><button class="button">Sign Up</button></a>
         </div>
+        <button id="signOut">Log Out</button>
 
         </div>
     </header>
     <main>
         <div class="container">
             <aside id="categories">
-                <a href="./login.html">
+                <a href="./start.html">
                     <p id="getProds">Products</p>
                 </a>
-                <!-- This div will have the list "Categs" in it
-                like all prods and pc games etc...-->
             </aside>
             <div class="allProducts" id="allProducts">
-
-            </div>
-            <div class="categoryItems" id="categoryItems">
-                <!-- This div to be able to style this childs as this will contain all the items
-                    so we can place them right or left depending on the numbers of the items -->
-                <div>
-                </div>
-            </div>
-            <div>
             </div>
         </div>
     </main>
     <footer class="footer">
         <div>
             <h2 class="SubScribe">Subscribe Newsletter</h2>
-            <input type="text" placeholder="firstname">
-            <input type="text" placeholder="lastname">
-            <input type="text" placeholder="email">
+            <input type="text" placeholder="firstname" name="firstname">
+            <input type="text" placeholder="lastname" name="lastname">
+            <input type="text" placeholder="email" name="email">
             <button id="newsbtn" class="button">Submit</button>
         </div>
         <div><a href="./admin.html">go to admin site</a></div>

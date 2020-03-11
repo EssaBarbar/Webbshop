@@ -9,7 +9,6 @@ export function getCategories() {
     myData.append("endpoint", "getAllCategory");
     makeRequest("../API/recivers/categoryReciver.php", "POST", myData, (result) => {
 
-        console.log(result)
         var catDiv = document.getElementById("categories")
 
         for (var i = 0; i < result.length; i++) {
