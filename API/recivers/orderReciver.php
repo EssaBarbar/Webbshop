@@ -2,16 +2,14 @@
 
 session_start();
 
-require_once("../handlers/orderHandler.php");
+require_once("./../handlers/orderHandler.php");
 try {
-    if ($_SERVER["REQUEST_METHOD"] =='GET') {
-        if ($asd) {
-            echo json_encode($result);
-        } else if ($ss) {
-                //echo json_encode();
-            } 
-    }
-    else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if ($_SERVER["REQUEST_METHOD"] =='GET') {        
+        $result = getAllOrders();
+        echo json_encode($result);       
+        
+    } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($_POST["entity"] == "enjoy") {            
                 if ($_POST["endpoint"] == "addOrder") {
                     if (isset($_SESSION["inloggedUser"])) {

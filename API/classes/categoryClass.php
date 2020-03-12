@@ -37,9 +37,7 @@ class Category {
         $value = array(":CategoryName"=>$this->CategoryName);
         $result =$this->db->runQuery($query, $value);
         return $result;
-    }
-
-        
+    }        
 }
 
 ?>

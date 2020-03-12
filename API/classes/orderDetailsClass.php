@@ -18,11 +18,20 @@ class OrderDetails {
     }
 
 
-    public function fetchAll() {
+    /* public function fetchOne() {
         $query = "SELECT * FROM order_details;";
         $result = $this->db->runQuery($query);
         return $result;
+    } */
+
+    public function fetchOne() {         
+        $query = "SELECT * FROM order_details  WHERE OrderID = :OrderID;";
+        $value = array(":OrderID"=>$this->OrderID);        
+        $result =$this->db->runQuery($query, $value);                   
+        return $result;
+
     }
+
     public function insert() {
         $query = "INSERT INTO order_details (OrderID, ProductID, Quantity, UnitPrice)
         VALUES(:OrderID, :ProductID, :Quantity, :UnitPrice);";

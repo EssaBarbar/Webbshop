@@ -1,20 +1,19 @@
 <?php
-require_once("../classes/dbClass.php");
-
+require_once("./../classes/dbClass.php");
 
 class Order {
     public $OrderID;
-    public $UserID;
     public $OrderDate;
+    public $UserID;
     public $ShipperID;
     public $Recieved;
     public $Shipped;
     public $db;
     
-    function __construct($OrderID = null, $UserID = null, $OrderDate = null, $ShipperID = null, $Recieved = 0, $Shipped = 0) {
+    function __construct($OrderID = null, $OrderDate = null, $UserID = null, $ShipperID = null, $Recieved = 0, $Shipped = 0) {
         $this->OrderID = $OrderID;
-        $this->UserID = $UserID;
         $this->OrderDate = $OrderDate;
+        $this->UserID = $UserID;
         $this->ShipperID = $ShipperID;
         $this->Recieved = $Recieved;
         $this->Shipped = $Shipped;
@@ -27,6 +26,7 @@ class Order {
         $result = $this->db->runQuery($query);
         return $result;
     }
+
     public function insert() {
         $query = "INSERT INTO orders (UserID, OrderDate, ShipperID, Recieved, Shipped)
         VALUES(:UserID, :OrderDate, :ShipperID, :Recieved, :Shipped);";

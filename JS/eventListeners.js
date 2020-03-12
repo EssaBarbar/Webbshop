@@ -2,6 +2,7 @@ import { signUpSubmit } from "./signupJS.js"
 import { login } from "./loginJS.js"
 import { updateCategory } from "./app.js"
 import { addCategory } from "./app.js"
+import { addProduct } from "./app.js"
 
 export function addEventListener() {
     const signup = document.getElementById("signUpSubmit")
@@ -27,6 +28,9 @@ export function addEventListener() {
 
     const adminUpdateCategory = document.getElementsByClassName("updateAdminCategory")[0]
     adminUpdateCategory && adminUpdateCategory.addEventListener("click", updateCategory)
+
+    const adminAddProduct = document.getElementById("addProduct")
+    adminAddProduct && adminAddProduct.addEventListener("click", addProduct)
 
     /* const adminAllCategory = document.getElementsByClassName("catDelUpd")[0]
     adminAllCategory && adminAllCategory.addEventListener("click", AllCategory) */

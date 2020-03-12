@@ -43,30 +43,20 @@ class Product {
         return $result;
     }
 
-    public function update() {         
-        $query = "UPDATE Products SET productID = :productID, CategoryID = :CategoryID, ProductName = :ProductName, UnitInStock = :UnitInStock,
-        Price = :Price, CoverPicture = :CoverPicture, PNGPicture = :PNGPicture, Description = :Description
-        WHERE productID = :productID;";
-
-        $value = array(":CategoryID"=>$this->CategoryID, ":ProductName"=>$this->ProductName, ":UnitInStock"=>$this->UnitInStock,
-        ":Price"=>$this->Price, ":CoverPicture"=>$this->CoverPicture, ":PNGPicture"=>$this->PNGPicture, ":Description"=>$this->Description,
-        ":productID"=>$this->productID);
-
+    public function update() {  
+        error_log("updateClass");        
+        $query = "UPDATE products SET UnitInStock = :UnitInStock WHERE ProductID = :productID;";
+        $value = array(":productID"=>$this->productID, ":UnitInStock"=>$this->UnitInStock);
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
 
     public function delete() {
-        $query = "DELETE FROM Products WHERE productID = :productID;";
-        $value = array(":orderID"=>$this->productID);
-        $result =$this->db->runQuery($query);
+        $query = "DELETE FROM products WHERE ProductID = :productID;";
+        $value = array(":productID"=>$this->productID);
+        $result =$this->db->runQuery($query, $value);
         return $result;
     }
-
-
-
-
-
 
 
     public function flexFunction($flexQuery, $flexArray = null) {

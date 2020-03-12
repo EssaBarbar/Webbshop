@@ -170,7 +170,6 @@ header {
 
 .bodyRight {
     width: 84.5%;
-    height: 500px;
     background-color: #cccccc;
     margin: 10px;
     border-radius: 5px;
@@ -206,7 +205,6 @@ header {
 
 .bdc {
     width: 98%;
-    height: 400px;
     margin: 10px;
     margin-top: 0px;
     color: #000000;
@@ -282,7 +280,18 @@ header {
     font-weight: bold;
     padding: 10px;
     margin: 5px;
-    height: 400px;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.columnContainerD {
+    width: 98%;
+    margin: 0 auto;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
     font-size: 14px;
     text-align: center;
     display: flex;
@@ -347,12 +356,98 @@ select {
     text-align: left;
 }
 
+.ColumnSubTextD {
+    height: 30px;
+    color: Navy;
+    padding-left: 10px;
+    width: 200px;
+    padding-top: 5px;
+    text-align: left;
+}
+
 .columnMainText {
     height: 30px;
     color: rgb(0, 0, 0);
     padding-left: 10px;
     width: 200px;
     text-align: left;
+}
+
+.columnMainTextD {
+    height: 30px;
+    color: rgb(0, 0, 0);
+    padding-left: 10px;
+    width: 200px;
+    text-align: left;
+}
+
+.ProductID,
+.cmtProductID {
+    width: 100px;
+}
+
+.CategoryID,
+.cmtCategoryID {
+    width: 100px;
+}
+
+.ProductName,
+.cmtProductName {
+    width: 300px;
+}
+
+.ColumnSubText.UnitInStock {
+    width: 100px;
+}
+
+input[type="text"].unitInStockText {
+    width: 10%;
+    display: none;
+}
+
+.editProductContainer {
+    display: flex;
+    align-items: baseline;
+}
+
+input.editProductText {
+    width: 10%;
+    text-align: center;
+}
+
+.Price,
+.cmtPrice {
+    width: 100px;
+}
+
+.ColumnSubText.OrderDate {
+    width: 100%;
+}
+
+.columnMainText.OrderID,
+.columnMainText.FirstName,
+.columnMainText.LastName,
+.columnMainText.ShipperID,
+.columnMainText.UserID,
+.columnMainText.Recieved,
+.columnMainText.Shipped,
+.ColumnSubText.OrderID,
+.ColumnSubText.FirstName,
+.ColumnSubText.LastName,
+.ColumnSubText.ShipperID,
+.ColumnSubText.UserID,
+.ColumnSubText.Recieved,
+.ColumnSubText.Shipped {
+    width: 12%;
+}
+
+.ColumnSubText.OrderDate,
+.columnMainText.OrderDate {
+    width: 25%;
+}
+
+.UserID {
+    width: 25%;
 }
 
 .inputContainer {
@@ -370,15 +465,29 @@ select {
     background-color: rgb(194, 188, 166);
 }
 
+.columnSubD {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: cornsilk;
+}
+
+.columnSubD:hover {
+    background-color: rgb(194, 188, 166);
+}
+
 .Update {
     color: darkgreen;
-    width: 80px;
     cursor: pointer;
 }
 
 .Delete {
     color: red;
-    width: 80px;
+    cursor: pointer;
+}
+
+.show {
+    color: red;
     cursor: pointer;
 }
 

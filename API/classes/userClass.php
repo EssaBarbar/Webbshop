@@ -19,10 +19,7 @@ include("../classes/dbClass.php");
         $this->password = $password;
         $this->role = $role;
         $this->db = new Database();
-    }
-
-
-    
+    }   
     
     
     public function fetchAll() {
@@ -43,7 +40,7 @@ include("../classes/dbClass.php");
         return $result;        
     }
 
-    public function update() {
+    public function update() {        
         $query = "UPDATE users SET firstName = :firstName, lastname = :lastname, email = :email,
         Password = :Password, role = :role
         WHERE userId = :userId;";
@@ -54,6 +51,7 @@ include("../classes/dbClass.php");
         $result =$this->db->runQuery($query, $value);
         return $result;        
     }
+
     public function delete() {
         $query = "DELETE FROM users WHERE userId = :userId;";
         $value = array(":userId"=>$this->userId);

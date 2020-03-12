@@ -1,8 +1,8 @@
 <?php
 
-session_start();
+//session_start();
 
-include("../classes/categoryClass.php");
+include("./../classes/categoryClass.php");
 
 function getAllCategories() {
     $category = new Category();

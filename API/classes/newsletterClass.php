@@ -1,5 +1,5 @@
 <?php
-include("../classes/dbClass.php");
+include("./../classes/dbClass.php");
 
 class Newsletter {
     public $newsletterID;
@@ -19,7 +19,7 @@ class Newsletter {
     }
 
     public function fetchAll() {
-        $query = "SELECT * FROM newsletter;";
+        $query = "SELECT * FROM newsletters;";
         $result = $this->db->runQuery($query);
         return $result;
     }

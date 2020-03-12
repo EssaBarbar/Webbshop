@@ -1,9 +1,16 @@
 <?php
 
-session_start();
+//session_start();
 
-require_once("../classes/orderClass.php");
-require_once("../handlers/orderDetailsHandler.php");
+include("../classes/orderClass.php");
+include("../handlers/orderDetailsHandler.php");
+
+
+function getAllOrders() {       
+       $Order = new Order();
+       $result = $Order->fetchAll();
+       return $result;
+};
 
 
  function addorder($UserID, $OrderDate, $ShipperID, $orderProducts) {

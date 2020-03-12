@@ -1,16 +1,31 @@
 <?php
-
-include("../handlers/categoryHandler.php");
+include("./../handlers/categoryHandler.php");
 try{
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {  
+    if($_SERVER['REQUEST_METHOD'] === 'POST') { 
+        error_log("POST") ;
         if ($_POST["entity"] == "enjoy") {      
+            error_log("entity") ;
             if ($_POST["endpoint"] == "getAllCategory") {       
+                error_log("endpoint") ;
                 $result = getAllCategories();
                 echo json_encode($result);
             }
         }
     }
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') { 
+        error_log("POST") ;
+        if ($_POST["entity"] == "enjoy") {      
+            error_log("entity") ;
+            if ($_POST["endpoint"] == "getAllNewsletters") {       
+                error_log("endpoint") ;
+                $result = getNewsletter();
+                echo json_encode($result);
+            }
+        }
+    }
+
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {          
         if ($_POST["entity"] == "enjoy") {            

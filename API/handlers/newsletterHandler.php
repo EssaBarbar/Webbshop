@@ -1,8 +1,13 @@
 <?php
 
-session_start();
 
-include("../classes/newsletterClass.php");
+include("./../classes/newsletterClass.php");
+
+function getNewsletter() {
+    $Newsletter = new Newsletter();
+    $result = $Newsletter->fetchAll();
+    return $result;
+};
 
 function subscribeNews($firstname, $lastname, $email)
 {
@@ -17,6 +22,8 @@ function subscribeNews($firstname, $lastname, $email)
     
     return $result;
 };
+
+
 
 
 
