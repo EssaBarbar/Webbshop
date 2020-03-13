@@ -18,6 +18,12 @@ export function signUpSubmit(event) {
 
     makeRequest("../API/recivers/userReciver.php", "POST", myData, (result) => {
         console.log(result)
+        alert("You are registered!" + " " + "Click Enjoy and login!")
+        document.querySelector('input[name=firstname]').value = ""
+        document.querySelector('input[name=lastname]').value = ""
+        document.querySelector('input[name=email]').value = ""
+        document.querySelector('input[name=userPwdInput]').value = ""
+        document.querySelector('input[name=role]').value = ""
     })
 
 }
