@@ -1,14 +1,12 @@
 import { makeRequest } from "./requestHandler.js"
 
-
-
-
 window.onload = init()
 
 function init() {
     loadOrdersOnload()
 
 }
+
 let resultFromGetOrders
 function loadOrdersOnload() {
     let myData = new FormData();
