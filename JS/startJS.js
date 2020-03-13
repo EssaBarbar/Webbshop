@@ -18,6 +18,11 @@ else {
 
 }
 
+/* signOut()
+function signOut() {
+    sessionStorage.clear()
+} */
+
 window.onload = init()
 
 function init() {
@@ -27,7 +32,7 @@ function init() {
     count()
 }
 
-export function checkInloggedUser() {
+function checkInloggedUser() {
     makeRequest("../API/recivers/userReciver.php", "GET", null, (result) => {
         console.log(result)
         let userName = result
