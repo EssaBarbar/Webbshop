@@ -307,17 +307,38 @@ aside {
 }
 @media only screen and (max-width: 500px) {
 
-    .topnav {
-        height: 100px;
+    .title {
+        font-size: 1.5em;
+        margin: 0;
+        padding-bottom: 2em;
     }
     #authentication {
-
+        width: 9em;
+        margin-left: 2em;
+    }
+    .cartBox {
+        padding-bottom: 3.2em;
+        padding-left: 0.5em;
+    }
+    .topnav {
+        padding: 0;
+        padding-left: 5px;
+        height: 6em;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-top: 12px;
- 
+        justify-content: start;
+        /* display: flex;
+        align-items: baseline;
+        flex-wrap: wrap; */
+    }
+    #welcome {
+        margin: 0;
+        padding-top: 2em;
+    }
+    #signOut {
+        margin-top: 3em;
+    }
+    .userIcon {
+        margin-top: 1.3em;
     }
     #categories {
         font-family: Arial, Helvetica, sans-serif;
