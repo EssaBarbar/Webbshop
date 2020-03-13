@@ -18,11 +18,6 @@ else {
 
 }
 
-/* signOut()
-function signOut() {
-    sessionStorage.clear()
-} */
-
 window.onload = init()
 
 function init() {

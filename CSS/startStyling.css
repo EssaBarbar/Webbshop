@@ -15,7 +15,7 @@ main {
     justify-content: space-between;
     flex-wrap: wrap;
     background: #001F3F;
-    box-shadow: 100px 2px 20px 10px rgb(94, 96, 97) inset;
+    box-shadow: 100px 2px 25px 25px rgb(94, 96, 97) inset;
     margin: 0 auto;
     padding: 0 1.5em;
     padding-top: 95px;
