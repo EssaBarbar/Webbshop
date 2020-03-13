@@ -51,6 +51,10 @@ main {
     color: #FFF;
 }
 
+.cartBox {
+    display: flex;
+}
+
 #counter {
     display: flex;
     justify-content: center;
