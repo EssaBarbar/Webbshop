@@ -30,9 +30,10 @@ function init() {
 function checkInloggedUser() {
     makeRequest("../API/recivers/userReciver.php", "GET", null, (result) => {
         console.log(result)
+        let userName = result
         let welcomeText = document.getElementById("welcome")
         if (sessionStorage.inloggedUserId && sessionStorage.inloggedUserId != "") {
-            welcomeText.innerText = result
+            welcomeText.innerText = userName
         } if (!sessionStorage.inloggedUserId && sessionStorage.inloggedUserId != "") {
             welcomeText.innerText = ""
         }
