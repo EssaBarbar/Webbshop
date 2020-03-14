@@ -1,10 +1,11 @@
 # Webbshop Enjoy
 En objekt-orienterad back-end webbshop applikation i PHP som är kopplad till en MySQL databas. Backend skall innehålla ett API som skall användas för kommunikationen med databasen.
 
-Team 2, Enjoy
+Team 2: Enjoy
 Medlemmar: Anu, Bara, Essa, Rasmus och Yanica
-Link: // tbc.. (En länk dit projekt går att använda live)
-Vid behov: tbc..(Uppgifter att testa med, så som inloggningsuppgifter)
+Lite info:
+Tillgång till MAMP server och MySQL server, importera vår databas, enjoy.sql filen som är bifogad i inlämningen.
+Inga inloggningsuppgifter behövs, skapar ditt eget lösenord eller alternativt lösenordet som du får från cartsidan när du gör beställning utan att vara användare. Du hänvisas vidare med hjälp av alert på sidorna. Iconer och Enjoy-loggan länkar till olika sidor.
 
 OBS: Readme filen ska framförallt innehålla en lista över alla kraven i kravspecen nedanför samt
 en kort kommentar från er - har ni uppfyllt kravet? I så fall, hur?
