@@ -40,10 +40,10 @@ if (cartList && cartList.length) {
         CoverPicture.classList = 'productPic'
         cartBox.append(CoverPicture)
 
-        const price = document.createElement('p')
-        price.innerText = product.Price + " " + "SEK"
-
-        cartBox.append(totalPrice)
+        const Price = document.createElement('p')
+        Price.innerText = product.Price + " " + "SEK"
+        console.log(product.Price)
+        cartBox.append(Price)
 
         const removeProduct = document.createElement('button')
         removeProduct.classList = 'button'
@@ -57,16 +57,18 @@ if (cartList && cartList.length) {
         cartProductContainer.append(cartBox)
 
         totalPrice += Number(product.Price)
+
     }
-
+    
     let checkContainer = document.getElementById("checkBox")
-
+    
     let priceText = document.createElement("h2");
     priceText.innerText =
-        "Total" + " " + "price:" + " " + totalPrice + " " + "SEK";
+    "Total" + " " + "price:" + " " + totalPrice + " " + "SEK";
     priceText.classList = "totalText";
-
+    
     checkContainer.appendChild(priceText)
+    /* cartBox.append(totalPrice) */
 
 } else {
     let buyText = document.createElement("p")
