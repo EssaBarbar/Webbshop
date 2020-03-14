@@ -86,7 +86,7 @@ function renderOrdersData() {
 
         let paraFOrProdShipped = document.createElement("p")
         if (arrayWithAllOrders[i][0].Shipped == 0) {
-            paraFOrProdShipped.innerText = "Recived Order:" + " " + "No"
+            paraFOrProdShipped.innerText = "Shipped Order:" + " " + "No"
 
         } else {
             paraFOrProdShipped.innerText = "Yes"
@@ -149,6 +149,7 @@ function thisOrderIsReceived(theReceivedOrderId) {
     myData.append("theReceivedOrderId", theReceivedOrderId);
     makeRequest("../API/recivers/orderReciver.php", "POST", myData, (result) => {
         console.log(result)
+        location.reload()
     })
 
 
