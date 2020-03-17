@@ -40,8 +40,11 @@ try{
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {  
         if ($_POST["entity"] == "enjoy") {      
-            if ($_POST["endpoint"] == "updateAdminCategory") {       
-                $result = updateCategory($result);
+            if ($_POST["endpoint"] == "updateCategory") {       
+                $result = updateCategory(
+                    $_POST['CategoryID'],
+                    $_POST['CategoryName']  
+                );
                 echo json_encode($result);
             }
         }

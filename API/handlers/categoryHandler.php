@@ -23,13 +23,13 @@ function insertToCategory($categoryName)
     return $result;
 };
 
-function updateCategory($categoryName)
+function updateCategory($CategoryID,$CategoryName)
 {
-    $category = new Category(null, $categoryName);
+    $category = new Category($CategoryID, $CategoryName);
     $result = $category->update();
 
     if (empty($result)) {
-        throw new Exception("No Category found", 404);
+        throw new Exception("No Category Handlar found", 404);
         exit;
     }    
     return $result;

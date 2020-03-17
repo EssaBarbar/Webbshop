@@ -33,8 +33,8 @@ class Category {
     }
             
     public function update() {         
-        $query = "UPDATE categories SET CategoryID = NULL, CategoryName = :CategoryName WHERE CategoryID = :CategoryID;";        
-        $value = array(":CategoryName"=>$this->CategoryName);
+        $query = "UPDATE categories SET CategoryName = :CategoryName WHERE CategoryID = :CategoryID;";        
+        $value = array(":CategoryName"=>$this->CategoryName,":CategoryID"=>$this->CategoryId);
         $result =$this->db->runQuery($query, $value);
         return $result;
     }        

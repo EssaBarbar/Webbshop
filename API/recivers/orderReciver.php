@@ -20,23 +20,34 @@ try {
                         $_POST['orderProducts'],
                     );
                     echo json_encode($result);
-                    }else {
+
+                    } else {
                         echo json_encode("Need to login to do this");
                     }
-                } else if($_POST["endpoint"] == "") {
-                    echo json_encode($result);
-                }else if ($_POST["endpoint"] == "") {
-                    echo json_encode($result);
-                } 
-                else {
+
+                } else if ($_POST["endpoint"] == "updateAdminOrder") {                 
+                    $result = updateOrder(
+                    $_POST['OrderID'],
+                    $_POST['OrderDate'],
+                    $_POST['UserID'],
+                    $_POST['ShipperID'],
+                    $_POST['Recieved'],
+                    $_POST['Shipped']                                    
+                    );                
+                    echo json_encode($result);                 
+                
+                } else {
                     throw new Exception("Not a valid endpoint", 501);
                 }
+
             } else {
                 throw new Exception("Not a valid entity method", 501);
             }
+
     } else {
         throw new Exception("Not valid request method", 405);
     }
+
 } catch (Exception $e) {
     echo json_encode(array("Message" => $e->getMessage(), "Status" => $e->getCode()));
 }

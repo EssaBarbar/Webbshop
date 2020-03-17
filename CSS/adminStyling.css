@@ -347,31 +347,7 @@ select {
     width: 300px;
 }
 
-.ColumnSubText {
-    height: 30px;
-    color: Navy;
-    padding-left: 10px;
-    width: 200px;
-    padding-top: 5px;
-    text-align: left;
-}
 
-.ColumnSubTextD {
-    height: 30px;
-    color: Navy;
-    padding-left: 10px;
-    width: 200px;
-    padding-top: 5px;
-    text-align: left;
-}
-
-.columnMainText {
-    height: 30px;
-    color: rgb(0, 0, 0);
-    padding-left: 10px;
-    width: 200px;
-    text-align: left;
-}
 
 .columnMainTextD {
     height: 30px;
@@ -424,6 +400,9 @@ input.editProductText {
     width: 100%;
 }
 
+.ColumnSubText.CategoryID,
+.ColumnSubText.CategoryName 
+
 .columnMainText.OrderID,
 .columnMainText.FirstName,
 .columnMainText.LastName,
@@ -436,6 +415,21 @@ input.editProductText {
 .ColumnSubText.LastName,
 .ColumnSubText.ShipperID,
 .ColumnSubText.UserID,
+.ColumnSubText.CategoryID,
+.ColumnSubText.CategoryName,
+.ColumnSubText.NewsletterID,
+.ColumnSubText.UserID,
+.ColumnSubText.FirstName,
+.ColumnSubText.Email,
+.ColumnSubText.OrderID,
+.ColumnSubText.OrderDate,
+.ColumnSubText.UserID,
+.ColumnSubText.ShipperID,
+.ColumnSubText.Recieved,
+.ColumnSubText.Shipped,
+.ColumnSubText.ProductID,
+.ColumnSubText.Quantity,
+.ColumnSubText.UnitPrice,
 .ColumnSubText.Recieved,
 .ColumnSubText.Shipped {
     width: 12%;

@@ -4,7 +4,7 @@ var imgCover, imgPng
 
 addEventListener()
 
-$('.dashBoard').click(function() {
+$('.dashBoard').click(function () {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -14,7 +14,7 @@ $('.dashBoard').click(function() {
 });
 
 
-$('.categoriesContainer').click(function() {
+$('.categoriesContainer').click(function () {
 
     $(".categorySubContainer").show(200);
     $(".productSubContainer").hide(200);
@@ -25,7 +25,7 @@ $('.categoriesContainer').click(function() {
 });
 
 
-$('.productsContainer').click(function() {
+$('.productsContainer').click(function () {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").show(200);
@@ -36,7 +36,7 @@ $('.productsContainer').click(function() {
 });
 
 
-$('.ordersContainer').click(function() {
+$('.ordersContainer').click(function () {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -44,7 +44,7 @@ $('.ordersContainer').click(function() {
     $(".usersSubContainer").hide(200);
     $(".mangeAdminSubContainer").hide(200);
 });
-$('.usersContainer').click(function() {
+$('.usersContainer').click(function () {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -52,7 +52,7 @@ $('.usersContainer').click(function() {
     $(".usersSubContainer").show(200);
     $(".mangeAdminSubContainer").hide(200);
 });
-$('.mangeAdminContainer').click(function() {
+$('.mangeAdminContainer').click(function () {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -62,7 +62,7 @@ $('.mangeAdminContainer').click(function() {
 });
 
 
-$('.dashBoard').click(function() {
+$('.dashBoard').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -76,7 +76,7 @@ $('.dashBoard').click(function() {
 
 });
 
-$('.catAdd').click(function() {
+$('.catAdd').click(function () {
 
     $(".bdcCatAdd").show(200);
     $(".bdcCatDelUpp").hide(200);
@@ -93,7 +93,7 @@ $('.catAdd').click(function() {
 
 });
 
-$('.catDelUpd').click(function() {
+$('.catDelUpd').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").show(200);
@@ -108,7 +108,7 @@ $('.catDelUpd').click(function() {
     getAllCategories();
 });
 
-$('.proAdd').click(function() {
+$('.proAdd').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -120,7 +120,7 @@ $('.proAdd').click(function() {
     $(".bdcMangeAdminAdd").hide(200);
     $(".bdcMangeAdminDelUpp").hide(200);
 
-    $(function() {
+    $(function () {
         let myData = new FormData();
         myData.append("entity", "enjoy");
         myData.append("endpoint", "getAllCategory");
@@ -141,7 +141,7 @@ $('.proAdd').click(function() {
 
 });
 
-$('.proDelUpp').click(function() {
+$('.proDelUpp').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -195,37 +195,25 @@ function getAllProducts() {
             Price.text(result[i].Price);
             Price.addClass("ColumnSubText Price");
 
-            let Update = $("<div></div>");
-            Update.text("Update");
-            Update.addClass("ProductID Update");
+            var UpdateProductBtn = $("<div></div>");
+            UpdateProductBtn.text("Update");
+            UpdateProductBtn.addClass("update UpdateProductBtn");
 
-            Update.on("click", function() {
-                $('.Update').click(function() {
-                    $(".bdcCatAdd").show(200);
-                    $(".bdcCatDelUpp").hide(200);
-                    $(".bdcProAdd").hide(200);
-                    $(".bdcProDelUpp").hide(200);
-                    $(".bdcUseAdd").hide(200);
-                    $(".bdcUseDelUpp").hide(200);
-                    $(".bdcOrdSend").hide(200);
-                    $(".bdcMangeAdminAdd").hide(200);
-                    $(".bdcMangeAdminDelUpp").hide(200);
-                    $(".bdcMangeAdminDelUpp").hide(200);
-                    $(".updateAdminCategory").show();
-                    $(".AddAdminCategory").hide();
-                    $("#CategoryName").value = $(".ColumnSubText").eq(1).text();
-                });
+            UpdateProductBtn.click(function () {
+                updateProduct(result[i].ProductID, result[i].CategoryID, result[i].ProductName, result[i].UnitInStock, result[i].Price, result[i].CoverPicture, result[i].PNGPicture, result[i].Description);
+                getAllProducts()
             });
 
-            ///// Delete Product function
+            ///// End Update Product function
 
-            let deleteProductBtn = $("<div></div>");
+            var deleteProductBtn = $("<div></div>");
             deleteProductBtn.text("Delete");
             deleteProductBtn.addClass("deleteProductBtn Delete");
 
-            deleteProductBtn.on("click", function() {               
+            deleteProductBtn.on("click", function () {               
                 deleteProduct(result[i].ProductID)
                 $(".columnSub")[i].remove();
+                getAllProducts()
             });
 
             //// End Delete Product Function
@@ -235,12 +223,16 @@ function getAllProducts() {
             columnSub.append(ProductName);
             columnSub.append(UnitInStock);
             columnSub.append(Price);
-            columnSub.append(Update);
+            columnSub.append(UpdateProductBtn);
             columnSub.append(deleteProductBtn);
             $(".columnContainer").append(columnSub);
         }
+
+
     });
 }
+
+
 
 
 function deleteProduct(productID) {
@@ -254,7 +246,7 @@ function deleteProduct(productID) {
 }
 
 
-$('.usersAdd').click(function() {
+$('.usersAdd').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -269,7 +261,7 @@ $('.usersAdd').click(function() {
 
 });
 
-$('.usersDelUpp').click(function() {
+$('.usersDelUpp').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -284,7 +276,7 @@ $('.usersDelUpp').click(function() {
 });
 
 
-$('.ordSend').click(function() {   
+$('.ordSend').click(function () {
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
     $(".bdcProAdd").hide(200);
@@ -293,13 +285,13 @@ $('.ordSend').click(function() {
     $(".bdcUseDelUpp").hide(200);
     $(".bdcOrdSend").show(200);
     $(".bdcMangeAdminAdd").hide(200);
-    $(".bdcMangeAdminDelUpp").hide(200);    
-    
+    $(".bdcMangeAdminDelUpp").hide(200);
+
     getOrder();
 
 });
 
-$('.mangeAdminAdd').click(function() {
+$('.mangeAdminAdd').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -313,7 +305,7 @@ $('.mangeAdminAdd').click(function() {
 
 });
 
-$('.mangeAdminDelUpp').click(function() {
+$('.mangeAdminDelUpp').click(function () {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -347,33 +339,22 @@ function getAllCategories() {
 
             let CategoryID = $("<div></div>");
             CategoryID.text(result[i].CategoryID);
-            CategoryID.addClass("ColumnSubText");
+            CategoryID.addClass("ColumnSubText CategoryID");
 
             let CategoryName = $("<div></div>");
             CategoryName.text(result[i].CategoryName);
-            CategoryName.addClass("ColumnSubText");
+            CategoryName.addClass("ColumnSubText CategoryName");
 
-            let Update = $("<div></div>");
-            Update.text("Update");
-            Update.addClass("CategoryID Update");
+            
+            let UpdateCategoryBtn = $("<div></div>");
+            UpdateCategoryBtn.text("Update");
+            UpdateCategoryBtn.addClass("Update UpdateCategoryBtn");
 
-            Update.on("click", function() {
-                $('.Update').click(function() {
-                    $(".bdcCatAdd").show(200);
-                    $(".bdcCatDelUpp").hide(200);
-                    $(".bdcProAdd").hide(200);
-                    $(".bdcProDelUpp").hide(200);
-                    $(".bdcUseAdd").hide(200);
-                    $(".bdcUseDelUpp").hide(200);
-                    $(".bdcOrdSend").hide(200);
-                    $(".bdcMangeAdminAdd").hide(200);
-                    $(".bdcMangeAdminDelUpp").hide(200);
-                    $(".bdcMangeAdminDelUpp").hide(200);
-                    $(".updateAdminCategory").show();
-                    $(".AddAdminCategory").hide();
-                    $("#CategoryName").value = $(".ColumnSubText").eq(1).text();
-                });
+            UpdateCategoryBtn.click(function () {
+                updateCategory(result[i].CategoryID)
+                getAllCategories();
             });
+
 
             ///// Delete Category function
 
@@ -381,16 +362,17 @@ function getAllCategories() {
             deleteCategoryBtn.text("Delete");
             deleteCategoryBtn.addClass("deleteCategoryBtn Delete");
 
-            deleteCategoryBtn.on("click", function() {               
+            deleteCategoryBtn.on("click", function () {
                 console.log(result[i].CategoryID);
                 deleteCategory(result[i].CategoryID)
                 $(".columnSub")[i].remove();
+                getAllCategories()
             });
             //// End Delete category function
 
             columnSub.append(CategoryID);
             columnSub.append(CategoryName);
-            columnSub.append(Update);
+            columnSub.append(UpdateCategoryBtn);
             columnSub.append(deleteCategoryBtn);
             $(".columnContainer").append(columnSub);
         }
@@ -429,11 +411,12 @@ export function addCategory(event) {
 }
 
 
-export function updateCategory(event) {
+export function updateCategory(CategoryID) {   
     let myData = new FormData();
     myData.append("entity", "enjoy");
-    myData.append("endpoint", "updateAdminCategory");
-    myData.append("CategoryName", document.querySelector('input[name=CategoryName]').value)
+    myData.append("endpoint", "updateCategory");
+    myData.append("CategoryID", CategoryID)
+    myData.append("CategoryName", document.querySelector('input[name=categoryNameText]').value)
     makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
         if (result) {
             $(".message").text("The category was added successfully");
@@ -447,13 +430,58 @@ export function updateCategory(event) {
     });
 }
 
+function sendOrder(OrderID, OrderDate, UserID, ShipperID, Recieved) {
+    let myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "updateAdminOrder");
+    myData.append("OrderID", OrderID)
+    myData.append("OrderDate", OrderDate)
+    myData.append("UserID", UserID)
+    myData.append("ShipperID", ShipperID)
+    myData.append("Recieved", Recieved)
+    myData.append("Shipped", "1")
+    makeRequest("./../API/recivers/orderReciver.php", "POST", myData, (result) => {
+        if (result) {
+            $(".message").text("The Order had sent to Customer");
+            $(".message").css('color', 'blue');
+            $('#message').fadeIn(3000);
+            $('#message').fadeOut(2000);
+        }
+        console.log(result);
+
+    });
+}
 
 
+function updateProduct(ProductID, CategoryID, ProductName, Price, CoverPicture, PNGPicture, Description) {
+    let myData = new FormData();
+    myData.append("entity", "enjoy");
+    myData.append("endpoint", "updateAdminProduct");
+    myData.append("ProductID", ProductID)
+    myData.append("CategoryID", CategoryID)
+    myData.append("ProductName", ProductName)
+    myData.append("Price", Price)
+    myData.append("CoverPicture", CoverPicture)
+    myData.append("PNGPicture", PNGPicture)
+    myData.append("Description", Description)
+    myData.append("UnitInStock", document.querySelector('input[name=UnitInStockText]').value)
+    makeRequest("./../API/recivers/productReciver.php", "POST", myData, (result) => {
+        if (result) {
+            $(".message").text("The product was updated successfully");
+            $(".message").css('color', 'blue');
+            $('#message').fadeIn(3000);
+            $('#message').fadeOut(2000);
+        }
+        console.log(result);
 
-$('#addCoverPicBtn').click(function() {
+    });
+}
+
+
+$('#addCoverPicBtn').click(function () {
     var fileTag = document.getElementById("addCoverPicBtn"),
         preview = document.getElementById("CoverPicture");
-    fileTag.addEventListener("change", function() {
+    fileTag.addEventListener("change", function () {
         changeImageCover(this);
     });
 
@@ -463,7 +491,7 @@ $('#addCoverPicBtn').click(function() {
         var files = input.files;
         if (input.files && input.files[0]) {
             reader = new FileReader();
-            reader.onload = function(readerEvt) {
+            reader.onload = function (readerEvt) {
                 preview.setAttribute('src', readerEvt.target.result);
                 readerEvt.target.fileName;
             }
@@ -476,10 +504,10 @@ $('#addCoverPicBtn').click(function() {
     }
 });
 
-$('#addPngPicBtn').click(function() {
+$('#addPngPicBtn').click(function () {
     var fileTag = document.getElementById("addPngPicBtn"),
         preview = document.getElementById("PNGPicture");
-    fileTag.addEventListener("change", function() {
+    fileTag.addEventListener("change", function () {
         changeImagePng(this);
     });
 
@@ -489,7 +517,7 @@ $('#addPngPicBtn').click(function() {
         var files = input.files;
         if (input.files && input.files[0]) {
             reader = new FileReader();
-            reader.onload = function(readerEvt) {
+            reader.onload = function (readerEvt) {
                 preview.setAttribute('src', readerEvt.target.result);
                 readerEvt.target.fileName;
             }
@@ -529,106 +557,116 @@ export function addProduct(event) {
 }
 
 
-function getAllNewsletters() {    
+function getAllNewsletters() {
     makeRequest("./../API/recivers/newsletterReciver.php", "GET", null, (result) => {
-       
+
         $(".columnSub").remove();
         $(".ColumnSubText").remove();
         $(".ColumnSubText").remove();
-       
+
         for (let i = 0; i < result.length; i++) {
             let columnSub = $("<div></div>");
             columnSub.addClass("columnSub");
 
             let NewsletterID = $("<div></div>");
             NewsletterID.text(result[i].NewsletterID);
-            NewsletterID.addClass("ColumnSubText");
+            NewsletterID.addClass("ColumnSubText NewsletterID");
 
             let UserID = $("<div></div>");
             UserID.text(result[i].UserID);
-            UserID.addClass("ColumnSubText");
+            UserID.addClass("ColumnSubText UserID");
 
             let FirstName = $("<div></div>");
             FirstName.text(result[i].FirstName);
-            FirstName.addClass("ColumnSubText");
+            FirstName.addClass("ColumnSubText FirstName");
 
             let LastName = $("<div></div>");
             LastName.text(result[i].LastName);
-            LastName.addClass("ColumnSubText");
+            LastName.addClass("ColumnSubText LastName");
 
             let Email = $("<div></div>");
             Email.text(result[i].Email);
-            Email.addClass("ColumnSubText");
+            Email.addClass("ColumnSubText Email");
 
-            
+
             //// End show  newsletters function
 
             columnSub.append(NewsletterID);
             columnSub.append(UserID);
             columnSub.append(FirstName);
             columnSub.append(LastName);
-            columnSub.append(Email);                      
+            columnSub.append(Email);
             $(".columnContainer").append(columnSub);
         }
     })
 }
 
 
-function getOrder() {    
+function getOrder() {
     makeRequest("./../API/recivers/orderReciver.php", "GET", null, (result) => {
-       
+
         $(".columnSub").remove();
         $(".ColumnSubText").remove();
         $(".ColumnSubText").remove();
-       
+
         for (let i = 0; i < result.length; i++) {
             let columnSub = $("<div></div>");
             columnSub.addClass("columnSub");
 
-            
+
             let OrderID = $("<div></div>");
             OrderID.text(result[i].OrderID);
-            OrderID.addClass("ColumnSubText");
+            OrderID.addClass("ColumnSubText OrderID");
 
             let OrderDate = $("<div></div>");
             OrderDate.text(result[i].OrderDate);
-            OrderDate.addClass("ColumnSubText");
+            OrderDate.addClass("ColumnSubText OrderDate");
 
             let UserID = $("<div></div>");
             UserID.text(result[i].UserID);
-            UserID.addClass("ColumnSubText");
+            UserID.addClass("ColumnSubText UserID");
 
             let ShipperID = $("<div></div>");
             ShipperID.text(result[i].ShipperID);
-            ShipperID.addClass("ColumnSubText");
+            ShipperID.addClass("ColumnSubText ShipperID");
 
             let Recieved = $("<div></div>");
             Recieved.text(result[i].Recieved);
-            Recieved.addClass("ColumnSubText");
+            Recieved.addClass("ColumnSubText Recieved");
 
             let Shipped = $("<div></div>");
             Shipped.text(result[i].Shipped);
-            Shipped.addClass("ColumnSubText");
+            Shipped.addClass("ColumnSubText Shipped");
 
             let showOrderDetailsBtn = $("<div></div>");
             showOrderDetailsBtn.text("Show");
             showOrderDetailsBtn.addClass("showOrderDetailsBtn Delete");
 
-            columnSub.on("click", function() {
-                getOrderDetails(result[i].OrderID)
-                $(".columnSub")[i].remove();
+            showOrderDetailsBtn.on("click", function () {
+                getOrderDetails(result[i].OrderID)               
             });
 
-                                    
             //// End show Order function
+
+            let SendOrderBtn = $("<div></div>");
+            SendOrderBtn.text("Send");
+            SendOrderBtn.addClass("SendOrderBtn update");
+
+            SendOrderBtn.on("click", function () {
+                sendOrder(result[i].OrderID, result[i].OrderDate, result[i].UserID, result[i].ShipperID, result[i].Recieved)
+                getOrder()
+            });
+
+
 
             columnSub.append(OrderID);
             columnSub.append(OrderDate);
             columnSub.append(UserID);
             columnSub.append(ShipperID);
             columnSub.append(Recieved);
-            columnSub.append(Shipped);                                       
-            columnSub.append(showOrderDetailsBtn);  
+            columnSub.append(Shipped);
+            columnSub.append(SendOrderBtn);
+            columnSub.append(showOrderDetailsBtn);
             $(".columnContainer").append(columnSub);
         }
     })
@@ -636,39 +674,39 @@ function getOrder() {
 
 
 
-function getOrderDetails(OrderID) {  
+function getOrderDetails(OrderID) {
     let myData = new FormData();
     myData.append("entity", "enjoy");
     myData.append("endpoint", "getOrderDetails");
-    myData.append("OrderID", OrderID)    
+    myData.append("OrderID", OrderID)
     makeRequest("./../API/recivers/orderDetailsReciver.php", "POST", myData, (result) => {
-       
+
         $(".columnSubD").remove();
         $(".ColumnSubTextD").remove();
         $(".ColumnSubTextD").remove();
-       
+
         for (let i = 0; i < result.length; i++) {
             let columnSubD = $("<div></div>");
             columnSubD.addClass("columnSubD");
 
             let ProductID = $("<div></div>");
             ProductID.text(result[i].ProductID);
-            ProductID.addClass("ColumnSubTextD");
+            ProductID.addClass("ColumnSubTextD ProductID");
 
             let Quantity = $("<div></div>");
             Quantity.text(result[i].Quantity);
-            Quantity.addClass("ColumnSubTextD");
+            Quantity.addClass("ColumnSubTextD Quantity");
 
             let UnitPrice = $("<div></div>");
             UnitPrice.text(result[i].UnitPrice);
-            UnitPrice.addClass("ColumnSubTextD");
+            UnitPrice.addClass("ColumnSubTextD UnitPrice");
 
-                        
+
             //// End show Order Details function
 
             columnSubD.append(ProductID);
             columnSubD.append(Quantity);
-            columnSubD.append(UnitPrice);                               
+            columnSubD.append(UnitPrice);
             $(".columnContainerD").append(columnSubD);
         }
     })

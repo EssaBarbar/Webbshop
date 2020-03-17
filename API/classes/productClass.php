@@ -33,7 +33,7 @@ class Product {
     }
 
     public function insert() {
-        $query = "INSERT INTO Products (CategoryID, ProductName, UnitInStock, Price, CoverPicture, PNGPicture, Description)
+        $query = "INSERT INTO products (CategoryID, ProductName, UnitInStock, Price, CoverPicture, PNGPicture, Description)
         VALUES(:CategoryID, :ProductName, :UnitInStock, :Price, :CoverPicture, :PNGPicture, :Description);";
         
         $value = array(":CategoryID"=>$this->CategoryID, ":ProductName"=>$this->ProductName, ":UnitInStock"=>$this->UnitInStock,
@@ -43,13 +43,24 @@ class Product {
         return $result;
     }
 
-    public function update() {  
-        error_log("updateClass");        
-        $query = "UPDATE products SET UnitInStock = :UnitInStock WHERE ProductID = :productID;";
-        $value = array(":productID"=>$this->productID, ":UnitInStock"=>$this->UnitInStock);
-        $result =$this->db->runQuery($query, $value);
-        return $result;
+    public function update() {   
+        
+
+        $query = "UPDATE products SET CategoryID = :CategoryID, ProductName = :ProductName, 
+        UnitInStock = :UnitInStock, Price = :Price, CoverPicture = :CoverPicture, PNGPicture = :PNGPicture, Description = :Description        
+        WHERE ProductID = :ProductID;";
+
+        $value = array(":CategoryID"=>$this->CategoryID, ":ProductName"=>$this->ProductName, ":UnitInStock"=>$this->UnitInStock,
+        ":Price"=>$this->Price, ":CoverPicture"=>$this->CoverPicture, ":PNGPicture"=>$this->PNGPicture, ":Description"=>$this->Description,
+        ":ProductID"=>$this->productID);
+
+        $result =$this->db->runQuery($query, $value);        
+        return $result;        
     }
+
+
+    
+
 
     public function delete() {
         $query = "DELETE FROM products WHERE ProductID = :productID;";

@@ -50,13 +50,12 @@ function deleteFromProduct($productID) {
     return $result;
 };
 
-function updateProduct($productID,$UnitInStock) {
-    error_log("updateHandlar");    
-    $Products = new Product($productID, $UnitInStock);
-    $result = $Products->update();
-
+function updateProduct($productID, $CategoryID, $ProductName, $UnitInStock, $Price, $CoverPicture, $PNGPicture, $Description) {   
+    $Products = new Product($productID, $CategoryID, $ProductName, $UnitInStock, $Price, $CoverPicture, $PNGPicture, $Description);
+    
+    $result = $Products->update();   
     if (empty($result)) {
-        throw new Exception("No Product found", 404);
+        throw new Exception("No Product Handlar found", 404);
         exit;
     }
     return $result;

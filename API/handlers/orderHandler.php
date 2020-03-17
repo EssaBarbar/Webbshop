@@ -38,4 +38,17 @@ function getAllOrders() {
        return true;
 };
 
+function updateOrder($OrderID, $OrderDate, $UserID, $ShipperID, $Recieved, $Shipped) {   
+       $Order = new Order($OrderID, $OrderDate, $UserID, $ShipperID, $Recieved, $Shipped);
+       
+       $result = $Order->update();  
+
+       if (empty($result)) {
+           throw new Exception("No Order Handlar found", 404);
+           exit;
+       }
+       
+       return $result;
+};
+
 ?>
