@@ -4,7 +4,7 @@ var imgCover, imgPng
 
 addEventListener()
 
-$('.dashBoard').click(function () {
+$('.dashBoard').click(function() {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -14,7 +14,7 @@ $('.dashBoard').click(function () {
 });
 
 
-$('.categoriesContainer').click(function () {
+$('.categoriesContainer').click(function() {
 
     $(".categorySubContainer").show(200);
     $(".productSubContainer").hide(200);
@@ -25,7 +25,7 @@ $('.categoriesContainer').click(function () {
 });
 
 
-$('.productsContainer').click(function () {
+$('.productsContainer').click(function() {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").show(200);
@@ -36,7 +36,7 @@ $('.productsContainer').click(function () {
 });
 
 
-$('.ordersContainer').click(function () {
+$('.ordersContainer').click(function() {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -44,7 +44,7 @@ $('.ordersContainer').click(function () {
     $(".usersSubContainer").hide(200);
     $(".mangeAdminSubContainer").hide(200);
 });
-$('.usersContainer').click(function () {
+$('.usersContainer').click(function() {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -52,7 +52,7 @@ $('.usersContainer').click(function () {
     $(".usersSubContainer").show(200);
     $(".mangeAdminSubContainer").hide(200);
 });
-$('.mangeAdminContainer').click(function () {
+$('.mangeAdminContainer').click(function() {
 
     $(".categorySubContainer").hide(200);
     $(".productSubContainer").hide(200);
@@ -62,7 +62,7 @@ $('.mangeAdminContainer').click(function () {
 });
 
 
-$('.dashBoard').click(function () {
+$('.dashBoard').click(function() {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -76,7 +76,7 @@ $('.dashBoard').click(function () {
 
 });
 
-$('.catAdd').click(function () {
+$('.catAdd').click(function() {
 
     $(".bdcCatAdd").show(200);
     $(".bdcCatDelUpp").hide(200);
@@ -93,7 +93,7 @@ $('.catAdd').click(function () {
 
 });
 
-$('.catDelUpd').click(function () {
+$('.catDelUpd').click(function() {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").show(200);
@@ -108,7 +108,7 @@ $('.catDelUpd').click(function () {
     getAllCategories();
 });
 
-$('.proAdd').click(function () {
+$('.proAdd').click(function() {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -120,7 +120,7 @@ $('.proAdd').click(function () {
     $(".bdcMangeAdminAdd").hide(200);
     $(".bdcMangeAdminDelUpp").hide(200);
 
-    $(function () {
+    $(function() {
         let myData = new FormData();
         myData.append("entity", "enjoy");
         myData.append("endpoint", "getAllCategory");
@@ -141,7 +141,7 @@ $('.proAdd').click(function () {
 
 });
 
-$('.proDelUpp').click(function () {
+$('.proDelUpp').click(function() {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -199,10 +199,10 @@ function getAllProducts() {
             UpdateProductBtn.text("Update");
             UpdateProductBtn.addClass("update UpdateProductBtn");
 
-            UpdateProductBtn.click(function () {
+            UpdateProductBtn.click(function() {
                 updateProduct(result[i].ProductID, result[i].CategoryID, result[i].ProductName, result[i].UnitInStock, result[i].Price, result[i].CoverPicture, result[i].PNGPicture, result[i].Description);
                 getAllProducts()
-                
+
             });
 
             ///// End Update Product function
@@ -211,7 +211,7 @@ function getAllProducts() {
             deleteProductBtn.text("Delete");
             deleteProductBtn.addClass("deleteProductBtn Delete");
 
-            deleteProductBtn.on("click", function () {               
+            deleteProductBtn.on("click", function() {
                 deleteProduct(result[i].ProductID)
                 $(".columnSub")[i].remove();
                 getAllProducts()
@@ -247,7 +247,7 @@ function deleteProduct(productID) {
 }
 
 
-$('.usersAdd').click(function () {
+$('.usersAdd').click(function() {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -262,7 +262,7 @@ $('.usersAdd').click(function () {
 
 });
 
-$('.usersDelUpp').click(function () {
+$('.usersDelUpp').click(function() {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -277,7 +277,7 @@ $('.usersDelUpp').click(function () {
 });
 
 
-$('.ordSend').click(function () {
+$('.ordSend').click(function() {
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
     $(".bdcProAdd").hide(200);
@@ -292,7 +292,7 @@ $('.ordSend').click(function () {
 
 });
 
-$('.mangeAdminAdd').click(function () {
+$('.mangeAdminAdd').click(function() {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -306,7 +306,7 @@ $('.mangeAdminAdd').click(function () {
 
 });
 
-$('.mangeAdminDelUpp').click(function () {
+$('.mangeAdminDelUpp').click(function() {
 
     $(".bdcCatAdd").hide(200);
     $(".bdcCatDelUpp").hide(200);
@@ -340,18 +340,18 @@ function getAllCategories() {
 
             let CategoryID = $("<div></div>");
             CategoryID.text(result[i].CategoryID);
-            CategoryID.addClass("ColumnSubText CategoryID");
+            CategoryID.addClass("ColumnSubText CategoryIDCategory");
 
             let CategoryName = $("<div></div>");
             CategoryName.text(result[i].CategoryName);
             CategoryName.addClass("ColumnSubText CategoryName");
 
-            
+
             let UpdateCategoryBtn = $("<div></div>");
             UpdateCategoryBtn.text("Update");
             UpdateCategoryBtn.addClass("Update UpdateCategoryBtn");
 
-            UpdateCategoryBtn.click(function () {
+            UpdateCategoryBtn.click(function() {
                 updateCategory(result[i].CategoryID)
                 getAllCategories();
             });
@@ -363,7 +363,7 @@ function getAllCategories() {
             deleteCategoryBtn.text("Delete");
             deleteCategoryBtn.addClass("deleteCategoryBtn Delete");
 
-            deleteCategoryBtn.on("click", function () {
+            deleteCategoryBtn.on("click", function() {
                 console.log(result[i].CategoryID);
                 deleteCategory(result[i].CategoryID)
                 $(".columnSub")[i].remove();
@@ -412,7 +412,7 @@ export function addCategory(event) {
 }
 
 
-export function updateCategory(CategoryID) {   
+export function updateCategory(CategoryID) {
     let myData = new FormData();
     myData.append("entity", "enjoy");
     myData.append("endpoint", "updateCategory");
@@ -470,7 +470,7 @@ function updateProduct(ProductID, CategoryID, ProductName, Price, CoverPicture, 
         if (result) {
             $(".message").text("The product was updated successfully");
             $(".message").css('color', 'blue');
-            
+
         }
         console.log(result);
 
@@ -478,10 +478,10 @@ function updateProduct(ProductID, CategoryID, ProductName, Price, CoverPicture, 
 }
 
 
-$('#addCoverPicBtn').click(function () {
+$('#addCoverPicBtn').click(function() {
     var fileTag = document.getElementById("addCoverPicBtn"),
         preview = document.getElementById("CoverPicture");
-    fileTag.addEventListener("change", function () {
+    fileTag.addEventListener("change", function() {
         changeImageCover(this);
     });
 
@@ -491,7 +491,7 @@ $('#addCoverPicBtn').click(function () {
         var files = input.files;
         if (input.files && input.files[0]) {
             reader = new FileReader();
-            reader.onload = function (readerEvt) {
+            reader.onload = function(readerEvt) {
                 preview.setAttribute('src', readerEvt.target.result);
                 readerEvt.target.fileName;
             }
@@ -504,10 +504,10 @@ $('#addCoverPicBtn').click(function () {
     }
 });
 
-$('#addPngPicBtn').click(function () {
+$('#addPngPicBtn').click(function() {
     var fileTag = document.getElementById("addPngPicBtn"),
         preview = document.getElementById("PNGPicture");
-    fileTag.addEventListener("change", function () {
+    fileTag.addEventListener("change", function() {
         changeImagePng(this);
     });
 
@@ -517,7 +517,7 @@ $('#addPngPicBtn').click(function () {
         var files = input.files;
         if (input.files && input.files[0]) {
             reader = new FileReader();
-            reader.onload = function (readerEvt) {
+            reader.onload = function(readerEvt) {
                 preview.setAttribute('src', readerEvt.target.result);
                 readerEvt.target.fileName;
             }
@@ -642,8 +642,8 @@ function getOrder() {
             showOrderDetailsBtn.text("Show");
             showOrderDetailsBtn.addClass("showOrderDetailsBtn Delete");
 
-            showOrderDetailsBtn.on("click", function () {
-                getOrderDetails(result[i].OrderID)               
+            showOrderDetailsBtn.on("click", function() {
+                getOrderDetails(result[i].OrderID)
             });
 
             //// End show Order function
@@ -652,7 +652,7 @@ function getOrder() {
             SendOrderBtn.text("Send");
             SendOrderBtn.addClass("SendOrderBtn update");
 
-            SendOrderBtn.on("click", function () {
+            SendOrderBtn.on("click", function() {
                 sendOrder(result[i].OrderID, result[i].OrderDate, result[i].UserID, result[i].ShipperID, result[i].Recieved)
                 getOrder()
             });
@@ -691,7 +691,7 @@ function getOrderDetails(OrderID) {
 
             let ProductID = $("<div></div>");
             ProductID.text(result[i].ProductID);
-            ProductID.addClass("ColumnSubTextD ProductID");
+            ProductID.addClass("ColumnSubTextD ProductIDORderDetails");
 
             let Quantity = $("<div></div>");
             Quantity.text(result[i].Quantity);

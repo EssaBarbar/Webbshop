@@ -26,7 +26,7 @@
             <div class="bodyLeft">
                 <div class="dashBoard container">DASH BOARD </div>
 
-                <div class="categoriesContainer container">CATEGORIES</div>
+                <div class="categoriesContainer container">CATEGORIE</div>
 
                 <div class="categorySubContainer subContainerHideShow">
                     <div class="catAdd add">Add</div>
@@ -39,18 +39,18 @@
                     <div class="proDelUpp delUpp">Delete/Update</div>
                 </div>
 
-                <div class="ordersContainer container">ORDER </div>
+                <div class="ordersContainer container">ORDER</div>
                 <div class="orderSubContainer subContainerHideShow">
                     <div class="ordSend add">Show Orders</div>
                 </div>
-                <div class="usersContainer container">NEWSLETTERS</div>
+                <div class="usersContainer container">NEWS LETTERS</div>
                 <div class="usersSubContainer subContainerHideShow">
                     <div class="usersAdd add">Show</div>
                 </div>
 
                 <div class="mangeAdminContainer container">MANGE ADMIN</div>
                 <div class="mangeAdminSubContainer subContainerHideShow">
-                    <div class="mangeAdminAdd add">Active Admin</div>                    
+                    <div class="mangeAdminAdd add">Active Admin</div>
                 </div>
 
             </div>
@@ -69,7 +69,6 @@
 
                             <div class="rowButton">
                                 <input name="adminCategory" type="button" id="button" class="AddAdminCategory" tabindex="2" value="Add Category">
-                                <input name="adminCategory" type="button" id="button" class="updateAdminCategory" tabindex="2" value="Update Category">
                             </div>
 
                         </div>
@@ -79,12 +78,14 @@
                         <div class="addText">Update/Delete Category</div>
                         <div class="columnContainer">
                             <div class="columnMain">
-                                <div class="columnMainText">Category ID</div>
-                                <div class="columnMainText">Category Name</div>
+                                <div class="CategoryIDT">Category ID</div>
+                                <div class="CategoryNameT">Category Name</div>
+                                <div class="UpdateT">Update</div>
+                                <div class="DeleteT">Delete</div>
                             </div>
                         </div>
                         <div class="editProductContainer">
-                            <div style="font-size: 18px;">Update Category Name</div>
+                            <div class="updateLabel">Update Category Name</div>
                             <input type="text" name="categoryNameText" value="" class="editProductText">
                         </div>
                     </div>
@@ -137,11 +138,11 @@
                             <div class="rightContainer">
                                 <div class="imgContainer">
                                     <div class="row">
-                                        <div class="label-left">Add Cover Picture</div>
+                                        <div class="label-left">Cover Picture</div>
                                         <img class="CoverPicture" src="" id="CoverPicture">
                                     </div>
                                     <div class="row">
-                                        <div class="label-left">Add PNG Picture</div>
+                                        <div class="label-left">PNG Picture</div>
                                         <img class="PNGPicture" src="" id="PNGPicture">
                                     </div>
                                 </div>
@@ -164,8 +165,10 @@
                                 <div class="columnMainText cmtProductID">ProdID</div>
                                 <div class="columnMainText cmtCategoryID">CatID</div>
                                 <div class="columnMainText cmtProductName">ProductName</div>
-                                <div class="columnMainText cmtUnitInStock">UnitInStock</div>
+                                <div class="columnMainText cmtUnitInStock">Quantity</div>
                                 <div class="columnMainText cmtPrice">Price</div>
+                                <div class="columnMainText cmtUpdate">update</div>
+                                <div class="columnMainText cmtDelete">Delete</div>
                             </div>
                         </div>
                         <div class="editProductContainer">
@@ -179,21 +182,8 @@
                         <div class="addText">Customer Newsletters Active</div>
                         <div class="columnContainer">
                             <div class="columnMain">
-                                <div class="columnMainText">NewsletterID</div>
-                                <div class="columnMainText">UserID</div>
-                                <div class="columnMainText">FirstName</div>
-                                <div class="columnMainText">LastName</div>
-                                <div class="columnMainText">Email</div>                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bdcUseDelUpp bdc">
-                        <div class="addText">Customer Newsletters</div>
-                        <div class="columnContainer">
-                            <div class="columnMain">
                                 <div class="columnMainText NewsletterID">NewsletterID</div>
-                                <div class="columnMainText UserID">UserID</div>
+                                <div class="columnMainText UserIDNewsletters">UserID</div>
                                 <div class="columnMainText FirstName">FirstName</div>
                                 <div class="columnMainText LastName">LastName</div>
                                 <div class="columnMainText Email">Email</div>
@@ -201,25 +191,29 @@
                         </div>
                     </div>
 
+
+
                     <div class="bdcOrdSend bdc">
                         <div class="addText">List Of Orders</div>
                         <div class="columnContainer">
                             <div class="columnMain">
                                 <div class="columnMainText OrderID">OrderID</div>
                                 <div class="columnMainText OrderDate">OrderDate</div>
-                                <div class="columnMainText FirstName">UserID</div>
-                                <div class="columnMainText LastName">ShipperID</div>
+                                <div class="columnMainText UserIDOrders">UserID</div>
+                                <div class="columnMainText ShipperID">ShipperID</div>
                                 <div class="columnMainText Recieved">Recieved</div>
                                 <div class="columnMainText Shipped">Shipped</div>
+                                <div class="columnMainText Send">Send</div>
+                                <div class="columnMainText Show">Show</div>
                             </div>
                         </div>
 
                         <div class="addText">Order Details</div>
                         <div class="columnContainerD">
                             <div class="columnMain">
-                                <div class="columnMainText columnMainTextD ProductID">ProductID</div>
-                                <div class="columnMainText columnMainTextD OrderDate">Quantity</div>
-                                <div class="columnMainText columnMainTextD FirstName">UnitPrice</div>
+                                <div class="columnMainText columnMainTextD ProductIDT">ProductID</div>
+                                <div class="columnMainText columnMainTextD QuantityT">Quantity</div>
+                                <div class="columnMainText columnMainTextD UnitPriceT">UnitPrice</div>
                             </div>
                         </div>
 
