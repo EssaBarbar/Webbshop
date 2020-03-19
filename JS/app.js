@@ -202,6 +202,7 @@ function getAllProducts() {
             UpdateProductBtn.click(function () {
                 updateProduct(result[i].ProductID, result[i].CategoryID, result[i].ProductName, result[i].UnitInStock, result[i].Price, result[i].CoverPicture, result[i].PNGPicture, result[i].Description);
                 getAllProducts()
+                
             });
 
             ///// End Update Product function
@@ -402,8 +403,8 @@ export function addCategory(event) {
         if (result) {
             $(".message").text("The category was added successfully");
             $(".message").css('color', 'blue');
-            $('#message').fadeIn(3000);
-            $('#message').fadeOut(2000);
+            $('#message').fadeIn(1000);
+            $('#message').fadeOut(1000);
             $('#CategoryName').text("");
         }
         console.log(result);
@@ -421,8 +422,8 @@ export function updateCategory(CategoryID) {
         if (result) {
             $(".message").text("The category was added successfully");
             $(".message").css('color', 'blue');
-            $('#message').fadeIn(3000);
-            $('#message').fadeOut(2000);
+            $('#message').fadeIn(1000);
+            $('#message').fadeOut(1000);
             $('#CategoryName').text("");
         }
         console.log(result);
@@ -444,8 +445,8 @@ function sendOrder(OrderID, OrderDate, UserID, ShipperID, Recieved) {
         if (result) {
             $(".message").text("The Order had sent to Customer");
             $(".message").css('color', 'blue');
-            $('#message').fadeIn(3000);
-            $('#message').fadeOut(2000);
+            $('#message').fadeIn(1000);
+            $('#message').fadeOut(1000);
         }
         console.log(result);
 
@@ -469,8 +470,7 @@ function updateProduct(ProductID, CategoryID, ProductName, Price, CoverPicture, 
         if (result) {
             $(".message").text("The product was updated successfully");
             $(".message").css('color', 'blue');
-            $('#message').fadeIn(3000);
-            $('#message').fadeOut(2000);
+            
         }
         console.log(result);
 
@@ -549,8 +549,8 @@ export function addProduct(event) {
         if (result) {
             $(".message").text("The Product was added successfully");
             $(".message").css('color', 'blue');
-            $('#message').fadeIn(3000);
-            $('#message').fadeOut(2000);
+            $('#message').fadeIn(1000);
+            $('#message').fadeOut(1000);
             $('#CategoryName').text("");
         }
     });
