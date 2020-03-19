@@ -5,18 +5,6 @@ session_start();
 include("./../handlers/newsletterHandler.php");
 try {
 
-    /* if($_SERVER['REQUEST_METHOD'] === 'POST') { 
-        error_log("POSTnews") ;
-        if ($_POST["entity"] == "enjoy") {      
-            error_log("entitynews") ;
-            if ($_POST["endpoint"] == "getAllNewsletters") {       
-                error_log("endpointnews") ;
-                $result = getNewsletter();
-                echo json_encode($result);
-            }
-        }
-    } */
-
     if ($_SERVER["REQUEST_METHOD"] =='GET') {        
         $result = getNewsletter();
         echo json_encode($result);   
