@@ -25,6 +25,14 @@ try {
                         echo json_encode("Need to login to do this");
                     }
 
+                } else if ($_POST["endpoint"] == "getAllorderShiped") {
+                    $result = getAllOrderShiped();
+                    echo json_encode($result);
+
+                } else if ($_POST["endpoint"] == "getAllorderBinding") {
+                    $result = getAllorderBinding();
+                    echo json_encode($result);
+
                 } else if ($_POST["endpoint"] == "updateAdminOrder") {                 
                     $result = updateOrder(
                     $_POST['OrderID'],

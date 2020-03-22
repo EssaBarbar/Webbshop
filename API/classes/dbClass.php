@@ -34,7 +34,7 @@ class Database {
     }
 }
 
-class User {
+/* class User {
     public $Id;
     public $userName;
     public $password;    
@@ -61,7 +61,7 @@ class User {
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
-}
+} */
 
 
 ?>

@@ -11,7 +11,7 @@ try {
                 $result = getOneOrders(
                 $_POST['OrderID']                            
                 );
-                echo json_encode($result);
+                
             }
         }
    

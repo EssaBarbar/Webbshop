@@ -27,6 +27,30 @@ function getPCProducts() {
 };
 
 
+function getIdProduct($ProductName)
+{
+    $Products = new Product(null, null, $ProductName, null, null, null, null, null);
+    $result = $Products->fetchOne();
+    error_log("fetchOne");
+    if (empty($result)) {
+        throw new Exception("No Product found", 404);
+        exit;
+    }    
+    return $result;
+};
+
+function getAllProductLess()
+{
+    $Products = new Product();
+    $result = $Products->fetchAllProductLess();    
+    if (empty($result)) {
+        throw new Exception("No Product found", 404);
+        exit;
+    }    
+    return $result;
+};
+
+
 function insertToProduct($CategoryID, $ProductName, $UnitInStock, $Price, $CoverPicture, $PNGPicture, $Description)
 {
     $Products = new Product(null, $CategoryID, $ProductName, $UnitInStock, $Price, $CoverPicture, $PNGPicture, $Description);

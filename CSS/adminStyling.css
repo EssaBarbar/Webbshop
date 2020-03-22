@@ -356,7 +356,8 @@
     .ColumnSubText.CategoryID,
     .ColumnSubText.CategoryName,
     .Update.UpdateCategoryBtn,
-    .deleteCategoryBtn.Delete {
+    .deleteCategoryBtn.Delete,
+    .CategoryIDCategory {
         width: 25%;
     }
     
@@ -385,6 +386,7 @@
         cursor: pointer;
     }
     
+    .ColumnSubText.CategoryID,
     .cmtProductID,
     .cmtCategoryID,
     .cmtUnitInStock,
@@ -614,4 +616,65 @@
         .message {
             font-size: 14px;
         }
+    }
+    
+    .MainContainer {
+        font-size: 18px;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .iconsContainer {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        margin-bottom: 20px;
+        height: 150px;
+        width: 30%;
+    }
+    
+    .informationContainer {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+    
+    .rowContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: deepskyblue;
+        padding: 10px;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .viewMore {
+        text-align: center;
+        font-size: 16px;
+        background-color: lightblue;
+        cursor: pointer;
+    }
+    
+    .numberOf {
+        color: white;
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+    
+    .totalText {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .iconDashBord {
+        font-size: 3em;
+        padding: 15px;
+        padding-top: 40px;
+        text-align: end;
+        height: 150px;
+        width: 50%;
     }

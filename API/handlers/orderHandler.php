@@ -51,4 +51,26 @@ function updateOrder($OrderID, $OrderDate, $UserID, $ShipperID, $Recieved, $Ship
        return $result;
 };
 
+function getAllOrderShiped()
+{
+    $Order = new Order();
+    $result = $Order->fetchOrderShiped();    
+    if (empty($result)) {
+        throw new Exception("No Order found", 404);
+        exit;
+    }    
+    return $result;
+};
+
+function getAllorderBinding()
+{
+    $Order = new Order();
+    $result = $Order->fetchOrderBinding();    
+    if (empty($result)) {
+        throw new Exception("No Order found", 404);
+        exit;
+    }    
+    return $result;
+};
+
 ?>

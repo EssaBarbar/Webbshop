@@ -32,6 +32,20 @@ class Product {
         return $this->db->runQuery($query);
     }
 
+    public function fetchAllProductLess() {
+        $query = "SELECT count(*) AS count FROM Products WHERE UnitInStock < 10 ;";
+        return $this->db->runQuery($query);
+    }
+
+    public function fetchOne() {
+        error_log("fetchOneClass");
+        $query = "SELECT ProductID FROM products WHERE ProductName = :ProductName;";
+        $value = array(":ProductName"=>$this->ProductName);
+        $result =$this->db->runQuery($query, $value);
+        error_log("fetchOneClassBeforeResult");
+        return $result;        
+    }
+
     public function insert() {
         $query = "INSERT INTO products (CategoryID, ProductName, UnitInStock, Price, CoverPicture, PNGPicture, Description)
         VALUES(:CategoryID, :ProductName, :UnitInStock, :Price, :CoverPicture, :PNGPicture, :Description);";

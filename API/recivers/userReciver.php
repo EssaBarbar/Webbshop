@@ -27,6 +27,26 @@ try {
                 $_POST['userName'],
                 $_POST['password']);
                 echo json_encode($result);
+
+            } else if ($_POST["endpoint"] == "getCountUsersWantAdmin") {
+                $result = getCountUsersWantAdmin();
+                echo json_encode($result);
+
+            } else if ($_POST["endpoint"] == "getAllUsersWantAdmin") {
+                $result = getAllUsersWantAdmin();
+                echo json_encode($result);
+
+            } else if ($_POST["endpoint"] == "activeAdmin") {                 
+                $result = activeAdmin(
+                $_POST['UserID'],
+                $_POST['FirstName'],
+                $_POST['LastName'],
+                $_POST['Email'],
+                $_POST['Password'],
+                $_POST['Role']                                    
+                );                
+                echo json_encode($result);  
+
             }else {
                 throw new Exception("Not a valid endpoint", 501);
             }

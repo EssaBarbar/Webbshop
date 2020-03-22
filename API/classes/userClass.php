@@ -23,12 +23,22 @@ include("../classes/dbClass.php");
     
     
     public function fetchAll() {
-        // todo: ta bort password
         $query = "SELECT * FROM Users;";
         $result = $this->db->runQuery($query);
         return $result;
     }
+
+    public function countUsersWantAdmin() {
+        $query = "SELECT count(*) AS count FROM users WHERE Role LIKE 'User' ;";
+        return $this->db->runQuery($query);
+    }
     
+
+    public function getAllUsersWantAdmin() {
+        $query = "SELECT * FROM users WHERE Role LIKE 'User';";
+        return $this->db->runQuery($query);
+    }
+
     public function insert() {
         $query = "INSERT INTO users (FirstName, LastName, Email, Password, Role)
         VALUES(:firstname, :lastname, :email, :Password, :role);";
@@ -40,18 +50,20 @@ include("../classes/dbClass.php");
         return $result;        
     }
 
-    public function update() {        
-        $query = "UPDATE users SET firstName = :firstName, lastname = :lastname, email = :email,
-        Password = :Password, role = :role
-        WHERE userId = :userId;";
+    public function activeAdmin() {        
+        $query = "UPDATE users SET FirstName = :FirstName, LastName = :LastName, Email = :Email,
+        Password = :Password, Role = :Role
+        WHERE UserID = :UserID;";
 
-        $value = array(":firstname"=>$this->firstName, ":lastname"=>$this->lastName, ":email"=>$this->email, 
-        ":Password"=>$this->password, ":role"=>$this->role, ":userId"=>$this->userId);
+        $value = array(":FirstName"=>$this->firstname, ":LastName"=>$this->lastName, ":Email"=>$this->email, 
+        ":Password"=>$this->password, ":Role"=>$this->role, ":UserID"=>$this->userId);
 
         $result =$this->db->runQuery($query, $value);
         return $result;        
     }
 
+
+    
     public function delete() {
         $query = "DELETE FROM users WHERE userId = :userId;";
         $value = array(":userId"=>$this->userId);

@@ -27,6 +27,18 @@ class Order {
         return $result;
     }
 
+
+    
+    public function fetchOrderShiped() {
+        $query = "SELECT count(*) AS count FROM orders WHERE Shipped = 1 ;";
+        return $this->db->runQuery($query);
+    }
+
+    public function fetchOrderBinding() {
+        $query = "SELECT count(*) AS count FROM orders WHERE Shipped = 0 ;";
+        return $this->db->runQuery($query);
+    }
+
     public function insert() {
         $query = "INSERT INTO orders (UserID, OrderDate, ShipperID, Recieved, Shipped)
         VALUES(:UserID, :OrderDate, :ShipperID, :Recieved, :Shipped);";
@@ -37,6 +49,7 @@ class Order {
         $result =$this->db->runQueryAndGetID($query, $value);
         return $result;
     }
+    
     public function update() {  
         $query = "UPDATE orders SET OrderDate = :OrderDate, UserID = :UserID, ShipperID = :ShipperID, Recieved = :Recieved, Shipped = :Shipped        
         WHERE OrderID = :OrderID;";
@@ -47,6 +60,7 @@ class Order {
         $result =$this->db->runQuery($query, $value);
         return $result;
     }
+    
     public function delete() {
         $query = "DELETE FROM orders WHERE OrderID = :OrderID;";
         $value = array(":OrderID"=>$this->OrderID);

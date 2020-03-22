@@ -2,57 +2,35 @@
 include("./../handlers/categoryHandler.php");
 try {
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER["REQUEST_METHOD"] == 'GET') {
+        $result = getAllCategories();
+        echo json_encode($result);
+    } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         error_log("POST");
         if ($_POST["entity"] == "enjoy") {
             error_log("entity");
-            if ($_POST["endpoint"] == "getAllCategory") {
-                error_log("endpoint");
-                $result = getAllCategories();
+
+            if ($_POST["endpoint"] == "getIdCategory") {
+                error_log("endpointGetIdCategory");
+                $result = getIdCategory(
+                    $_POST['CategoryName']
+                );
                 echo json_encode($result);
-            }
-        }
-    }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        error_log("POST");
-        if ($_POST["entity"] == "enjoy") {
-            error_log("entity");
-            if ($_POST["endpoint"] == "getAllNewsletters") {
-                error_log("endpoint");
-                $result = getNewsletter();
-                echo json_encode($result);
-            }
-        }
-    }
-
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if ($_POST["entity"] == "enjoy") {
-            if ($_POST["endpoint"] == "delAdminCategory") {
+            } else if ($_POST["endpoint"] == "delAdminCategory") {
                 $result = deleteFromCategory(
                     $_POST['CategoryID']
                 );
                 echo json_encode($result);
-            }
-        }
-    }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if ($_POST["entity"] == "enjoy") {
-            if ($_POST["endpoint"] == "updateCategory") {
+            } else if ($_POST["endpoint"] == "updateCategory") {
                 $result = updateCategory(
                     $_POST['CategoryID'],
                     $_POST['CategoryName']
                 );
                 echo json_encode($result);
-            }
-        }
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if ($_POST["entity"] == "enjoy") {
-            if ($_POST["endpoint"] == "addAdminCategory") {
+                
+            } else if ($_POST["endpoint"] == "addAdminCategory") {
                 $result = insertToCategory(
                     $_POST['CategoryName']
                 );

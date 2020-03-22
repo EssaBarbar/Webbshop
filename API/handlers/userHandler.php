@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 include("../classes/userClass.php");
 
@@ -39,5 +39,40 @@ function loginUser($email, $password) {
 
     return "Wrong Username or passwords";
 }
+
+function getCountUsersWantAdmin()
+{
+    $User = new User();
+    $result = $User->countUsersWantAdmin();    
+    if (empty($result)) {
+        throw new Exception("No User found", 404);
+        exit;
+    }    
+    return $result;
+};
+
+function activeAdmin($UserID, $FirstName, $LastName, $Email, $Password, $Role) {   
+    $User = new User($UserID, $FirstName, $LastName, $Email, $Password, $Role);
+    
+    $result = $User->activeAdmin();  
+
+    if (empty($result)) {
+        throw new Exception("No User found", 404);
+        exit;
+    }
+    
+    return $result;
+};
+
+function getAllUsersWantAdmin()
+{
+    $User = new User();
+    $result = $User->getAllUsersWantAdmin();    
+    if (empty($result)) {
+        throw new Exception("No User found", 404);
+        exit;
+    }    
+    return $result;
+};
 
 ?>

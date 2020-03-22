@@ -1,7 +1,5 @@
 <?php
 
-//session_start();
-
 include("./../classes/categoryClass.php");
 
 function getAllCategories() {
@@ -10,6 +8,17 @@ function getAllCategories() {
     return $result;
 };
 
+function getIdCategory($CategoryName)
+{
+    $category = new Category(null, $CategoryName);
+    $result = $category->fetchOne();
+    error_log("fetchOne");
+    if (empty($result)) {
+        throw new Exception("No Category found", 404);
+        exit;
+    }    
+    return $result;
+};
 
 function insertToCategory($categoryName)
 {

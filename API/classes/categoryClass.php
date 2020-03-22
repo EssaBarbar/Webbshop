@@ -17,6 +17,15 @@ class Category {
         $result = $this->db->runQuery($query);
         return $result;        
     }
+
+    public function fetchOne() {
+        error_log("fetchOneClass");
+        $query = "SELECT CategoryID FROM categories WHERE CategoryName = :CategoryName;";
+        $value = array(":CategoryName"=>$this->CategoryName);
+        $result =$this->db->runQuery($query, $value);
+        error_log("fetchOneClassBeforeResult");
+        return $result;        
+    }
     
     public function insert() {
         $query = "INSERT INTO Categories (CategoryName) VALUES(:CategoryName);";
