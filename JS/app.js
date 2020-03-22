@@ -366,10 +366,7 @@ $(document).ready(function() {
 
 
     function getAllCategories() {
-        let myData = new FormData();
-        myData.append("entity", "enjoy");
-        myData.append("endpoint", "getAllCategory");
-        makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
+        makeRequest("./../API/recivers/categoryReciver.php", "GET", null, (result) => {
 
             $(".columnSub").remove();
             $(".ColumnSubText").remove();
@@ -455,27 +452,25 @@ $(document).ready(function() {
     });
 
 
+    function updateCategory(CategoryID) {
+        let myData = new FormData();
+        myData.append("entity", "enjoy");
+        myData.append("endpoint", "updateCategory");
+        myData.append("CategoryID", CategoryID)
+        myData.append("CategoryName", document.querySelector('input[name=categoryNameText]').value)
+        makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
+            if (result) {
+                $(".message").text("The category was added successfully");
+                $(".message").css('color', 'blue');
+                $('#message').fadeIn(1000);
+                $('#message').fadeOut(1000);
+                $('#CategoryName').text("");
+            }
+            console.log(result);
 
-    $('.UpdateCategoryBtn').click(function() {
-        function updateCategory(CategoryID) {
-            let myData = new FormData();
-            myData.append("entity", "enjoy");
-            myData.append("endpoint", "updateCategory");
-            myData.append("CategoryID", CategoryID)
-            myData.append("CategoryName", document.querySelector('input[name=categoryNameText]').value)
-            makeRequest("./../API/recivers/categoryReciver.php", "POST", myData, (result) => {
-                if (result) {
-                    $(".message").text("The category was added successfully");
-                    $(".message").css('color', 'blue');
-                    $('#message').fadeIn(1000);
-                    $('#message').fadeOut(1000);
-                    $('#CategoryName').text("");
-                }
-                console.log(result);
+        });
+    }
 
-            });
-        }
-    });
 
     function sendOrder(OrderID, OrderDate, UserID, ShipperID, Recieved) {
         let myData = new FormData();
@@ -605,22 +600,6 @@ $(document).ready(function() {
             imgPng = imgPath
         }
 
-    });
-
-    //*//
-
-
-    $("select.CategoryNameChoice").change(function() {
-        /* alert($(".CategoryNameChoice option:selected").val())
-        let myData3 = new FormData();
-        myData3.append("entity", "enjoy");
-        myData3.append("endpoint", "getIdProduct");
-        myData3.append("ProductName", document.querySelector('input[name=ProductName]').value)
-        makeRequest("./../API/recivers/productReciver.php", "POST", myData3, (getProductId) => {
-            console.log(getProductId);
-
-            alert(getProductId[0].ProductID);
-        }); */
     });
 
 
@@ -853,12 +832,12 @@ $(document).ready(function() {
 
 
     function getOrderDetails(OrderID) {
-        let myData = new FormData();
-        myData.append("entity", "enjoy");
-        myData.append("endpoint", "getOrderDetails");
+        let myData = new FormData()
+        myData.append("entity", "enjoy")
+        myData.append("endpoint", "getOrderDetails")
         myData.append("OrderID", OrderID)
         makeRequest("./../API/recivers/orderDetailsReciver.php", "POST", myData, (result) => {
-
+            console.log(result)
             $(".columnSubD").remove();
             $(".ColumnSubTextD").remove();
             $(".ColumnSubTextD").remove();

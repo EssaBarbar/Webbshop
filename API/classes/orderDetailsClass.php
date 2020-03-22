@@ -18,16 +18,15 @@ class OrderDetails {
     }
 
 
-    /* public function fetchOne() {
-        $query = "SELECT * FROM order_details;";
-        $result = $this->db->runQuery($query);
-        return $result;
-    } */
-
-    public function fetchOne() {         
+    
+    public function getOneOrderDetails() {   
+        error_log("class function IN");       
         $query = "SELECT * FROM order_details  WHERE OrderID = :OrderID;";
-        $value = array(":OrderID"=>$this->OrderID);        
-        $result =$this->db->runQuery($query, $value);                   
+        error_log($query); 
+        $value = array(":OrderID"=>$this->OrderID);  
+        error_log("Value Efter");       
+        $result =$this->db->runQuery($query, $value);    
+        error_log("result Efter");                
         return $result;
 
     }
