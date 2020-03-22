@@ -17,8 +17,15 @@ class OrderDetails {
         $this->db = new Database();
     }
 
-
     
+    public function fetchOne() {         
+        $query = "SELECT * FROM order_details  WHERE OrderID = :OrderID;";
+        $value = array(":OrderID"=>$this->OrderID);        
+        $result =$this->db->runQuery($query, $value);                   
+        return $result;
+
+    }
+
     public function getOneOrderDetails() {   
         error_log("class function IN");       
         $query = "SELECT * FROM order_details  WHERE OrderID = :OrderID;";
