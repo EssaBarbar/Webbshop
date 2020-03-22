@@ -829,8 +829,6 @@ $(document).ready(function() {
         })
     }
 
-
-
     function getOrderDetails(OrderID) {
         let myData = new FormData()
         myData.append("entity", "enjoy")
