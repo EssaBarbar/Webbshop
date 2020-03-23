@@ -37,14 +37,14 @@ try {
                 echo json_encode($result);
 
             } else if ($_POST["endpoint"] == "activeAdmin") {                 
-                $result = activeAdmin(
-                $_POST['UserID'],
-                $_POST['FirstName'],
-                $_POST['LastName'],
-                $_POST['Email'],
-                $_POST['Password'],
-                $_POST['Role']                                    
-                );                
+                $result = activeUserAdmin(
+                $_POST['UserID12'],
+                $_POST['FirstName12'],
+                $_POST['LastName12'],
+                $_POST['Email12'],
+                $_POST['Password12'],
+                $_POST['Role12']
+                );
                 echo json_encode($result);  
 
             }else {

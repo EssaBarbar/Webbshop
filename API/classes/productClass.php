@@ -57,8 +57,7 @@ class Product {
         return $result;
     }
 
-    public function update() {   
-        
+    public function update() {          
 
         $query = "UPDATE products SET CategoryID = :CategoryID, ProductName = :ProductName, 
         UnitInStock = :UnitInStock, Price = :Price, CoverPicture = :CoverPicture, PNGPicture = :PNGPicture, Description = :Description        

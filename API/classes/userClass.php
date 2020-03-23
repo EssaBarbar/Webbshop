@@ -49,14 +49,15 @@ include("../classes/dbClass.php");
         $result =$this->db->runQuery($query, $value);
         return $result;        
     }
+        
 
-    public function activeAdmin() {        
-        $query = "UPDATE users SET FirstName = :FirstName, LastName = :LastName, Email = :Email,
-        Password = :Password, Role = :Role
-        WHERE UserID = :UserID;";
+    public function update() {        
+        $query = "UPDATE users SET FirstName = :firstname, LastName = :lastName, Email = :email,
+        Password = :password, Role = :role        
+        WHERE UserID = :userId;";
 
-        $value = array(":FirstName"=>$this->firstname, ":LastName"=>$this->lastName, ":Email"=>$this->email, 
-        ":Password"=>$this->password, ":Role"=>$this->role, ":UserID"=>$this->userId);
+        $value = array(":firstname"=>$this->firstname, ":lastName"=>$this->lastName, ":email"=>$this->email,
+        ":password"=>$this->password, ":role"=>$this->role, ":userId"=>$this->userId);
 
         $result =$this->db->runQuery($query, $value);
         return $result;        

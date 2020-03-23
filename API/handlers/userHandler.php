@@ -51,10 +51,10 @@ function getCountUsersWantAdmin()
     return $result;
 };
 
-function activeAdmin($UserID, $FirstName, $LastName, $Email, $Password, $Role) {   
-    $User = new User($UserID, $FirstName, $LastName, $Email, $Password, $Role);
+function activeUserAdmin($userId, $firstName, $lastName, $email, $password, $role) {   
+    $User = new User($userId, $firstName, $lastName, $email, $password, $role);
     
-    $result = $User->activeAdmin();  
+    $result = $User->update();  
 
     if (empty($result)) {
         throw new Exception("No User found", 404);

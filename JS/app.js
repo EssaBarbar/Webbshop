@@ -494,17 +494,10 @@ $(document).ready(function() {
         });
     }
 
-
-
     function activeAdmin(UserID, FirstName, LastName, Email, Password) {
-        alert(UserID);
-        alert(FirstName);
-        alert(LastName);
-        alert(Email);
-        alert(Password);
         let myData = new FormData();
-        myData.append("entity", "enjoy");
-        myData.append("endpoint", "activeAdmin");
+        myData.append("entity", "enjoy")
+        myData.append("endpoint", "activeAdmin")
         myData.append("UserID", UserID)
         myData.append("FirstName", FirstName)
         myData.append("LastName", LastName)
@@ -808,6 +801,10 @@ $(document).ready(function() {
                 Email.addClass("ColumnSubText Email");
 
 
+                let Role = $("<div></div>");
+                Role.text(result[i].Role);
+                Role.addClass("ColumnSubText Role");
+
                 let ActiveAdminBtn = $("<div></div>");
                 ActiveAdminBtn.text("Active");
                 ActiveAdminBtn.addClass("ActiveAdminBtn update");
@@ -823,6 +820,7 @@ $(document).ready(function() {
                 columnSub.append(FirstName);
                 columnSub.append(LastName);
                 columnSub.append(Email);
+                columnSub.append(Role);
                 columnSub.append(ActiveAdminBtn);
                 $(".columnContainer").append(columnSub);
             }
